@@ -618,6 +618,15 @@ button {
   border-radius: 12px;
   color: white;
   width: 100%;
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 1.5;
+  transition: var(--transition);
+}
+
+.input-group textarea {
+  resize: none;
+  min-height: 120px;
 }
 
 .submit-btn {
