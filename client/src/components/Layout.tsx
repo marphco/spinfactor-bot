@@ -44,7 +44,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         </div>
       </header>
       
-      <main className="main-content">
+      <main className={`main-content ${!isHome ? 'subpage-padding' : ''}`}>
         {children}
       </main>
       

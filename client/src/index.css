@@ -481,6 +481,10 @@ button {
 }
 
 .main-content {
+  flex: 1;
+}
+
+.main-content.subpage-padding {
   padding-bottom: 150px;
 }
 

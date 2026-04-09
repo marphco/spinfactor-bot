@@ -6,11 +6,16 @@ require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || 5001;
+const CLIENT_URL = process.env.CLIENT_URL || 'http://localhost:5173';
 
 // Middleware
 app.use(helmet());
 app.use(morgan('dev'));
-app.use(cors());
+app.use(cors({
+  origin: CLIENT_URL,
+  methods: ['GET', 'POST'],
+  credentials: true
+}));
 app.use(express.json());
 
 // Basic Route for AI/API bridge
