@@ -1,73 +1,30 @@
-# React + TypeScript + Vite
+# Spin Factor Bot - Professional Monorepo
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Benvenuto nella struttura professionale di **Spin Factor Bot**. Il progetto è diviso in due macro-aree per garantire scalabilità e manutenibilità.
 
-Currently, two official plugins are available:
+## 📁 Struttura Cartelle
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **/client**: Contiene il frontend React + Vite + Framer Motion. È il cuore dell'esperienza utente.
+- **/server**: Contiene il backend (Node/Express) per l'integrazione AI e i servizi API.
 
-## React Compiler
+## 🚀 Come iniziare
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Dalla radice del progetto, puoi avviare entrambi i servizi (Client e Server) in contemporanea con un unico comando:
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Questo comando userà **Concurrently** per gestire i processi, colorando i log per distinguere facilmente tra frontend (Ciano) e backend (Magenta).
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Comandi Singoli
+- **Frontend**: `npm run client`
+- **Backend**: `npm run server`
+- **Installazione Totale**: `npm run install-all`
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 📜 Deployment (Vercel)
+Per il deploy su Vercel, assicurati di configurare la **Root Directory** su `client/` se desideri deployare solo il frontend, oppure usa un approccio monorepo.
+
+---
+*Progetto stabilizzato e rifinito da Antigravity.*
