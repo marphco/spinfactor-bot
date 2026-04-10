@@ -579,6 +579,24 @@ button {
   gap: 24px;
 }
 
+.podcast-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 1024px) {
+  .podcast-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .podcast-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .service-card {
   padding: 32px;
   border-radius: 24px;

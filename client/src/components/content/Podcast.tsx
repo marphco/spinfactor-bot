@@ -63,7 +63,7 @@ const Podcast: React.FC = () => {
           </p>
         </motion.div>
 
-        <div className="services-grid" style={{ marginBottom: '100px' }}>
+        <div className="podcast-grid" style={{ marginBottom: '100px' }}>
           {[
             { 
               icon: <Lightbulb size={24} />, 
