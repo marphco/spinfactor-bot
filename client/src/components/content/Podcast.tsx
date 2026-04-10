@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Headphones, Lightbulb, Mic2, Megaphone, Calendar, Radio } from 'lucide-react';
+import { Lightbulb, Mic2, Megaphone, Calendar, Radio } from 'lucide-react';
 
 const Podcast: React.FC = () => {
   const containerVariants = {
@@ -24,35 +24,18 @@ const Podcast: React.FC = () => {
       className="content-page"
     >
       <div className="content-inner">
-        <div className="section-header" style={{ textAlign: 'center', marginBottom: '80px' }}>
-          <motion.div 
-            variants={itemVariants}
-            className="icon-wrapper" 
-            style={{ 
-              margin: '0 auto 24px', 
-              width: '80px', 
-              height: '80px', 
-              background: 'rgba(0, 159, 183, 0.1)', 
-              borderRadius: '50%', 
-              display: 'flex', 
-              alignItems: 'center', 
-              justifyContent: 'center' 
-            }}
-          >
-            <Headphones size={40} className="text-primary" />
-          </motion.div>
-          
-          <motion.h2 variants={itemVariants} style={{ marginBottom: '32px' }}>Podcast</motion.h2>
-          
-          <motion.div variants={itemVariants} className="lead-text" style={{ maxWidth: '850px', margin: '0 auto' }}>
-            <p style={{ fontSize: '1.4rem', lineHeight: '1.4', color: 'var(--text)', fontWeight: 700, letterSpacing: '-0.01em' }}>
-              Dare continuità al confronto. Estendere il dialogo nello spazio digitale.
-            </p>
-          </motion.div>
-        </div>
+        <motion.h2 variants={itemVariants}>Podcast</motion.h2>
+        
+        <motion.p 
+          variants={itemVariants} 
+          className="subtitle"
+          style={{ fontWeight: 700, fontSize: '1.4rem', color: 'var(--text)', marginBottom: '40px' }}
+        >
+          Dare continuità al confronto. Estendere il dialogo nello spazio digitale.
+        </motion.p>
 
-        <motion.div variants={itemVariants} className="text-block" style={{ maxWidth: '850px', margin: '0 auto 80px' }}>
-          <p style={{ fontSize: '1.1rem', marginBottom: '32px', opacity: 0.9 }}>
+        <motion.div variants={itemVariants} className="text-block" style={{ marginBottom: '60px' }}>
+          <p style={{ fontSize: '1.1rem', marginBottom: '24px', opacity: 0.9 }}>
             Ideiamo, realizziamo e promuoviamo podcast come strumenti di approfondimento, posizionamento e costruzione della relazione con il pubblico di riferimento.
           </p>
           <p style={{ fontSize: '1.1rem', opacity: 0.9 }}>
@@ -63,26 +46,26 @@ const Podcast: React.FC = () => {
           </p>
         </motion.div>
 
-        <div className="podcast-grid" style={{ marginBottom: '100px' }}>
+        <div className="podcast-grid">
           {[
             { 
               icon: <Lightbulb size={24} />, 
-              title: "Ideazione editoriale:", 
+              title: "Ideazione editoriale", 
               desc: "definiamo concept, format, rubriche, tono di voce e architettura narrativa del podcast." 
             },
             { 
               icon: <Mic2 size={24} />, 
-              title: "Produzione e realizzazione:", 
+              title: "Produzione e realizzazione", 
               desc: "curiamo tutte le fasi operative, dalla scrittura alla registrazione, fino alla post-produzione." 
             },
             { 
               icon: <Megaphone size={24} />, 
-              title: "Promozione e diffusione:", 
+              title: "Promozione e diffusione", 
               desc: "sviluppiamo piani di lancio e distribuzione per ampliare la visibilità del progetto e rafforzarne il posizionamento." 
             },
             { 
               icon: <Calendar size={24} />, 
-              title: "Eventi:", 
+              title: "Eventi", 
               desc: "il podcast prolunga temi, relazioni e contenuti nati negli incontri fisici, mantenendo vivo il confronto anche oltre il tempo dell’evento." 
             }
           ].map((phase, idx) => (
@@ -90,13 +73,16 @@ const Podcast: React.FC = () => {
               key={idx}
               variants={itemVariants}
               className="service-card glass"
-              style={{ display: 'flex', flexDirection: 'column', gap: '16px', padding: '40px' }}
+              style={{ display: 'flex', flexDirection: 'column', gap: '20px', padding: '40px' }}
             >
-              <div className="icon-wrapper text-primary" style={{ marginBottom: '8px' }}>
-                {phase.icon}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+                <div className="icon-wrapper text-primary" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  {phase.icon}
+                </div>
+                <h4 style={{ margin: 0, fontSize: '1.15rem', fontWeight: 700 }}>{phase.title}</h4>
               </div>
-              <p style={{ fontSize: '1.1rem', lineHeight: '1.6', margin: 0 }}>
-                <strong>{phase.title}</strong> {phase.desc}
+              <p style={{ color: 'var(--text-dim)', fontSize: '15px', lineHeight: '1.6', margin: 0 }}>
+                {phase.desc}
               </p>
             </motion.div>
           ))}
@@ -109,7 +95,7 @@ const Podcast: React.FC = () => {
             padding: '48px', 
             borderRadius: '32px', 
             maxWidth: '100%', 
-            margin: '0 auto', 
+            margin: '40px 0 0', 
             border: '1px solid rgba(0, 159, 183, 0.3)',
             background: 'linear-gradient(135deg, rgba(10, 25, 30, 0.5) 0%, rgba(0, 159, 183, 0.05) 100%)',
             position: 'relative',
