@@ -23,18 +23,25 @@ const Podcast: React.FC = () => {
       variants={containerVariants}
       className="content-page"
     >
-      <div className="content-inner">
-        <motion.h2 variants={itemVariants}>Podcast</motion.h2>
+      <div className="content-inner" style={{ textAlign: 'left', alignItems: 'flex-start' }}>
+        <motion.h2 variants={itemVariants} style={{ textAlign: 'left', margin: '0 0 16px 0' }}>Podcast</motion.h2>
         
         <motion.p 
           variants={itemVariants} 
           className="subtitle"
-          style={{ fontWeight: 700, fontSize: '1.4rem', color: 'var(--text)', marginBottom: '40px' }}
+          style={{ 
+            fontWeight: 700, 
+            fontSize: '1.4rem', 
+            color: 'var(--text)', 
+            marginBottom: '40px', 
+            textAlign: 'left',
+            maxWidth: 'none'
+          }}
         >
           Dare continuità al confronto. Estendere il dialogo nello spazio digitale.
         </motion.p>
 
-        <motion.div variants={itemVariants} className="text-block" style={{ marginBottom: '60px' }}>
+        <motion.div variants={itemVariants} className="text-block" style={{ marginBottom: '60px', textAlign: 'left' }}>
           <p style={{ fontSize: '1.1rem', marginBottom: '24px', opacity: 0.9 }}>
             Ideiamo, realizziamo e promuoviamo podcast come strumenti di approfondimento, posizionamento e costruzione della relazione con il pubblico di riferimento.
           </p>
@@ -73,15 +80,36 @@ const Podcast: React.FC = () => {
               key={idx}
               variants={itemVariants}
               className="service-card glass"
-              style={{ display: 'flex', flexDirection: 'column', gap: '20px', padding: '40px' }}
+              style={{ 
+                display: 'flex', 
+                flexDirection: 'column', 
+                gap: '24px', 
+                padding: '40px',
+                textAlign: 'left',
+                alignItems: 'flex-start'
+              }}
             >
-              <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-                <div className="icon-wrapper text-primary" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '20px', width: '100%', textAlign: 'left' }}>
+                <div 
+                  style={{ 
+                    display: 'flex', 
+                    alignItems: 'center', 
+                    justifyContent: 'center',
+                    width: '56px',
+                    height: '56px',
+                    minWidth: '56px',
+                    background: 'rgba(0, 159, 183, 0.1)',
+                    borderRadius: '16px',
+                    border: '1px solid rgba(0, 159, 183, 0.2)',
+                    margin: 0
+                  }} 
+                  className="text-primary"
+                >
                   {phase.icon}
                 </div>
-                <h4 style={{ margin: 0, fontSize: '1.15rem', fontWeight: 700 }}>{phase.title}</h4>
+                <h4 style={{ margin: 0, fontSize: '1.2rem', fontWeight: 700, lineHeight: 1.2 }}>{phase.title}</h4>
               </div>
-              <p style={{ color: 'var(--text-dim)', fontSize: '15px', lineHeight: '1.6', margin: 0 }}>
+              <p style={{ color: 'var(--text-dim)', fontSize: '15px', lineHeight: '1.6', margin: 0, textAlign: 'left' }}>
                 {phase.desc}
               </p>
             </motion.div>
@@ -99,15 +127,16 @@ const Podcast: React.FC = () => {
             border: '1px solid rgba(0, 159, 183, 0.3)',
             background: 'linear-gradient(135deg, rgba(10, 25, 30, 0.5) 0%, rgba(0, 159, 183, 0.05) 100%)',
             position: 'relative',
-            overflow: 'hidden'
+            overflow: 'hidden',
+            textAlign: 'left'
           }}
         >
           <div style={{ position: 'absolute', top: '-10px', right: '-10px', opacity: 0.1 }}>
             <Radio size={120} className="text-primary" />
           </div>
           
-          <div style={{ position: 'relative', zIndex: 1 }}>
-            <p style={{ fontSize: '1.15rem', lineHeight: '1.8', margin: 0, opacity: 0.95 }}>
+          <div style={{ position: 'relative', zIndex: 1, textAlign: 'left' }}>
+            <p style={{ fontSize: '1.15rem', lineHeight: '1.8', margin: 0, opacity: 0.95, textAlign: 'left' }}>
               In questo percorso, siamo al lavoro anche su un format proprietario, <strong>Spin Podcast</strong>: un approfondimento digitale pensato per estendere il dialogo oltre l’evento fisico, analizzando l’attualità attraverso i dati di <strong>Human®</strong>. Un progetto concepito per leggere i fenomeni del presente, interpretarli in chiave strategica e restituirli attraverso conversazioni tra professionisti, punti di vista autorevoli e chiavi di lettura basate sui dati.
             </p>
           </div>
