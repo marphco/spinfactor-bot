@@ -10,6 +10,11 @@ import {
   Share2, 
   Handshake 
 } from 'lucide-react';
+import { useSectionContent } from '../../hooks/useSectionContent';
+
+const SPIN_FALLBACK = "Gli Spin Talks sono un ciclo di incontri creati per dare spazio a idee, esperienze e confronti sui grandi temi del nostro tempo: politica, istituzioni, media, economia, cultura, innovazione e società.\n\nGli appuntamenti si tengono durante l’anno nella sede di Spin Factor a Roma, in via della Scrofa, e si estendono in un’edizione annuale a Capri.";
+
+const CAPRI_FALLBACK = "Il tema scelto per il 2026, (Dis)Uniti, intende affrontare le questioni che stanno ridefinendo il nostro tempo. Economia reale e lavoro, cambiamenti climatici e transizione energetica, geopolitica e nuove fragilità richiedono scelte capaci di delineare progetti di lungo periodo.\n\nÈ in questi intrecci che i Capri Talks concentrano la propria energia. (Dis)Uniti è un invito ad esaminare le attuali frammentazioni e gli approcci settoriali, per individuare direzioni condivise e sostenibili, capaci di orientare scelte e visioni nel dibattito pubblico.";
 
 interface SpinTalksProps {
   showCapriInitially?: boolean;
@@ -17,6 +22,9 @@ interface SpinTalksProps {
 
 const SpinTalks: React.FC<SpinTalksProps> = ({ showCapriInitially }) => {
   const [activeTab, setActiveTab] = useState<'spin' | 'capri'>(showCapriInitially ? 'capri' : 'spin');
+  
+  const { content: spinContent, loading: spinLoading } = useSectionContent('Spin Talks', SPIN_FALLBACK);
+  const { content: capriContent, loading: capriLoading } = useSectionContent('Capri Talks 2026 (Dis)Uniti', CAPRI_FALLBACK);
 
   return (
     <motion.div 
@@ -52,9 +60,10 @@ const SpinTalks: React.FC<SpinTalksProps> = ({ showCapriInitially }) => {
               <h2>Spin Talks</h2>
               <p className="subtitle text-primary">Dove il pensiero si traduce in relazione, confronto e posizionamento.</p>
               
-              <div className="text-block">
-                <p>Gli Spin Talks sono un ciclo di incontri creati per dare spazio a idee, esperienze e confronti sui grandi temi del nostro tempo: politica, istituzioni, media, economia, cultura, innovazione e società.</p>
-                <p>Gli appuntamenti si tengono durante l’anno nella sede di Spin Factor a Roma, in via della Scrofa, e si estendono in un’edizione annuale a Capri.</p>
+              <div className={`text-block ${spinLoading ? 'loading-shimmer' : ''}`} style={{ opacity: spinLoading ? 0.6 : 1, transition: 'opacity 0.5s ease' }}>
+                {spinContent.split('\n\n').map((p, i) => (
+                  <p key={i}>{p}</p>
+                ))}
               </div>
 
               <div className="feature-item glass h-mt-40">
@@ -77,9 +86,10 @@ const SpinTalks: React.FC<SpinTalksProps> = ({ showCapriInitially }) => {
               <h2>Capri Talks</h2>
               <p className="subtitle text-primary">(Dis)Uniti</p>
               
-              <div className="text-block">
-                <p>Il tema scelto per il 2026, (Dis)Uniti, intende affrontare le questioni che stanno ridefinendo il nostro tempo. Economia reale e lavoro, cambiamenti climatici e transizione energetica, geopolitica e nuove fragilità richiedono scelte capaci di delineare progetti di lungo periodo.</p>
-                <p>È in questi intrecci che i Capri Talks concentrano la propria energia. (Dis)Uniti è un invito ad esaminare le attuali frammentazioni e gli approcci settoriali, per individuare direzioni condivise e sostenibili, capaci di orientare scelte e visioni nel dibattito pubblico.</p>
+              <div className={`text-block ${capriLoading ? 'loading-shimmer' : ''}`} style={{ opacity: capriLoading ? 0.6 : 1, transition: 'opacity 0.5s ease' }}>
+                {capriContent.split('\n\n').map((p, i) => (
+                  <p key={i}>{p}</p>
+                ))}
               </div>
 
               <div className="capri-features">

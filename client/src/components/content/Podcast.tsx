@@ -1,8 +1,17 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Lightbulb, Mic2, Megaphone, Calendar, Radio } from 'lucide-react';
+import { useSectionContent } from '../../hooks/useSectionContent';
+
+const FALLBACK_DESC = `Ideiamo, realizziamo e promuoviamo podcast come strumenti di approfondimento, posizionamento e costruzione della relazione con il pubblico di riferimento.
+
+Crediamo che il podcast non sia soltanto un prodotto editoriale, ma uno spazio di ascolto e narrazione in cui temi complessi e attualità possono essere affrontati con chiarezza e visione strategica.
+
+Ogni progetto nasce da un impianto editoriale preciso:`;
 
 const Podcast: React.FC = () => {
+  const { content, loading } = useSectionContent('Podcast', FALLBACK_DESC);
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: { 
@@ -41,16 +50,21 @@ const Podcast: React.FC = () => {
           Dare continuità al confronto. Estendere il dialogo nello spazio digitale.
         </motion.p>
 
-        <motion.div variants={itemVariants} className="text-block" style={{ marginBottom: '60px', textAlign: 'left' }}>
-          <p style={{ fontSize: '1.1rem', marginBottom: '24px', opacity: 0.9 }}>
-            Ideiamo, realizziamo e promuoviamo podcast come strumenti di approfondimento, posizionamento e costruzione della relazione con il pubblico di riferimento.
-          </p>
-          <p style={{ fontSize: '1.1rem', opacity: 0.9 }}>
-            Crediamo che il podcast non sia soltanto un prodotto editoriale, ma uno spazio di ascolto e narrazione in cui temi complessi e attualità possono essere affrontati con chiarezza e visione strategica.
-          </p>
-          <p style={{ marginTop: '32px', fontSize: '1.1rem', opacity: 0.9 }}>
-            Ogni progetto nasce da un impianto editoriale preciso:
-          </p>
+        <motion.div 
+          variants={itemVariants} 
+          className={`text-block ${loading ? 'loading-shimmer' : ''}`} 
+          style={{ 
+            marginBottom: '60px', 
+            textAlign: 'left',
+            opacity: loading ? 0.6 : 1,
+            transition: 'opacity 0.5s ease'
+          }}
+        >
+          {content.split('\n\n').map((paragraph, index) => (
+            <p key={index} style={{ fontSize: '1.1rem', marginBottom: index === content.split('\n\n').length - 1 ? 0 : '24px', opacity: 0.9 }}>
+              {paragraph}
+            </p>
+          ))}
         </motion.div>
 
         <div className="podcast-grid">

@@ -1,8 +1,24 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Users, Target, ShieldCheck, Wine } from 'lucide-react';
+import { useSectionContent } from '../../hooks/useSectionContent';
+
+const CORPORATE_FALLBACK = `Spin Factor è la società leader in Italia per la consulenza strategica in ambito politico e aziendale basata sull’analisi dei dati.
+
+Un approccio innovativo, integrato e altamente personalizzato che trasforma la complessità dei dati in percorsi strategici di successo.`;
+
+const FOUNDER_FALLBACK = `Caprese. Dopo la laurea in Psicologia, con tesi su “La comunicazione politica tra nuove tecnologie e social network”, si dedica alla consulenza politica e istituzionale, con particolare attenzione al mondo digitale.
+
+Nel 2018 fonda Spin Factor, inizialmente specializzata in strategia politica, distinguendosi per un approccio innovativo, integrato e altamente personalizzato. A seguito di una scia record di campagne elettorali di successo, la società amplia il proprio raggio d’azione, includendo consulenza strategica e posizionamento istituzionale.
+
+Nel 2019, con un team qualificato di sviluppatori italiani, progetta Human, una piattaforma di web e social listening basata su un algoritmo semantico in lingua italiana. Human viene successivamente integrata con un sistema proprietario di intelligenza artificiale ed oggi rappresenta un unicum sul mercato.
+
+Nel 2023 la società si apre alle relazioni istituzionali, al networking e al corporate. Nel 2025 nascono gli Spin Talks e i Capri Talks.`;
 
 const ChiSiamo: React.FC = () => {
+  const { content: corporateContent, loading: corporateLoading } = useSectionContent('Chi Siamo', CORPORATE_FALLBACK);
+  const { content: founderContent, loading: founderLoading } = useSectionContent('Tiberio Brunetti Fondatore', FOUNDER_FALLBACK);
+
   return (
     <motion.div 
       initial={{ opacity: 0, x: 20 }}
@@ -12,9 +28,10 @@ const ChiSiamo: React.FC = () => {
       <div className="content-inner">
         <section className="corporate-section">
           <h2>Chi Siamo</h2>
-          <div className="text-block">
-            <p>Spin Factor è la società leader in Italia per la consulenza strategica in ambito politico e aziendale basata sull’analisi dei dati.</p>
-            <p>Un approccio innovativo, integrato e altamente personalizzato che trasforma la complessità dei dati in percorsi strategici di successo.</p>
+          <div className={`text-block ${corporateLoading ? 'loading-shimmer' : ''}`} style={{ opacity: corporateLoading ? 0.6 : 1, transition: 'opacity 0.5s ease' }}>
+            {corporateContent.split('\n\n').map((p, i) => (
+              <p key={i}>{p}</p>
+            ))}
           </div>
 
           <div className="features-grid">
@@ -46,11 +63,15 @@ const ChiSiamo: React.FC = () => {
           <p className="founder-label text-primary" style={{ fontSize: '0.9rem', fontWeight: 800, letterSpacing: '0.2em', marginBottom: '1rem' }}>IL FONDATORE</p>
           <h2 style={{ marginBottom: '2rem' }}>Tiberio Brunetti</h2>
           
-          <div className="text-block" style={{ columns: window.innerWidth > 1024 ? '2' : '1', columnGap: '40px' }}>
-            <p>Caprese. Dopo la laurea in Psicologia, con tesi su “La comunicazione politica tra nuove tecnologie e social network”, si dedica alla consulenza politica e istituzionale, con particolare attenzione al mondo digitale. </p>
-            <p>Nel 2018 fonda Spin Factor, inizialmente specializzata in strategia politica, distinguendosi per un approccio innovativo, integrato e altamente personalizzato. A seguito di una scia record di campagne elettorali di successo, la società amplia il proprio raggio d’azione, includendo consulenza strategica e posizionamento istituzionale.</p>
-            <p>Nel 2019, con un team qualificato di sviluppatori italiani, progetta Human, una piattaforma di web e social listening basata su un algoritmo semantico in lingua italiana. Human viene successivamente integrata con un sistema proprietario di intelligenza artificiale ed oggi rappresenta un unicum sul mercato.</p>
-            <p>Nel 2023 la società si apre alle relazioni istituzionali, al networking e al corporate. Nel 2025 nascono gli Spin Talks e i Capri Talks.</p>
+          <div className={`text-block ${founderLoading ? 'loading-shimmer' : ''}`} style={{ 
+            columns: window.innerWidth > 1024 ? '2' : '1', 
+            columnGap: '40px',
+            opacity: founderLoading ? 0.6 : 1,
+            transition: 'opacity 0.5s ease'
+          }}>
+            {founderContent.split('\n\n').map((p, i) => (
+              <p key={i}>{p}</p>
+            ))}
           </div>
 
           <div className="founder-footer glass" style={{ marginTop: '40px', padding: '24px', display: 'flex', alignItems: 'center', gap: '20px' }}>

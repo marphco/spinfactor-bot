@@ -26,6 +26,11 @@ const ChatBar: React.FC = () => {
     setShowHistory(true);
   };
 
+  const handleSuggestion = (suggestion: string) => {
+    sendMessage(suggestion);
+    setShowHistory(true);
+  };
+
   return (
     <div className="chat-wrapper">
       <AnimatePresence>
@@ -66,27 +71,59 @@ const ChatBar: React.FC = () => {
         )}
       </AnimatePresence>
 
-      <motion.div 
-        className={`chat-container glass ${isFocused || showHistory ? 'focused' : ''}`}
-        onClick={() => !showHistory && messages.length > 0 && setShowHistory(true)}
-      >
-        <form onSubmit={handleSubmit} className="chat-content">
-          <div className="chat-icon">
-            <MessageSquare size={20} />
-          </div>
-          <input 
-            type="text" 
-            placeholder="Chiedimi della crescita di Spin Factor..."
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            onFocus={() => setIsFocused(true)}
-            onBlur={() => setIsFocused(false)}
-          />
-          <button type="submit" className="send-btn">
-            <Send size={20} />
-          </button>
-        </form>
-      </motion.div>
+      <div className="chat-interface-container">
+        <AnimatePresence>
+          {!showHistory && !isFocused && input === '' && (
+            <motion.div 
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 10 }}
+              className="chat-suggestions"
+              style={{ display: 'flex', gap: '8px', marginBottom: '12px', justifyContent: 'center', flexWrap: 'wrap' }}
+            >
+              {suggestions.map((s, i) => (
+                <button 
+                  key={i} 
+                  onClick={() => handleSuggestion(s)}
+                  className="suggestion-chip glass"
+                  style={{ 
+                    padding: '8px 16px', 
+                    borderRadius: '20px', 
+                    fontSize: '0.85rem', 
+                    color: 'var(--text-dim)',
+                    transition: 'all 0.3s ease',
+                    border: '1px solid rgba(0, 159, 183, 0.1)'
+                  }}
+                >
+                  {s}
+                </button>
+              ))}
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        <motion.div 
+          className={`chat-container glass ${isFocused || showHistory ? 'focused' : ''}`}
+          onClick={() => !showHistory && messages.length > 0 && setShowHistory(true)}
+        >
+          <form onSubmit={handleSubmit} className="chat-content">
+            <div className="chat-icon">
+              <MessageSquare size={20} />
+            </div>
+            <input 
+              type="text" 
+              placeholder="Chiedimi della crescita di Spin Factor..."
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              onFocus={() => setIsFocused(true)}
+              onBlur={() => setIsFocused(false)}
+            />
+            <button type="submit" className="send-btn">
+              <Send size={20} />
+            </button>
+          </form>
+        </motion.div>
+      </div>
     </div>
   );
 };

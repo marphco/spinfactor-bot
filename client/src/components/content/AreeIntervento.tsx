@@ -9,8 +9,13 @@ import {
   Network, 
   LineChart 
 } from 'lucide-react';
+import { useSectionContent } from '../../hooks/useSectionContent';
+
+const FALLBACK_INTRO = "Spin Factor trasforma la complessità dei dati in percorsi strategici di successo attraverso un ecosistema integrato di competenze e tecnologie proprietarie.";
 
 const AreeIntervento: React.FC = () => {
+  const { content, loading } = useSectionContent('Aree di Intervento', FALLBACK_INTRO);
+
   const areas = [
     {
       icon: <BrainCircuit size={32} />,
@@ -64,6 +69,18 @@ const AreeIntervento: React.FC = () => {
     >
       <div className="content-inner">
         <h2>Aree di Intervento</h2>
+        
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: loading ? 0.6 : 1 }}
+          className={`text-block ${loading ? 'loading-shimmer' : ''}`}
+          style={{ marginBottom: '40px', transition: 'opacity 0.5s ease' }}
+        >
+          <p style={{ fontSize: '1.2rem', lineHeight: '1.6', opacity: 0.9 }}>
+            {content}
+          </p>
+        </motion.div>
+
         <div className="areas-grid-7">
           {areas.map((area, index) => (
             <motion.div 
