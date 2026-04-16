@@ -26,6 +26,13 @@ const ChatBar: React.FC = () => {
     setShowHistory(true);
   };
 
+  const suggestions = [
+    "Chi è Spin Factor?",
+    "Parlami del Metodo Human®",
+    "I vostri Podcast",
+    "Intelligence Strategica"
+  ];
+
   const handleSuggestion = (suggestion: string) => {
     sendMessage(suggestion);
     setShowHistory(true);
