@@ -1150,3 +1150,179 @@ button {
 .legal-info p:last-child {
   margin-bottom: 0;
 }
+/* Legal & Footer System */
+.main-content.subpage-padding {
+  padding-bottom: 220px; /* Increased to make room for Footer above ChatBar area */
+}
+
+@media (max-width: 768px) {
+  .main-content.subpage-padding {
+    padding-bottom: 280px; /* Even more space on mobile */
+  }
+}
+
+.main-footer {
+  width: 100%;
+  margin-top: 60px;
+  border-top: 1px solid rgba(0, 159, 183, 0.15);
+  padding: 30px 0;
+  color: var(--text-dim);
+  font-size: 0.85rem;
+}
+
+.footer-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+@media (max-width: 600px) {
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+  }
+}
+
+.footer-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.footer-link {
+  color: var(--text-dim);
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition);
+  opacity: 0.8;
+}
+
+.footer-link:hover {
+  color: var(--primary);
+  opacity: 1;
+}
+
+.footer-divider {
+  opacity: 0.3;
+}
+
+/* Cookie Notice */
+.cookie-notice {
+  position: fixed;
+  bottom: 84px; /* Sits exactly above the ChatBar */
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 48px);
+  max-width: 860px;
+  padding: 16px 24px;
+  border-radius: 20px;
+  z-index: 95; /* Behind Chat history if open, but above map/content */
+  border: 1px solid rgba(0, 159, 183, 0.3);
+  background: rgba(2, 10, 12, 0.85);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+@media (max-width: 768px) {
+  .cookie-notice {
+    bottom: 105px; /* Adjust for mobile chatbar height/position */
+    width: calc(100% - 32px);
+    padding: 14px 18px;
+  }
+}
+
+.cookie-content {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+@media (max-width: 600px) {
+  .cookie-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+}
+
+.cookie-text {
+  flex: 1;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  margin: 0;
+  color: var(--text);
+  opacity: 0.9;
+}
+
+.cookie-text button {
+  color: var(--primary);
+  text-decoration: underline;
+  font-weight: 500;
+  padding: 0;
+}
+
+.cookie-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.cookie-accept-btn {
+  background: var(--primary);
+  color: white;
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  transition: var(--transition);
+  white-space: nowrap;
+}
+
+.cookie-accept-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 159, 183, 0.3);
+}
+
+.cookie-close-btn {
+  color: var(--text-dim);
+  opacity: 0.5;
+  transition: var(--transition);
+}
+
+.cookie-close-btn:hover {
+  opacity: 1;
+  color: white;
+}
+
+/* Legal Page Adjustments */
+.legal-text-content h3 {
+  font-size: 1.25rem;
+  margin: 2.5rem 0 1rem;
+  color: var(--text);
+}
+
+.legal-text-content p {
+  color: var(--text-dim);
+  margin-bottom: 1.5rem;
+  font-size: 1.05rem;
+}
+
+/* Contact Form Privacy Line */
+.form-privacy-notice {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  margin-bottom: 20px;
+  text-align: left;
+  opacity: 0.8;
+}
+
+.form-privacy-notice button {
+  color: var(--primary);
+  text-decoration: underline;
+  padding: 0;
+  font-weight: 500;
+}

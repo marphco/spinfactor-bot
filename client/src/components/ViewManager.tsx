@@ -10,6 +10,7 @@ import SpinTalks from './content/SpinTalks';
 import Podcast from './content/Podcast';
 import ContactForm from './ContactForm';
 import Human from './content/Human';
+import LegalView from './content/LegalView';
 import { useView } from '../context/ViewContext';
 
 const ViewManager: React.FC = () => {
@@ -37,6 +38,8 @@ const ViewManager: React.FC = () => {
             <Route path="/human" element={<Human key="human" />} />
             <Route path="/podcast" element={<Podcast key="podcast" />} />
             <Route path="/contatti" element={<ContactForm key="contatti" />} />
+            <Route path="/privacy-policy" element={<LegalView key="privacy" type="privacy" />} />
+            <Route path="/cookie-policy" element={<LegalView key="cookie" type="cookie" />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </motion.div>

@@ -4,6 +4,8 @@ import { ArrowLeft } from 'lucide-react';
 import { useView } from '../context/ViewContext';
 import Logo from './Logo';
 import ChatBar from './ChatBar';
+import Footer from './Footer';
+import CookieNotice from './CookieNotice';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -46,10 +48,12 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       
       <main className={`main-content ${!isHome ? 'subpage-padding' : ''}`}>
         {children}
+        <Footer />
       </main>
       
       <div className="bottom-fixed">
         <ChatBar />
+        <CookieNotice />
       </div>
     </div>
   );

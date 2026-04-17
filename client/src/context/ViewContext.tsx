@@ -18,7 +18,9 @@ const VIEW_TO_PATH: Record<string, string> = {
   'capri-talks': '/capri-talks',
   'human': '/human',
   'podcast': '/podcast',
-  'contatti': '/contatti'
+  'contatti': '/contatti',
+  'privacy-policy': '/privacy-policy',
+  'cookie-policy': '/cookie-policy'
 };
 
 const PATH_TO_VIEW: Record<string, string> = Object.entries(VIEW_TO_PATH).reduce(
