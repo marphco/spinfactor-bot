@@ -1,4 +1,5 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 interface ViewContextType {
   activeView: string;
@@ -7,8 +8,38 @@ interface ViewContextType {
 
 const ViewContext = createContext<ViewContextType | undefined>(undefined);
 
+const VIEW_TO_PATH: Record<string, string> = {
+  'home': '/',
+  'chi-siamo': '/siamo',
+  'societa': '/societa',
+  'diciamo': '/diciamo',
+  'facciamo': '/facciamo',
+  'spin-talks': '/spin-talks',
+  'capri-talks': '/capri-talks',
+  'human': '/human',
+  'podcast': '/podcast',
+  'contatti': '/contatti'
+};
+
+const PATH_TO_VIEW: Record<string, string> = Object.entries(VIEW_TO_PATH).reduce(
+  (acc, [view, path]) => ({ ...acc, [path]: view }), {}
+);
+
 export const ViewProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [activeView, setActiveView] = useState('home');
+  const navigate = useNavigate();
+  const location = useLocation();
+  const [activeView, setActiveViewState] = useState('home');
+
+  // Sync state with URL on mount and location change
+  useEffect(() => {
+    const view = PATH_TO_VIEW[location.pathname] || 'home';
+    setActiveViewState(view);
+  }, [location.pathname]);
+
+  const setActiveView = (view: string) => {
+    const path = VIEW_TO_PATH[view] || '/';
+    navigate(path);
+  };
 
   return (
     <ViewContext.Provider value={{ activeView, setActiveView }}>

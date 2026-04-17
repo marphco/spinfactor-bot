@@ -2,156 +2,110 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Lightbulb, Mic2, Megaphone, Calendar, Radio } from 'lucide-react';
 import { useSectionContent } from '../../hooks/useSectionContent';
+import { useGridContent } from '../../hooks/useGridContent';
+import { FormattedText } from '../FormattedText';
 
-const FALLBACK_DESC = `Ideiamo, realizziamo e promuoviamo podcast come strumenti di approfondimento, posizionamento e costruzione della relazione con il pubblico di riferimento.
+const PODCAST_FALLBACK = `Dare continuità al confronto. Estendere il dialogo nello spazio digitale.
+Ideiamo, realizziamo e promuoviamo podcast come strumenti di approfondimento, posizionamento e costruzione della relazione con il pubblico di riferimento.
+Crediamo che il podcast non sia soltanto un prodotto editoriale, ma uno spazio di ascolto e narrazione in cui temi complessi e attualità possono essere affrontati con chiarezza e visione strategica.`;
 
-Crediamo che il podcast non sia soltanto un prodotto editoriale, ma uno spazio di ascolto e narrazione in cui temi complessi e attualità possono essere affrontati con chiarezza e visione strategica.
+const PODCAST_GRID_FALLBACK = [
+  { icon: <Lightbulb size={24} />, title: "Ideazione editoriale", desc: "definiamo concept, format, rubriche, tono di voce e architettura narrativa del podcast." },
+  { icon: <Mic2 size={24} />, title: "Produzione e realizzazione", desc: "curiamo tutte le fasi operative, dalla scrittura alla registrazione, fino alla post-produzione." },
+  { icon: <Megaphone size={24} />, title: "Promozione e diffusione", desc: "sviluppiamo piani di lancio e distribuzione per ampliare la visibilità del progetto e rafforzarne il posizionamento." },
+  { icon: <Calendar size={24} />, title: "Eventi", desc: "il podcast prolunga temi, relazioni e contenuti nati negli incontri fisici, mantenendo vivo il confronto anche oltre il tempo dell’evento." }
+];
 
-Ogni progetto nasce da un impianto editoriale preciso:`;
+const HIGHLIGHT_FALLBACK = `In questo percorso, siamo al lavoro anche su un format proprietario, **Spin Podcast**: un approfondimento digitale pensato per estendere il dialogo oltre l’evento fisico, analizzando l’attualità attraverso i dati di **Human®️**. Un progetto concepito per leggere i fenomeni del presente, interpretarli in chiave strategica e restituirli attraverso conversazioni tra professionisti, punti di vista autorevoli e chiavi di lettura basate sui dati.`;
 
 const Podcast: React.FC = () => {
-  const { content, loading } = useSectionContent('Podcast', FALLBACK_DESC);
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: { 
-      opacity: 1,
-      transition: { staggerChildren: 0.1 }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 }
-  };
+  const { content: introContent, loading: introLoading } = useSectionContent(
+    'Podcast', 
+    PODCAST_FALLBACK,
+    `Forniscimi una visione strategica sul perché il podcasting è fondamentale per la comunicazione moderna di Spin Factor.`
+  );
+  const { items: podcastItems, loading: gridLoading } = useGridContent('Fasi Podcast', 4, PODCAST_GRID_FALLBACK);
 
   return (
     <motion.div 
-      initial="hidden"
-      animate="visible"
-      variants={containerVariants}
+      initial={{ opacity: 0, x: 20 }}
+      animate={{ opacity: 1, x: 0 }}
       className="content-page"
     >
-      <div className="content-inner" style={{ textAlign: 'left', alignItems: 'flex-start' }}>
-        <motion.h2 variants={itemVariants} style={{ textAlign: 'left', margin: '0 0 16px 0' }}>Podcast</motion.h2>
-        
-        <motion.p 
-          variants={itemVariants} 
-          className="subtitle"
-          style={{ 
-            fontWeight: 700, 
-            fontSize: '1.4rem', 
-            color: 'var(--text)', 
-            marginBottom: '40px', 
-            textAlign: 'left',
-            maxWidth: 'none'
-          }}
-        >
-          Dare continuità al confronto. Estendere il dialogo nello spazio digitale.
-        </motion.p>
+      <div className="content-inner">
+        <section className="podcast-header">
+          <div className="mag-label-wrapper">
+            <div className="mag-cyan-line" />
+            <span className="mag-label">Podcast & New Media</span>
+          </div>
+          <h2 className="mag-h2">Podcast.</h2>
+          
+          <h3 className="mag-tagline">
+            Dare continuità al confronto. Estendere il dialogo nello spazio digitale.
+          </h3>
 
-        <motion.div 
-          variants={itemVariants} 
-          className={`text-block ${loading ? 'loading-shimmer' : ''}`} 
-          style={{ 
-            marginBottom: '60px', 
-            textAlign: 'left',
-            opacity: loading ? 0.6 : 1,
-            transition: 'opacity 0.5s ease'
-          }}
-        >
-          {content.split('\n\n').map((paragraph, index) => (
-            <p key={index} style={{ fontSize: '1.1rem', marginBottom: index === content.split('\n\n').length - 1 ? 0 : '24px', opacity: 0.9 }}>
-              {paragraph}
-            </p>
-          ))}
-        </motion.div>
+          <div className={`mag-intro ${introLoading ? 'loading-shimmer' : ''}`}>
+            {introLoading ? (
+               <div key="skel" className="skeleton-line" style={{ width: '100%', height: '80px', background: 'rgba(255,255,255,0.05)' }} />
+            ) : (
+              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+                {(introContent || PODCAST_FALLBACK).split('\n\n').map((paragraph, index) => (
+                   <p key={index} style={{ marginBottom: '1.8rem' }}>
+                    <FormattedText text={paragraph} />
+                  </p>
+                ))}
+              </motion.div>
+            )}
+          </div>
+        </section>
 
-        <div className="podcast-grid">
-          {[
-            { 
-              icon: <Lightbulb size={24} />, 
-              title: "Ideazione editoriale", 
-              desc: "definiamo concept, format, rubriche, tono di voce e architettura narrativa del podcast." 
-            },
-            { 
-              icon: <Mic2 size={24} />, 
-              title: "Produzione e realizzazione", 
-              desc: "curiamo tutte le fasi operative, dalla scrittura alla registrazione, fino alla post-produzione." 
-            },
-            { 
-              icon: <Megaphone size={24} />, 
-              title: "Promozione e diffusione", 
-              desc: "sviluppiamo piani di lancio e distribuzione per ampliare la visibilità del progetto e rafforzarne il posizionamento." 
-            },
-            { 
-              icon: <Calendar size={24} />, 
-              title: "Eventi", 
-              desc: "il podcast prolunga temi, relazioni e contenuti nati negli incontri fisici, mantenendo vivo il confronto anche oltre il tempo dell’evento." 
-            }
-          ].map((phase, idx) => (
-            <motion.div 
-              key={idx}
-              variants={itemVariants}
-              className="service-card glass"
-              style={{ 
-                display: 'flex', 
-                flexDirection: 'column', 
-                gap: '24px', 
-                padding: '40px',
-                textAlign: 'left',
-                alignItems: 'flex-start'
-              }}
-            >
-              <div style={{ display: 'flex', alignItems: 'center', gap: '20px', width: '100%', textAlign: 'left' }}>
-                <div 
-                  style={{ 
-                    display: 'flex', 
-                    alignItems: 'center', 
-                    justifyContent: 'center',
-                    width: '56px',
-                    height: '56px',
-                    minWidth: '56px',
-                    background: 'rgba(0, 159, 183, 0.1)',
-                    borderRadius: '16px',
-                    border: '1px solid rgba(0, 159, 183, 0.2)',
-                    margin: 0
-                  }} 
-                  className="text-primary"
-                >
-                  {phase.icon}
+        <div className="mag-grid mag-grid--2" style={{ marginBottom: '80px' }}>
+          {gridLoading ? (
+            [1, 2, 3, 4].map(n => (
+              <div key={`sk-${n}`} className="mag-card loading-shimmer" style={{ minHeight: '180px' }} />
+            ))
+          ) : (
+            podcastItems.map((phase, idx) => (
+              <motion.div 
+                key={idx}
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: idx * 0.1 }}
+                className="mag-card"
+              >
+                <div className="mag-icon-box" style={{ width: '44px', height: '44px' }}>
+                  {React.cloneElement(PODCAST_GRID_FALLBACK[idx].icon as React.ReactElement<any>, { size: 20 })}
                 </div>
-                <h4 style={{ margin: 0, fontSize: '1.2rem', fontWeight: 700, lineHeight: 1.2 }}>{phase.title}</h4>
-              </div>
-              <p style={{ color: 'var(--text-dim)', fontSize: '15px', lineHeight: '1.6', margin: 0, textAlign: 'left' }}>
-                {phase.desc}
-              </p>
-            </motion.div>
-          ))}
+                <div>
+                  <h4 style={{ margin: '0 0 10px 0', fontSize: '1.1rem', fontWeight: 700 }}>{phase.title}</h4>
+                  <p style={{ opacity: 0.7, fontSize: '0.9rem', lineHeight: '1.6', margin: 0 }}>
+                    <FormattedText text={phase.desc} />
+                  </p>
+                </div>
+              </motion.div>
+            ))
+          )}
         </div>
 
         <motion.div 
-          variants={itemVariants}
-          className="glass highlight-section" 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="mag-card highlight-section" 
           style={{ 
-            padding: '48px', 
-            borderRadius: '32px', 
-            maxWidth: '100%', 
-            margin: '40px 0 0', 
+            padding: '40px',
             border: '1px solid rgba(0, 159, 183, 0.3)',
-            background: 'linear-gradient(135deg, rgba(10, 25, 30, 0.5) 0%, rgba(0, 159, 183, 0.05) 100%)',
+            background: 'linear-gradient(135deg, rgba(0, 159, 183, 0.05) 0%, transparent 100%)',
             position: 'relative',
-            overflow: 'hidden',
-            textAlign: 'left'
+            overflow: 'hidden'
           }}
         >
-          <div style={{ position: 'absolute', top: '-10px', right: '-10px', opacity: 0.1 }}>
+          <div style={{ position: 'absolute', top: '-10px', right: '-10px', opacity: 0.05 }}>
             <Radio size={120} className="text-primary" />
           </div>
           
-          <div style={{ position: 'relative', zIndex: 1, textAlign: 'left' }}>
-            <p style={{ fontSize: '1.15rem', lineHeight: '1.8', margin: 0, opacity: 0.95, textAlign: 'left' }}>
-              In questo percorso, siamo al lavoro anche su un format proprietario, <strong>Spin Podcast</strong>: un approfondimento digitale pensato per estendere il dialogo oltre l’evento fisico, analizzando l’attualità attraverso i dati di <strong>Human®</strong>. Un progetto concepito per leggere i fenomeni del presente, interpretarli in chiave strategica e restituirli attraverso conversazioni tra professionisti, punti di vista autorevoli e chiavi di lettura basate sui dati.
+          <div style={{ position: 'relative', zIndex: 1 }}>
+            <p style={{ fontSize: '1.1rem', lineHeight: '1.8', margin: 0, opacity: 0.9 }}>
+              <FormattedText text={HIGHLIGHT_FALLBACK} />
             </p>
           </div>
         </motion.div>

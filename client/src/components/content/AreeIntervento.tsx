@@ -1,102 +1,128 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { 
-  BarChart3, 
-  BrainCircuit, 
-  ShieldCheck, 
   Megaphone, 
   PenTool, 
   Network, 
-  LineChart 
+  Target,
+  Library,
+  Newspaper,
+  AlertTriangle,
+  Layout,
+  Users,
+  Award,
+  Heart
 } from 'lucide-react';
+import { FormattedText } from '../FormattedText';
 import { useSectionContent } from '../../hooks/useSectionContent';
 
 const FALLBACK_INTRO = "Spin Factor trasforma la complessità dei dati in percorsi strategici di successo attraverso un ecosistema integrato di competenze e tecnologie proprietarie.";
 
 const AreeIntervento: React.FC = () => {
-  const { content, loading } = useSectionContent('Aree di Intervento', FALLBACK_INTRO);
+  const { content: introContent, loading: introLoading } = useSectionContent(
+    'Facciamo Intro', 
+    FALLBACK_INTRO,
+    `Forniscimi un'introduzione di alto livello per la sezione "Facciamo" di Spin Factor (Aree di Intervento).`
+  );
 
-  const areas = [
+  const pillars = [
     {
-      icon: <BrainCircuit size={32} />,
-      title: "Intelligence Strategica",
-      subtitle: "Dati, relazioni e comunicazione di alto livello.",
-      desc: "Spin Factor è la società leader in Italia per la consulenza strategica in ambito politico e aziendale basata sull’analisi dei dati. Trasformiamo la complessità dei dati in percorsi strategici di successo."
+      label: "Consulenza Politica",
+      tagline: "Vincere è un’attitudine.",
+      intro: "Sviluppiamo e attuiamo piani di consulenza strategica con percorsi di comunicazione integrata su tutti i livelli, comprese le campagne elettorali.",
+      features: [
+        { title: "Comunicazione Politica e Istituzionale", desc: "Studio, pianificazione e coordinamento strategico della comunicazione integrata per partiti, ministeri, enti e relativi vertici.", icon: <Megaphone size={18} /> },
+        { title: "Campaign Management", desc: "Ideazione, pianificazione e coordinamento di campagne elettorali per candidati sindaco, presidenti di Regione, Parlamento nazionale ed europeo.", icon: <Target size={18} /> },
+        { title: "Campagne Istituzionali", desc: "Studio e creazione di campagne di comunicazione specifiche focalizzate sul target del committente.", icon: <Library size={18} /> }
+      ]
     },
     {
-      icon: <BarChart3 size={32} />,
-      title: "Human®",
-      subtitle: "L’algoritmo al servizio della reputazione.",
-      desc: "Basato su un modello semantico proprietario integrato con un sistema proprietario di intelligenza artificiale, Human® monitora costantemente le principali evoluzioni dell’opinione pubblica."
+      label: "Media Relations",
+      tagline: "Governare la narrazione.",
+      intro: "Pianifichiamo azioni mirate per consolidare l’identità del cliente attraverso azioni specifiche e continuative.",
+      features: [
+        { title: "Media Engagement", desc: "Azioni mirate e targettizzate con i media nazionali di riferimento per rafforzarne il posizionamento in maniera continuativa.", icon: <Newspaper size={18} /> },
+        { title: "Comunicazione di Crisi", desc: "Gestione tempestiva di tutte le fasi della crisi reputazionale, in pieno coordinamento con l’area legal.", icon: <AlertTriangle size={18} /> }
+      ]
     },
     {
-      icon: <LineChart size={32} />,
-      title: "Human Index",
-      subtitle: "Il super indicatore.",
-      desc: "La convergenza tra Big Data e Demoscopia. L’Human Index è l'esclusivo indicatore di convergenza sviluppato per eliminare ogni zona d'ombra nel monitoraggio dell'opinione pubblica."
+      label: "Social Creativity",
+      tagline: "Dare forma visibile alla strategia.",
+      intro: "Ogni creatività è declinata sui vari strumenti di comunicazione online e offline per rafforzare i temi di interesse del cliente.",
+      features: [
+        { title: "Visual & Naming", desc: "Studio di set grafici-semantici originali, loghi e claim coerenti con il posizionamento istituzionale.", icon: <PenTool size={18} /> },
+        { title: "Content Production", desc: "Ideazione e realizzazione di contenuti testuali, grafici e video originali per ogni piattaforma.", icon: <Layout size={18} /> },
+        { title: "Social Engineering", desc: "Gestione integrata dei canali digitali e rafforzamento della comunità online per favorire la viralizzazione dei contenuti.", icon: <Users size={18} /> }
+      ]
     },
     {
-      icon: <ShieldCheck size={32} />,
-      title: "Consulenza Politica e Istituzionale",
-      subtitle: "Vincere è un’attitudine.",
-      desc: "Sviluppiamo e attuiamo piani di consulenza strategica con percorsi di comunicazione integrata su tutti i livelli, comprese le campagne elettorali e il campaign management."
-    },
-    {
-      icon: <Megaphone size={32} />,
-      title: "Media Relations",
-      subtitle: "Governare la narrazione.",
-      desc: "Pianifichiamo azioni mirate per consolidare l’identità del cliente attraverso media engagement nazionale coerente e gestione tempestiva delle crisi reputazionali."
-    },
-    {
-      icon: <PenTool size={32} />,
-      title: "Creatività e Contenuti Social",
-      subtitle: "Dare forma visibile alla strategia.",
-      desc: "Ogni creatività è declinata sui vari strumenti di comunicazione online e offline: studio di naming, loghi, claim e gestione integrata dei canali digitali."
-    },
-    {
-      icon: <Network size={32} />,
-      title: "Relazioni Istituzionali",
-      subtitle: "Accreditarsi per crescere.",
-      desc: "Definiamo e sviluppiamo percorsi esclusivi per costruire relazioni pubbliche stabili, efficaci e coerenti con gli obiettivi del committente attraverso mappature mirate."
+      label: "Relazioni Istituzionali",
+      tagline: "Accreditarsi per crescere.",
+      intro: "Definiamo e sviluppiamo percorsi esclusivi e particolareggiati per costruire relazioni pubbliche e istituzionali stabili, efficaci e coerenti.",
+      features: [
+        { title: "Mappatura Interlocutori", desc: "Identifichiamo gli attori rilevanti per il posizionamento del cliente e per l’attivazione di relazioni significative.", icon: <Network size={18} /> },
+        { title: "Percorsi di Accreditamento", desc: "Traiettorie relazionali su misura per favorire interlocuzioni qualificate, credibili e continuative.", icon: <Award size={18} /> },
+        { title: "Cura delle relazioni", desc: "Accompagniamo il cliente nel consolidamento di relazioni stabili, orientate a rafforzarne autorevolezza e riconoscibilità.", icon: <Heart size={18} /> }
+      ]
     }
   ];
 
   return (
     <motion.div 
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, x: 20 }}
       animate={{ opacity: 1, x: 0 }}
       className="content-page"
     >
       <div className="content-inner">
-        <h2>Aree di Intervento</h2>
-        
-        <motion.div 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: loading ? 0.6 : 1 }}
-          className={`text-block ${loading ? 'loading-shimmer' : ''}`}
-          style={{ marginBottom: '40px', transition: 'opacity 0.5s ease' }}
-        >
-          <p style={{ fontSize: '1.2rem', lineHeight: '1.6', opacity: 0.9 }}>
-            {content}
-          </p>
-        </motion.div>
+        <section className="facciamo-intro">
+          <div className="mag-label-wrapper">
+            <div className="mag-cyan-line" />
+            <span className="mag-label">Digital & Strategic Ecosystem</span>
+          </div>
+          <h2 className="mag-h2">Facciamo.</h2>
+          
+          <div className={`mag-intro ${introLoading ? 'loading-shimmer' : ''}`}>
+            {(introContent || FALLBACK_INTRO).split('\n\n').map((p, i) => (
+              <p key={i} style={{ marginBottom: '1.8rem' }}><FormattedText text={p} /></p>
+            ))}
+          </div>
+        </section>
 
-        <div className="areas-grid-7">
-          {areas.map((area, index) => (
-            <motion.div 
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
-              className="area-card glass"
-            >
-              <div className="area-icon text-primary h-mb-20">
-                {area.icon}
+        <div className="pillars-list">
+          {pillars.map((pillar, pIdx) => (
+            <section key={pIdx} className="mag-section">
+              <div className="mag-label-wrapper">
+                <div className="mag-cyan-line" />
+                <span className="mag-label">{pillar.label}</span>
               </div>
-              <p className="area-subtitle text-primary">{area.subtitle}</p>
-              <h3>{area.title}</h3>
-              <p className="area-desc">{area.desc}</p>
-            </motion.div>
+
+              <h3 className="mag-tagline">{pillar.tagline}</h3>
+
+              <p style={{ fontSize: '1.1rem', lineHeight: 1.7, opacity: 0.9, marginBottom: '3rem', maxWidth: '800px' }}>
+                {pillar.intro}
+              </p>
+
+              <div 
+                className={`mag-grid ${pillar.features.length === 3 ? 'mag-grid--3' : 'mag-grid--2'}`}
+                style={{ gridAutoRows: '1fr' }}
+              >
+                {pillar.features.map((feat, fIdx) => (
+                  <div key={fIdx} className="mag-card" style={{ height: '100%' }}>
+                    <div className="mag-icon-box">
+                      {feat.icon}
+                    </div>
+                    <div>
+                      <h4 style={{ fontSize: '1rem', fontWeight: 700, marginBottom: '8px', color: 'white' }}>
+                        {feat.title}
+                      </h4>
+                      <p style={{ fontSize: '0.85rem', lineHeight: 1.6, opacity: 0.75, margin: 0 }}>
+                        {feat.desc}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </section>
           ))}
         </div>
       </div>

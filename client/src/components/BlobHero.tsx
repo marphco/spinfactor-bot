@@ -141,8 +141,8 @@ const BlobHero: React.FC<BlobHeroProps> = ({ onNavigate }) => {
     const allSections = [
       { id: 'spin-talks', label: 'TALKS', icon: Mic },
       { id: 'chi-siamo', label: 'SIAMO', icon: SiamoIcon },
-      { id: 'aree', label: 'FACCIAMO', icon: Zap },
-      { id: 'metodo', label: 'DICIAMO', icon: Newspaper },
+      { id: 'facciamo', label: 'FACCIAMO', icon: Zap },
+      { id: 'diciamo', label: 'DICIAMO', icon: Newspaper },
       { id: 'podcast', label: 'PODCAST', icon: Headphones },
       { id: 'human-data', label: 'HUMAN', icon: HumanIcon },
       { id: 'contatti', label: 'CONTATTI', icon: Mail },
@@ -212,7 +212,7 @@ const BlobHero: React.FC<BlobHeroProps> = ({ onNavigate }) => {
               label={section.label}
               onClick={() => {
                 if (section.id === 'human-data') {
-                  onNavigate('aree');
+                  onNavigate('human');
                 } else if (section.id === 'chi-siamo') {
                   onNavigate('chi-siamo');
                 } else {

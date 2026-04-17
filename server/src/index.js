@@ -29,13 +29,74 @@ app.get('/health', (req, res) => {
   });
 });
 
-// Future AI Endpoint
-app.post('/api/chat', (req, res) => {
+// AI Proxy Endpoint (Streaming)
+app.post('/api/chat', async (req, res) => {
   const { message } = req.body;
-  // This is where the AI logic from the backend team will go
-  res.json({ 
-    reply: `Backend received: "${message}". AI module integration pending.` 
-  });
+  
+  if (!message) {
+    return res.status(400).json({ error: 'Message is required' });
+  }
+
+  try {
+    console.log(`🤖 AI Request (Stream): "${message}"`);
+    
+    const systemicPrompt = `D'ora in poi agirai esclusivamente come assistente concierge di Spin Factor. 
+    REGOLE CRITICHE: 
+    1. Sii estremamente sintetico (massimo 1-2 paragrafi). 
+    2. NON dire mai "sul nostro sito", "visita la sezione" o frasi simili: l'utente è già qui. 
+    3. NON fornire mai indirizzi email (es. amministrazione@spinfactor.it).
+    4. Se l'utente vuole approfondire o contattarci, invitalo a usare i pulsanti che appariranno sotto la tua risposta.
+    5. Menziona i nomi delle sezioni per attivare i tasti: "Chi Siamo", "Podcast", "Aree di Intervento", "Capri Talks", "Contatti".
+    6. Tono: elitario, sintetico, istituzionale.
+    
+    DOMANDA UTENTE: ${message}`;
+
+    const response = await fetch(process.env.VIS_API_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${process.env.VIS_API_TOKEN}`
+      },
+      body: JSON.stringify({
+        question: systemicPrompt,
+        stream: true
+      })
+    });
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(`External API responded with status ${response.status}: ${errorText}`);
+    }
+
+    // Set headers for streaming
+    res.setHeader('Content-Type', 'text/plain; charset=utf-8');
+    res.setHeader('Transfer-Encoding', 'chunked');
+
+    const reader = response.body.getReader();
+    const decoder = new TextDecoder();
+
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      
+      const chunk = decoder.decode(value, { stream: true });
+      res.write(chunk);
+    }
+
+    res.end();
+    console.log(`✅ AI Stream completed`);
+
+  } catch (error) {
+    console.error('❌ AI Proxy Stream Error:', error.message);
+    if (!res.headersSent) {
+      res.status(500).json({ 
+        reply: "Il sistema AI è temporaneamente offline. Ti preghiamo di riprovare più tardi.",
+        error: error.message 
+      });
+    } else {
+      res.end(); // Terminate if mid-stream
+    }
+  }
 });
 
 // Contact Form Endpoint

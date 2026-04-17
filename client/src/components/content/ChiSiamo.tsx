@@ -1,22 +1,28 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Users, Target, ShieldCheck, Wine } from 'lucide-react';
+import { Wine } from 'lucide-react';
 import { useSectionContent } from '../../hooks/useSectionContent';
+import { FormattedText } from '../FormattedText';
 
-const CORPORATE_FALLBACK = `Spin Factor è la società leader in Italia per la consulenza strategica in ambito politico e aziendale basata sull’analisi dei dati.
+const CORPORATE_FALLBACK = `Spin Factor è un hub di consulenza strategica che agisce nel punto in cui le decisioni prendono forma.
 
-Un approccio innovativo, integrato e altamente personalizzato che trasforma la complessità dei dati in percorsi strategici di successo.`;
+Tra stimolo e risposta, la differenza risiede nell’elaborazione.
+In Spin Factor, ogni processo cognitivo umano è supportato da un’architettura tecnologica proprietaria. L’unione consente di trasformare i dati e le informazioni in comunicazione, le relazioni in posizionamenti strutturati.`;
 
 const FOUNDER_FALLBACK = `Caprese. Dopo la laurea in Psicologia, con tesi su “La comunicazione politica tra nuove tecnologie e social network”, si dedica alla consulenza politica e istituzionale, con particolare attenzione al mondo digitale.
-
-Nel 2018 fonda Spin Factor, inizialmente specializzata in strategia politica, distinguendosi per un approccio innovativo, integrato e altamente personalizzato. A seguito di una scia record di campagne elettorali di successo, la società amplia il proprio raggio d’azione, includendo consulenza strategica e posizionamento istituzionale.
+Nel 2018 fonda Spin Factor, inizialmente specializzata in strategia politica, distinguendosi per un approccio innovativo, integrato e altamente personalizzato. A seguito di una scia record di campagne elettorali di successo, la società amplia il proprio raggio d’azione, incluse consulenza strategica e posizionamento istituzionale.
 
 Nel 2019, con un team qualificato di sviluppatori italiani, progetta Human, una piattaforma di web e social listening basata su un algoritmo semantico in lingua italiana. Human viene successivamente integrata con un sistema proprietario di intelligenza artificiale ed oggi rappresenta un unicum sul mercato.
 
 Nel 2023 la società si apre alle relazioni istituzionali, al networking e al corporate. Nel 2025 nascono gli Spin Talks e i Capri Talks.`;
 
 const ChiSiamo: React.FC = () => {
-  const { content: corporateContent, loading: corporateLoading } = useSectionContent('Chi Siamo', CORPORATE_FALLBACK);
+  const { content: corporateContent, loading: corporateLoading } = useSectionContent(
+    'Siamo', 
+    CORPORATE_FALLBACK,
+    `Forniscimi una descrizione istituzionale e visionaria per la sezione "Siamo" di Spin Factor. 
+     Focalizzati sulla storia, i valori e l'innovazione.`
+  );
   const { content: founderContent, loading: founderLoading } = useSectionContent('Tiberio Brunetti Fondatore', FOUNDER_FALLBACK);
 
   return (
@@ -27,61 +33,55 @@ const ChiSiamo: React.FC = () => {
     >
       <div className="content-inner">
         <section className="corporate-section">
-          <h2>Chi Siamo</h2>
-          <div className={`text-block ${corporateLoading ? 'loading-shimmer' : ''}`} style={{ opacity: corporateLoading ? 0.6 : 1, transition: 'opacity 0.5s ease' }}>
-            {corporateContent.split('\n\n').map((p, i) => (
-              <p key={i}>{p}</p>
-            ))}
-          </div>
+          <h2 className="mag-h2">Siamo.</h2>
+          
+          <h3 className="mag-tagline">
+            Comprendere per decidere. <br/>
+            Comunicare per posizionare. <br/>
+            Accreditarsi per crescere.
+          </h3>
 
-          <div className="features-grid">
-            <div className="feature-item glass">
-              <div className="icon-wrapper">
-                <Target size={32} className="text-primary" />
-              </div>
-              <h3>Intelligence Strategica</h3>
-              <p>Dati, relazioni e comunicazione di alto livello per costruire vantaggi competitivi duraturi.</p>
-            </div>
-            <div className="feature-item glass">
-              <div className="icon-wrapper">
-                <Users size={32} className="text-primary" />
-              </div>
-              <h3>Approccio Integrato</h3>
-              <p>Connettiamo eccellenze e decisori in percorsi di valore per favorire interlocuzioni qualificate.</p>
-            </div>
-            <div className="feature-item glass">
-              <div className="icon-wrapper">
-                <ShieldCheck size={32} className="text-primary" />
-              </div>
-              <h3>Analisi Dinamica</h3>
-              <p>Trasformiamo la complessità dei dati in percorsi strategici di successo per leader e aziende.</p>
-            </div>
+          <div className={`mag-intro ${corporateLoading ? 'loading-shimmer' : ''}`}>
+            {(corporateContent || CORPORATE_FALLBACK).split('\n\n').map((p, i) => (
+              <p key={i} style={{ marginBottom: '1.8rem' }}>
+                <FormattedText text={p} />
+              </p>
+            ))}
           </div>
         </section>
 
-        <section className="founder-integration-section" style={{ marginTop: '80px', borderTop: '1px solid rgba(0, 159, 183, 0.15)', paddingTop: '60px' }}>
-          <p className="founder-label text-primary" style={{ fontSize: '0.9rem', fontWeight: 800, letterSpacing: '0.2em', marginBottom: '1rem' }}>IL FONDATORE</p>
-          <h2 style={{ marginBottom: '2rem' }}>Tiberio Brunetti</h2>
+        <section className="mag-section">
+          <div className="mag-label-wrapper">
+            <div className="mag-cyan-line" />
+            <span className="mag-label">Il Fondatore</span>
+          </div>
+          <h2 className="mag-h2" style={{ fontSize: '3.5rem' }}>Tiberio Brunetti.</h2>
           
-          <div className={`text-block ${founderLoading ? 'loading-shimmer' : ''}`} style={{ 
-            columns: window.innerWidth > 1024 ? '2' : '1', 
-            columnGap: '40px',
-            opacity: founderLoading ? 0.6 : 1,
-            transition: 'opacity 0.5s ease'
-          }}>
-            {founderContent.split('\n\n').map((p, i) => (
-              <p key={i}>{p}</p>
+          <div className={`mag-intro ${founderLoading ? 'loading-shimmer' : ''}`} style={{ color: 'var(--text-dim)', marginBottom: '3rem' }}>
+            {(founderContent || FOUNDER_FALLBACK).split('\n\n').map((p, i) => (
+              <p key={i} style={{ marginBottom: '1.8rem' }}><FormattedText text={p} /></p>
             ))}
           </div>
 
-          <div className="founder-footer glass" style={{ marginTop: '40px', padding: '24px', display: 'flex', alignItems: 'center', gap: '20px' }}>
-            <div className="icon-wrapper" style={{ margin: 0, minWidth: '40px', height: '40px', background: 'rgba(0, 159, 183, 0.1)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <Wine size={20} className="text-primary" />
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="mag-card" 
+            style={{ 
+              flexDirection: 'row', 
+              alignItems: 'center', 
+              gap: '24px',
+              border: '1px solid rgba(0, 159, 183, 0.3)',
+              background: 'rgba(0, 159, 183, 0.03)'
+            }}
+          >
+            <div className="mag-icon-box" style={{ minWidth: '48px', height: '48px', borderRadius: '50%' }}>
+              <Wine size={24} />
             </div>
-            <p style={{ margin: 0, fontSize: '0.95rem', opacity: 0.9 }}>
+            <p style={{ margin: 0, fontSize: '1rem', opacity: 0.9, fontStyle: 'italic', lineHeight: 1.6 }}>
               Imprenditore vinicolo a tempo perso, porta avanti sull’isola di Capri la ultrasecolare tradizione enologica di famiglia.
             </p>
-          </div>
+          </motion.div>
         </section>
       </div>
     </motion.div>
