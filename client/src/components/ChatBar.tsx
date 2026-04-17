@@ -94,7 +94,7 @@ const ChatBar: React.FC = () => {
               <div className="chat-window-header">
                 <div className="bot-info-minimal">
                   <img src={brandIcon} alt="Spin Factor" />
-                  <span>Spin Assistant</span>
+                  <span>Spinny</span>
                 </div>
                 <button onClick={() => setShowHistory(false)} className="close-window-btn">
                   <X size={18} />
@@ -158,7 +158,7 @@ const ChatBar: React.FC = () => {
             </div>
             <input 
               type="text" 
-              placeholder="Chiedi a Spin Assistant..."
+              placeholder="Chiedi a Spinny..."
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onFocus={() => setIsFocused(true)}

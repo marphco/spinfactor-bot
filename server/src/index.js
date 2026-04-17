@@ -8,13 +8,24 @@ require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || 5001;
-const CLIENT_URL = process.env.CLIENT_URL || 'http://localhost:5173';
+const ALLOWED_ORIGINS = [
+  process.env.CLIENT_URL,
+  'http://localhost:5173',
+  'https://spinfactor-bot.vercel.app'
+];
 
 // Middleware
 app.use(helmet());
 app.use(morgan('dev'));
 app.use(cors({
-  origin: CLIENT_URL,
+  origin: function (origin, callback) {
+    // allow requests with no origin (like mobile apps or curl requests)
+    if (!origin) return callback(null, true);
+    if (ALLOWED_ORIGINS.indexOf(origin) === -1 && origin !== 'http://localhost:5173') {
+      return callback(new Error('The CORS policy for this site does not allow access from the specified Origin.'), false);
+    }
+    return callback(null, true);
+  },
   methods: ['GET', 'POST'],
   credentials: true
 }));
@@ -25,7 +36,7 @@ app.get('/health', (req, res) => {
   res.json({ 
     status: 'ok', 
     timestamp: new Date().toISOString(),
-    service: 'Spin Factor AI Bridge'
+    service: 'Spinbot AI Bridge'
   });
 });
 
@@ -40,14 +51,14 @@ app.post('/api/chat', async (req, res) => {
   try {
     console.log(`🤖 AI Request (Stream): "${message}"`);
     
-    const systemicPrompt = `D'ora in poi agirai esclusivamente come assistente concierge di Spin Factor. 
+    const systemicPrompt = `D'ora in poi agirai esclusivamente come Spinny, l'assistente concierge di Spin Factor. 
     REGOLE CRITICHE: 
     1. Sii estremamente sintetico (massimo 1-2 paragrafi). 
     2. NON dire mai "sul nostro sito", "visita la sezione" o frasi simili: l'utente è già qui. 
-    3. NON fornire mai indirizzi email (es. amministrazione@spinfactor.it).
+    3. NON fornire mai indirizzi email (es. segreteria@spinfactor.it).
     4. Se l'utente vuole approfondire o contattarci, invitalo a usare i pulsanti che appariranno sotto la tua risposta.
-    5. Menziona i nomi delle sezioni per attivare i tasti: "Chi Siamo", "Podcast", "Aree di Intervento", "Capri Talks", "Contatti".
-    6. Tono: elitario, sintetico, istituzionale.
+    5. Menziona esattamente i nomi di queste sezioni per attivare i tasti: "Scopri Chi Siamo", "Podcast", "Scopri cosa Facciamo", "Capri Talks", "Contatti".
+    6. Tono: Wit, sintetico, istituzionale ma accessibile.
     
     DOMANDA UTENTE: ${message}`;
 

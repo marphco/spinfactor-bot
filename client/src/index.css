@@ -335,7 +335,7 @@ button {
               0 0 0 1px rgba(255, 255, 255, 0.03);
   display: flex;
   flex-direction: column;
-  z-index: 100;
+  z-index: 9001; /* Must be higher than backdrop (9000) */
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
@@ -580,10 +580,10 @@ button {
 .chat-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(0, 5, 8, 0.5);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  z-index: 90;
+  background: rgba(0, 5, 8, 0.65); /* Increased opacity for better contrast in production */
+  backdrop-filter: blur(25px); /* Increased blur from 15px */
+  -webkit-backdrop-filter: blur(25px);
+  z-index: 9000; /* Higher z-index to ensure it covers elements below bottom-fixed context */
   cursor: pointer;
 }
 

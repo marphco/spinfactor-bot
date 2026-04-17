@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Send, MapPin, Mail, Building2, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react';
 import { useView } from '../context/ViewContext';
+import { API_BASE_URL } from '../apiConfig';
 
 const ContactForm: React.FC = () => {
   const { setActiveView } = useView();
@@ -25,7 +26,7 @@ const ContactForm: React.FC = () => {
     setErrorMessage('');
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/contact`, {
+      const response = await fetch(`${API_BASE_URL}/api/contact`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { API_BASE_URL } from '../apiConfig';
 
 export interface ChatAction {
   label: string;
@@ -17,9 +18,9 @@ export const useChat = (_onNavigate: (view: string) => void) => {
   const [messages, setMessages] = useState<Message[]>([
     { 
       id: '1', 
-      text: 'Benvenuti in Spin Factor. Sono il vostro Spin Assistant. In che modo posso guidarvi attraverso la nostra visione strategica?', 
+      text: 'Ciao, sono Spinny! Chiedimi quello che vuoi sulla nostra visione strategica o esplora le sezioni qui sotto.', 
       sender: 'bot', 
-      timestamp: new Date() 
+      timestamp: new Date()
     }
   ]);
   const [isTyping, setIsTyping] = useState(false);
@@ -42,11 +43,11 @@ export const useChat = (_onNavigate: (view: string) => void) => {
       }
     };
 
-    check(['chi siamo', 'tiberio brunetti', 'fondatore'], 'Scopri Chi Siamo', 'chi-siamo');
-    check(['talks', 'eventi', 'capri'], 'Esplora i Talk', 'spin-talks');
-    check(['podcast', 'ascolta'], 'Vai ai Podcast', 'podcast');
-    check(['aree di intervento', 'servizi', 'cosa facciamo'], 'Aree di Intervento', 'facciamo');
-    check(['contattaci', 'scrivici', 'form', 'email', 'parliamo'], 'Vai ai Contatti', 'contatti');
+    check(['chi siamo', 'tiberio brunetti', 'fondatore', 'storia'], 'Scopri Chi Siamo', 'chi-siamo');
+    check(['talks', 'eventi', 'capri', 'incontri'], 'Esplora i Talk', 'spin-talks');
+    check(['podcast', 'ascolta', 'audio'], 'Vai ai Podcast', 'podcast');
+    check(['cosa facciamo', 'facciamo', 'aree di intervento', 'servizi', 'operiamo', 'strategia', 'consulenza'], 'Scopri cosa Facciamo', 'facciamo');
+    check(['contattaci', 'scrivici', 'form', 'email', 'parliamo', 'contatti'], 'Vai ai Contatti', 'contatti');
     
     // Sort by appearance in text
     return matches
@@ -68,11 +69,9 @@ export const useChat = (_onNavigate: (view: string) => void) => {
     setIsTyping(true);
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/chat`, {
+      const response = await fetch(`${API_BASE_URL}/api/chat`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message: text }),
       });
 
