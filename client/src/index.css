@@ -979,6 +979,21 @@ button {
   gap: 8px;
   margin-bottom: 20px;
   text-align: left;
+  flex: 1; /* Allow to grow in flex-row */
+}
+
+/* New Fluid Form Row */
+.form-row {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+}
+
+@media (max-width: 600px) {
+  .form-row {
+    flex-direction: column;
+    gap: 0;
+  }
 }
 
 .input-group label {

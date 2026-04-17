@@ -61,10 +61,17 @@ const ContactForm: React.FC = () => {
       className="content-page"
     >
       <div className="content-inner">
-        <div className="form-container glass">
-          <h2>CONTATTI E SEDI</h2>
-          <p className="subtitle text-primary" style={{ marginBottom: '32px' }}>Spin Factor s.r.l.</p>
+        <section className="contact-intro">
+          <div className="mag-label-wrapper">
+            <div className="mag-cyan-line"></div>
+            <span className="mag-label">NETWORK & GLOBAL PRESENCE</span>
+          </div>
+          <h2 className="mag-h2">Contatti e Sedi.</h2>
           
+          <div className="mag-intro">
+            <p>Spin Factor s.r.l. — Trasformiamo la complessità dei dati in percorsi strategici di successo attraverso un ecosistema integrato di competenze e tecnologie proprietarie.</p>
+          </div>
+
           <AnimatePresence mode="wait">
             {status === 'success' ? (
               <motion.div 
@@ -94,28 +101,30 @@ const ContactForm: React.FC = () => {
                 initial={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
               >
-                <div className="input-group">
-                  <input 
-                    type="text" 
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    placeholder="Nome" 
-                    required
-                    disabled={status === 'loading'}
-                  />
-                </div>
-                
-                <div className="input-group">
-                  <input 
-                    type="email" 
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    placeholder="Email" 
-                    required
-                    disabled={status === 'loading'}
-                  />
+                <div className="form-row">
+                  <div className="input-group">
+                    <input 
+                      type="text" 
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      placeholder="Nome" 
+                      required
+                      disabled={status === 'loading'}
+                    />
+                  </div>
+                  
+                  <div className="input-group">
+                    <input 
+                      type="email" 
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      placeholder="Email" 
+                      required
+                      disabled={status === 'loading'}
+                    />
+                  </div>
                 </div>
 
                 {/* Honeypot field - hidden from users */}
@@ -150,7 +159,7 @@ const ContactForm: React.FC = () => {
                 )}
 
                 <div className="privacy-notice" style={{ marginTop: '24px', fontSize: '11px', color: 'var(--text-dim)', textAlign: 'center', opacity: 0.8 }}>
-                  Inviando il modulo, accetti la nostra <button type="button" onClick={() => setActiveView('privacy-policy')} style={{ background: 'none', border: 'none', color: 'var(--primary)', textDecoration: 'underline', cursor: 'pointer', padding: 0 }}>Privacy Policy</button>.
+                  Inviando accetti l' <button type="button" onClick={() => setActiveView('privacy-policy')} style={{ background: 'none', border: 'none', color: 'var(--primary)', textDecoration: 'underline', cursor: 'pointer', padding: 0, fontSize: 'inherit', fontWeight: 'inherit', fontFamily: 'inherit' }}>Informativa Privacy</button>.
                 </div>
                 <button 
                   type="submit" 
@@ -159,8 +168,9 @@ const ContactForm: React.FC = () => {
                   style={{ 
                     cursor: status === 'loading' ? 'not-allowed' : 'pointer', 
                     pointerEvents: 'auto', 
-                    marginTop: '12px',
-                    opacity: status === 'loading' ? 0.7 : 1
+                    marginTop: '24px',
+                    opacity: status === 'loading' ? 0.7 : 1,
+                    marginBottom: '40px'
                   }}
                 >
                   {status === 'loading' ? (
@@ -178,46 +188,65 @@ const ContactForm: React.FC = () => {
               </motion.form>
             )}
           </AnimatePresence>
-        </div>
+        </section>
 
-        <div className="offices-grid">
-          <div className="office-item glass">
-            <div className="card-header-icon">
-              <MapPin className="text-primary" size={24} />
-              <h4>ROMA</h4>
-            </div>
-            <p className="office-type">Sede Principale</p>
-            <div className="address-block">
-              <p>via della Scrofa, 117</p>
-              <p className="zip">00186</p>
+        <section className="mag-section" style={{ borderTop: 'none', paddingTop: 0 }}>
+          <div className="mag-section-header" style={{ borderTop: '1px solid rgba(0, 159, 183, 0.15)', paddingTop: '80px' }}>
+            <div className="mag-label-wrapper">
+              <div className="mag-cyan-line"></div>
+              <span className="mag-label">LE NOSTRE SEDI</span>
             </div>
           </div>
-          
-          <div className="office-item glass">
-            <div className="card-header-icon">
-              <MapPin className="text-primary" size={24} />
-              <h4>NAPOLI</h4>
-            </div>
-            <p className="office-type">Sede Legale e Amministrativa</p>
-            <div className="address-block">
-              <p>via Vittoria Colonna, 14</p>
-              <p className="zip">80121</p>
-            </div>
-          </div>
-        </div>
 
-        <div className="legal-info glass">
-          <div className="legal-row">
-            <div className="legal-item">
-              <Building2 size={20} className="text-primary" />
-              <p><strong>P.IVA:</strong> 08521911217</p>
+          <div className="mag-grid mag-grid--2">
+            <div className="mag-card">
+              <div className="mag-icon-box">
+                <MapPin size={20} />
+              </div>
+              <div>
+                <h4 style={{ fontSize: '1.1rem', fontWeight: 800, marginBottom: '4px' }}>ROMA</h4>
+                <p className="mag-label" style={{ fontSize: '0.65rem', marginBottom: '12px', display: 'block' }}>Sede Principale</p>
+                <div style={{ fontSize: '0.9rem', opacity: 0.8, lineHeight: 1.5 }}>
+                  <p>via della Scrofa, 117</p>
+                  <p>00186</p>
+                </div>
+              </div>
             </div>
-            <div className="legal-item">
-              <Mail size={20} className="text-primary" />
-              <p><strong>EMAIL:</strong> segreteria@spinfactor.it</p>
+            
+            <div className="mag-card">
+              <div className="mag-icon-box">
+                <MapPin size={20} />
+              </div>
+              <div>
+                <h4 style={{ fontSize: '1.1rem', fontWeight: 800, marginBottom: '4px' }}>NAPOLI</h4>
+                <p className="mag-label" style={{ fontSize: '0.65rem', marginBottom: '12px', display: 'block' }}>Sede Legale</p>
+                <div style={{ fontSize: '0.9rem', opacity: 0.8, lineHeight: 1.5 }}>
+                  <p>via Vittoria Colonna, 14</p>
+                  <p>80121</p>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
+        </section>
+
+        <section className="mag-section" style={{ paddingTop: '100px' }}>
+          <div className="mag-card" style={{ padding: '24px' }}>
+            <div className="mag-grid mag-grid--2" style={{ gap: '24px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+                <div className="mag-icon-box" style={{ width: '32px', height: '32px' }}>
+                  <Building2 size={18} />
+                </div>
+                <p style={{ fontSize: '0.9rem', opacity: 0.9 }}><strong>P.IVA:</strong> 08521911217</p>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+                <div className="mag-icon-box" style={{ width: '32px', height: '32px' }}>
+                  <Mail size={18} />
+                </div>
+                <p style={{ fontSize: '0.9rem', opacity: 0.9 }}><strong>EMAIL:</strong> segreteria@spinfactor.it</p>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
     </motion.div>
   );

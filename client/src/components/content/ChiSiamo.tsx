@@ -33,6 +33,10 @@ const ChiSiamo: React.FC = () => {
     >
       <div className="content-inner">
         <section className="corporate-section">
+          <div className="mag-label-wrapper">
+            <div className="mag-cyan-line" />
+            <span className="mag-label">IDENTITY & STRATEGY</span>
+          </div>
           <h2 className="mag-h2">Siamo.</h2>
           
           <h3 className="mag-tagline">
