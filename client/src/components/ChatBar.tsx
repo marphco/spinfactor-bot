@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Send, Sparkles, MessageSquare, X } from 'lucide-react';
+import { Send, MessageSquare, X } from 'lucide-react';
 import { useChat } from '../hooks/useChat';
 import { useView } from '../context/ViewContext';
 import { FormattedText } from './FormattedText';

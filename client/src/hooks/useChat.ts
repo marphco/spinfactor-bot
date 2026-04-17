@@ -13,7 +13,7 @@ export interface Message {
   actions?: ChatAction[];
 }
 
-export const useChat = (onNavigate: (view: string) => void) => {
+export const useChat = (_onNavigate: (view: string) => void) => {
   const [messages, setMessages] = useState<Message[]>([
     { 
       id: '1', 
@@ -93,8 +93,6 @@ export const useChat = (onNavigate: (view: string) => void) => {
 
       const reader = response.body?.getReader();
       const decoder = new TextDecoder();
-      let fullText = '';
-
       if (reader) {
         let fullText = '';
         let displayedText = '';
