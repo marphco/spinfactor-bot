@@ -181,14 +181,27 @@ const BlobHero: React.FC<BlobHeroProps> = ({ onNavigate }) => {
     return () => window.removeEventListener('resize', handleResize);
   }, [isMobile]);
 
+  /* 
+    PREVIOUS PALETTE (Cyberpunk / Deep Tones):
+    const palette = [
+      '#009FB7', // Teal
+      '#7209B7', // Amethyst (Premium Violet)
+      '#3A0CA3', // Deep Indigo
+      '#06D6A0', // Emerald Green
+      '#F72585', // Electric Rose
+      '#4CC9F0', // Vivid Azure
+      '#03045E', // Midnight Blue
+    ];
+  */
+
   const palette = [
-    '#009FB7', // Teal
+    '#FF0055', // Electric Rose (Neon Red-ish)
+    '#FF5E00', // Neon Orange
+    '#FFCC00', // Cyber Yellow
+    '#00FF88', // Spring Green (Neon Mint)
+    '#009FB7', // Spin Cyan (Teal)
+    '#4361EE', // Electric Blue (Deeper contrast)
     '#7209B7', // Amethyst (Premium Violet)
-    '#3A0CA3', // Deep Indigo
-    '#06D6A0', // Emerald Green
-    '#F72585', // Electric Rose
-    '#4CC9F0', // Vivid Azure
-    '#03045E', // Midnight Blue
   ];
 
   if (shuffledSections.length === 0) return null;

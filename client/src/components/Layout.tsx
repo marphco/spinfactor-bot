@@ -4,6 +4,8 @@ import { ArrowLeft } from 'lucide-react';
 import { useView } from '../context/ViewContext';
 import Logo from './Logo';
 import ChatBar from './ChatBar';
+import Footer from './Footer';
+import CookieNotice from './CookieNotice';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -15,7 +17,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
   return (
     <div className="layout">
-      <header className="nav-header">
+      <header className={`nav-header ${isHome ? 'is-navbar-home' : ''}`}>
         <div className="header-container-aligned">
           <AnimatePresence>
             {!isHome && (
@@ -48,8 +50,10 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         {children}
       </main>
       
-      <div className="bottom-fixed">
+      <div className={`bottom-fixed ${!isHome ? 'is-subpage' : ''}`}>
+        <CookieNotice />
         <ChatBar />
+        <Footer isHome={isHome} />
       </div>
     </div>
   );

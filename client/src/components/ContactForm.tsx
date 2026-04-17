@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Send, MapPin, Mail, Building2, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react';
+import { useView } from '../context/ViewContext';
 
 const ContactForm: React.FC = () => {
+  const { setActiveView } = useView();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -147,6 +149,9 @@ const ContactForm: React.FC = () => {
                   </div>
                 )}
 
+                <div className="privacy-notice" style={{ marginTop: '24px', fontSize: '11px', color: 'var(--text-dim)', textAlign: 'center', opacity: 0.8 }}>
+                  Inviando il modulo, accetti la nostra <button type="button" onClick={() => setActiveView('privacy-policy')} style={{ background: 'none', border: 'none', color: 'var(--primary)', textDecoration: 'underline', cursor: 'pointer', padding: 0 }}>Privacy Policy</button>.
+                </div>
                 <button 
                   type="submit" 
                   className="submit-btn" 

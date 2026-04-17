@@ -8,6 +8,7 @@ import Diciamo from './content/Diciamo';
 import AreeIntervento from './content/AreeIntervento';
 import SpinTalks from './content/SpinTalks';
 import Podcast from './content/Podcast';
+import LegalView from './content/LegalView';
 import ContactForm from './ContactForm';
 import Human from './content/Human';
 import { useView } from '../context/ViewContext';
@@ -36,6 +37,8 @@ const ViewManager: React.FC = () => {
             <Route path="/capri-talks" element={<SpinTalks key="capri-talks" />} />
             <Route path="/human" element={<Human key="human" />} />
             <Route path="/podcast" element={<Podcast key="podcast" />} />
+            <Route path="/privacy-policy" element={<LegalView type="privacy-policy" />} />
+            <Route path="/cookie-policy" element={<LegalView type="cookie-policy" />} />
             <Route path="/contatti" element={<ContactForm key="contatti" />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
