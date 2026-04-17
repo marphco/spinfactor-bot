@@ -325,10 +325,8 @@ button {
 .chat-window {
   position: relative;
   margin: 0 auto 12px; /* Lowered from 24px */
-  background: rgba(10, 18, 22, 0.7); /* Slightly more transparent */
-  backdrop-filter: blur(30px);
-  -webkit-backdrop-filter: blur(30px);
-  border: 1px solid rgba(255, 255, 255, 0.15); /* More visible border for glass edge */
+  background: rgba(15, 25, 30, 0.4); /* Much more transparent to inherit backdrop blur */
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 28px;
   overflow: hidden;
   box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.8),
@@ -580,11 +578,13 @@ button {
 .chat-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(0, 5, 10, 0.45); /* Lowered opacity to let colors shine through */
-  backdrop-filter: blur(12px); /* Subtle blur to prepare the stacking */
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(0, 5, 10, 0.4);
+  backdrop-filter: blur(20px) saturate(180%); /* Added saturation for more vibrant glass */
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
   z-index: 9000;
   cursor: pointer;
+  will-change: backdrop-filter; /* Hardware acceleration hint */
+  transform: translateZ(0); /* Force GUI layer */
 }
 
 .chat-wrapper {
