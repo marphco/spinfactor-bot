@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Send, MapPin, Mail, Building2, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react';
-import { useView } from '../context/ViewContext';
 
 const ContactForm: React.FC = () => {
-  const { setActiveView } = useView();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -148,10 +146,6 @@ const ContactForm: React.FC = () => {
                     <span>{errorMessage}</span>
                   </div>
                 )}
-
-                <div className="form-privacy-notice">
-                  Inviando accetti l' <button type="button" onClick={() => setActiveView('privacy-policy')}>Informativa Privacy</button>.
-                </div>
 
                 <button 
                   type="submit" 
