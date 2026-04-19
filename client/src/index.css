@@ -601,16 +601,33 @@ button {
 @media (max-width: 768px) {
   .chat-wrapper {
     padding: 0 20px;
-    margin-bottom: 20px;
+    margin-bottom: 24px; /* Lowered for fused look */
+    width: 100%;
+    display: flex;
+    justify-content: center;
   }
   
   .chat-window {
     border-radius: 24px;
+    width: 100% !important;
+    max-width: 100%;
+  }
+
+  /* Anti-zoom fix for iOS: Inputs must be at least 16px */
+  .chat-content input,
+  .chat-input-row input,
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 16px !important;
   }
   
   .message-bubble-premium {
     max-width: 90%;
     font-size: 14px;
+  }
+  
+  .is-fused .chat-history {
+    bottom: 48px; /* Consistent height matching desktop fusion */
   }
 }
 
@@ -734,17 +751,6 @@ button {
   max-width: 900px;
   padding: 0 24px;
   margin-bottom: 24px; /* Lowered even more */
-}
-
-@media (max-width: 768px) {
-  .chat-wrapper {
-    padding: 0 20px;
-    margin-bottom: 24px; /* Adjusting for fused look */
-  }
-  
-  .is-fused .chat-history {
-    bottom: 48px; /* Consistent height matching desktop fusion */
-  }
 }
 
 /* Cookie Notice Positioning */

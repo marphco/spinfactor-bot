@@ -85,7 +85,7 @@ const ChatBar: React.FC = () => {
           initial={false}
           animate={{ 
             height: showHistory ? 'min(640px, 80vh)' : '52px',
-            width: showHistory ? 'min(860px, calc(100vw - 40px))' : 'min(860px, calc(100vw - 40px))'
+            width: 'min(860px, 100%)'
           }}
           transition={{ type: 'spring', stiffness: 300, damping: 30 }}
           className={`chat-window ${isFocused ? 'focused' : ''} ${showHistory ? 'open' : 'closed'}`}
