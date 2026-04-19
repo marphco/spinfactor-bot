@@ -218,7 +218,7 @@ const BlobHero: React.FC<BlobHeroProps> = ({ onNavigate }) => {
           <p className="hero-tagline">l’algoritmo del consenso</p>
         </motion.div>
 
-    <div className="radial-nav-container" style={isMobile ? { height: '360px' } : {}}>
+    <div className="radial-nav-container" style={isMobile ? { height: '400px' } : {}}>
           {shuffledSections.map((section, index) => (
             <BlobButton 
               key={section.id}

@@ -94,12 +94,24 @@ button {
 
 /* Layout */
 .layout {
-  min-height: 100vh;
+  min-height: 100dvh;
   width: 100%;
   position: relative;
   background: radial-gradient(circle at top left, rgba(0, 159, 183, 0.08), transparent 40%),
               radial-gradient(circle at bottom right, rgba(0, 159, 183, 0.08), transparent 40%),
               var(--bg);
+}
+
+.layout.is-home-state {
+  height: 100dvh;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .layout.is-home-state {
+    position: fixed;
+    inset: 0;
+  }
 }
 
 .nav-header {
@@ -221,7 +233,7 @@ button {
 
 @media (max-width: 768px) {
   .radial-nav-container {
-    transform: translateY(-55px); /* Raised even more from -25px to clear space for the assistant bar */
+    transform: translateY(15px); /* Lowered to prevent overlap with logo/tagline */
   }
 }
 
@@ -706,7 +718,7 @@ button {
 
 @media (max-width: 768px) {
   .hero-container {
-    padding: 80px 0 20px;
+    padding: 100px 0 20px; /* Increased top padding to push blobs down */
   }
 }
 

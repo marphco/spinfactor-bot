@@ -16,7 +16,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   const isHome = activeView === 'home';
 
   return (
-    <div className="layout">
+    <div className={`layout ${isHome ? 'is-home-state' : ''}`}>
       <header className={`nav-header ${isHome ? 'is-navbar-home' : ''}`}>
         <div className="header-container-aligned">
           <AnimatePresence>
