@@ -80,7 +80,7 @@ const BlobButton: React.FC<BlobButtonProps> = ({
           whileHover={{ scale: 1.08 }}
           whileTap={{ scale: 0.95 }}
           onClick={onClick}
-          className="blob-button"
+          className={`blob-button ${color === '#FFFFFF' ? 'is-white-blob' : ''}`}
           style={{ 
             '--blob-color': color,
             '--size': `${size}px`
@@ -92,7 +92,7 @@ const BlobButton: React.FC<BlobButtonProps> = ({
               typeof Icon === 'string' ? (
                 <img 
                   src={Icon} 
-                  className="blob-icon custom-svg-icon" 
+                  className={`blob-icon custom-svg-icon ${color === '#FFFFFF' ? 'white-blob-icon' : ''}`} 
                   style={{ 
                     width: (label === 'SIAMO' ? size * 0.14 : size * 0.18), 
                     height: 'auto' 
@@ -100,10 +100,10 @@ const BlobButton: React.FC<BlobButtonProps> = ({
                   alt="" 
                 />
               ) : (
-                <Icon className="blob-icon" size={size * 0.18} />
+                <Icon className={`blob-icon ${color === '#FFFFFF' ? 'white-blob-icon' : ''}`} size={size * 0.18} />
               )
             )}
-            <span className="blob-label">{label}</span>
+            <span className={`blob-label ${color === '#FFFFFF' ? 'white-blob-text' : ''}`}>{label}</span>
           </div>
         </motion.button>
       </motion.div>
@@ -195,13 +195,13 @@ const BlobHero: React.FC<BlobHeroProps> = ({ onNavigate }) => {
   */
 
   const palette = [
-    '#FF0055', // Electric Rose (Neon Red-ish)
-    '#FF5E00', // Neon Orange
-    '#FFCC00', // Cyber Yellow
-    '#00FF88', // Spring Green (Neon Mint)
-    '#009FB7', // Spin Cyan (Teal)
-    '#4361EE', // Electric Blue (Deeper contrast)
-    '#7209B7', // Amethyst (Premium Violet)
+    '#FF3366', // Red
+    '#FF8800', // Orange
+    '#FFDD00', // Yellow
+    '#00D656', // Green
+    '#009FB7', // Cyan / Light Blue
+    '#9D00FF', // Purple
+    '#FFFFFF', // White
   ];
 
   if (shuffledSections.length === 0) return null;

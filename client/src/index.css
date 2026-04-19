@@ -298,6 +298,26 @@ body:has(.is-home-state) {
   text-transform: uppercase;
 }
 
+/* --- White Blob Overrides --- */
+.blob-button.is-white-blob .blob-content {
+  filter: none;
+}
+
+svg.blob-icon.white-blob-icon {
+  color: var(--primary) !important;
+  filter: none !important;
+}
+
+img.white-blob-icon {
+  /* CSS Filter to convert white SVG to #009FB7 (var(--primary)) */
+  filter: brightness(0) saturate(100%) invert(48%) sepia(50%) saturate(1915%) hue-rotate(152deg) brightness(97%) contrast(100%) !important;
+}
+
+.white-blob-text {
+  color: var(--primary) !important;
+  font-weight: 800;
+}
+
 .org-split-container {
   position: relative;
   display: flex !important;
