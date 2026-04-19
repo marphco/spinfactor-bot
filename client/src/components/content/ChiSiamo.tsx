@@ -58,14 +58,14 @@ const ChiSiamo: React.FC = () => {
               marginBottom: '3rem',
               border: '1px solid rgba(0, 159, 183, 0.4)',
               background: 'rgba(0, 159, 183, 0.05)',
-              padding: '32px',
+              padding: 'clamp(20px, 5vw, 32px)',
               textAlign: 'center'
             }}
           >
             <h3 style={{ 
               margin: 0, 
               color: 'var(--primary)', 
-              fontSize: '1.5rem', 
+              fontSize: 'clamp(1.1rem, 4.5vw, 1.5rem)', 
               fontWeight: 600, 
               lineHeight: 1.6,
               letterSpacing: '-0.01em'
