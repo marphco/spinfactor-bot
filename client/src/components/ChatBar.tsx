@@ -105,7 +105,14 @@ const ChatBar: React.FC = () => {
                     <img src={brandIcon} alt="Spin Factor" />
                     <span>Spinny</span>
                   </div>
-                  <button onClick={() => setShowHistory(false)} className="close-window-btn">
+                  <button 
+                    onClick={() => setShowHistory(false)} 
+                    onTouchStart={(e) => {
+                      e.preventDefault();
+                      setShowHistory(false);
+                    }}
+                    className="close-window-btn"
+                  >
                     <X size={18} />
                   </button>
                 </div>
