@@ -300,7 +300,8 @@ body:has(.is-home-state) {
 
 /* --- White Blob Overrides --- */
 .blob-button.is-white-blob .blob-content {
-  filter: none;
+  /* Restore the shadow but adapt it so it looks like a cyan glow rather than a muddy black shadow on white */
+  filter: drop-shadow(0 2px 4px rgba(0, 159, 183, 0.4)) drop-shadow(0 0 10px rgba(0, 159, 183, 0.2));
 }
 
 svg.blob-icon.white-blob-icon {
