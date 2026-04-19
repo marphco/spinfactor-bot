@@ -39,11 +39,7 @@ const ChiSiamo: React.FC = () => {
           </div>
           <h2 className="mag-h2">Siamo.</h2>
           
-          <h3 className="mag-tagline">
-            Comprendere per decidere. <br/>
-            Comunicare per posizionare. <br/>
-            Accreditarsi per crescere.
-          </h3>
+
 
           <div className={`mag-intro ${corporateLoading ? 'loading-shimmer' : ''}`}>
             {(corporateContent || CORPORATE_FALLBACK).split('\n\n').map((p, i) => (
@@ -52,6 +48,33 @@ const ChiSiamo: React.FC = () => {
               </p>
             ))}
           </div>
+
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.98 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="mag-card" 
+            style={{ 
+              marginTop: '1rem',
+              marginBottom: '3rem',
+              border: '1px solid rgba(0, 159, 183, 0.4)',
+              background: 'rgba(0, 159, 183, 0.05)',
+              padding: '32px',
+              textAlign: 'center'
+            }}
+          >
+            <h3 style={{ 
+              margin: 0, 
+              color: 'var(--primary)', 
+              fontSize: '1.5rem', 
+              fontWeight: 600, 
+              lineHeight: 1.6,
+              letterSpacing: '-0.01em'
+            }}>
+              Comprendere per decidere. <br/>
+              Comunicare per posizionare. <br/>
+              Accreditarsi per crescere.
+            </h3>
+          </motion.div>
         </section>
 
         <section className="mag-section">
