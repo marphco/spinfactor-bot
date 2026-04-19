@@ -107,7 +107,7 @@ const ChatBar: React.FC = () => {
                   </div>
                   <button 
                     onClick={() => setShowHistory(false)} 
-                    onPointerDown={(e) => {
+                    onPointerDown={() => {
                       if (document.activeElement instanceof HTMLElement) {
                         document.activeElement.blur();
                       }
