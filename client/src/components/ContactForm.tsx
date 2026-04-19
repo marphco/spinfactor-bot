@@ -49,7 +49,7 @@ const ContactForm: React.FC = () => {
         setErrorMessage(data.message || 'Qualcosa è andato storto. Riprova più tardi.');
       }
     } catch (error) {
-      console.error('Submission error:', error);
+      // console.error('Submission error:', error);
       setStatus('error');
       setErrorMessage('Errore di connessione. Controlla la tua rete e riprova.');
     }

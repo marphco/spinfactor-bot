@@ -49,7 +49,7 @@ app.post('/api/chat', async (req, res) => {
   }
 
   try {
-    console.log(`🤖 AI Request (Stream): "${message}"`);
+    // Intentionally removed AI request log for production
     
     const systemicPrompt = `D'ora in poi agirai esclusivamente come Spinny, l'assistente concierge di Spin Factor. 
     REGOLE CRITICHE: 
@@ -95,7 +95,7 @@ app.post('/api/chat', async (req, res) => {
     }
 
     res.end();
-    console.log(`✅ AI Stream completed`);
+
 
   } catch (error) {
     console.error('❌ AI Proxy Stream Error:', error.message);
@@ -116,7 +116,7 @@ app.post('/api/contact', async (req, res) => {
 
   // Anti-spam Check (Honeypot)
   if (company) {
-    console.log('Spam detected! Honeypot filled.');
+    // Silently reject spam
     return res.status(200).json({ success: true, message: 'Message received (spam)' });
   }
 
@@ -151,12 +151,7 @@ app.post('/api/contact', async (req, res) => {
       `,
     };
 
-    console.log('--- Intent di invio Email ---');
-    console.log('Da:', mailOptions.from);
-    console.log('A:', mailOptions.to);
-    console.log('Oggetto:', mailOptions.subject);
-    console.log('Contenuto:', mailOptions.text);
-    console.log('----------------------------');
+
 
     await transporter.sendMail(mailOptions);
     res.status(200).json({ success: true, message: 'Messaggio inviato con successo!' });

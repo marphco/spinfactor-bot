@@ -16,4 +16,3 @@ export const API_BASE_URL = isProd
   ? (envBaseUrl && !envBaseUrl.includes('localhost') ? envBaseUrl : PROD_FALLBACK)
   : (envBaseUrl || 'http://localhost:5001');
 
-console.log(`[API Config] Mode: ${import.meta.env.MODE}, Base URL: ${API_BASE_URL || '(relative)'}`);

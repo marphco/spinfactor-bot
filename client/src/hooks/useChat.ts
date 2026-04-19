@@ -158,7 +158,7 @@ export const useChat = (_onNavigate: (view: string) => void) => {
       }
 
     } catch (error) {
-      console.error('Error sending message:', error);
+      // console.error('Error sending message:', error);
       
       const fallbackMsg: Message = {
         id: (Date.now() + 1).toString(),
