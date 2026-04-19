@@ -107,8 +107,10 @@ const ChatBar: React.FC = () => {
                   </div>
                   <button 
                     onClick={() => setShowHistory(false)} 
-                    onTouchStart={(e) => {
-                      e.preventDefault();
+                    onPointerDown={(e) => {
+                      if (document.activeElement instanceof HTMLElement) {
+                        document.activeElement.blur();
+                      }
                       setShowHistory(false);
                     }}
                     className="close-window-btn"
