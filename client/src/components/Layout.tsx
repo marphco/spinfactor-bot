@@ -53,7 +53,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         {children}
       </main>
       
-      <div className={`bottom-fixed ${(!isHome && !isCapriTalks) ? 'is-subpage' : ''}`} style={isCapriTalks ? {position: 'static'} : {}}>
+      <div className={`bottom-fixed ${(!isHome && !isCapriTalks) ? 'is-subpage' : ''}`}>
         <CookieNotice />
         {!isCapriTalks && <ChatBar />}
         {!isCapriTalks && <Footer isHome={isHome} />}
