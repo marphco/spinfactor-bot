@@ -7,7 +7,7 @@ import {
   Headphones,
   Newspaper
 } from 'lucide-react';
-import HumanIcon from '../assets/human.svg';
+import HumanIcon from '../assets/human2.svg';
 import SiamoIcon from '../assets/siamo.svg';
 
 interface BlobButtonProps {
