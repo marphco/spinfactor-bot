@@ -771,16 +771,9 @@ img.white-blob-icon {
 }
 
 .bottom-fixed.is-subpage {
-  background: linear-gradient(
-    to bottom,
-    transparent 0%,
-    rgba(0, 0, 0, 0.05) 10%,
-    rgba(0, 0, 0, 0.3) 30%,
-    rgba(0, 0, 0, 0.7) 60%,
-    rgba(0, 0, 0, 0.9) 85%,
-    #000000 100%
-  );
-  /* Removed backdrop-filter to eliminate sharp cut edge */
+  height: 180px;
+  background: linear-gradient(to top, var(--bg) 160px, transparent 100%);
+  pointer-events: none;
 }
 
 .bottom-fixed > * {
