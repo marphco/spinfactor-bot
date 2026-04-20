@@ -207,7 +207,7 @@ const CapriTalks: React.FC = () => {
         {/* I PROTAGONISTI */}
         <h2 className="ct-section-title">I PROTAGONISTI</h2>
         
-        <div className="ct-diagram">
+        <div className="ct-diagram ct-diagram-guidelines">
           <div className="ct-diagram-node" style={{ width: '130px' }}>
             <img src="/src/assets/rappresentanti.svg" alt="Rappresentanti" className="ct-diagram-img" />
             <div>
@@ -219,7 +219,7 @@ const CapriTalks: React.FC = () => {
             <img src="/src/assets/freccia1-1.svg" alt="arrow" />
           </div>
           
-          <div className="ct-diagram-node" style={{ width: '130px' }}>
+          <div className="ct-diagram-node lowered" style={{ width: '130px' }}>
             <img src="/src/assets/direttori.svg" alt="Direttori" className="ct-diagram-img" />
             <div>
               <h4 style={{ fontSize: '0.8rem' }}>Direttori di testata e giornalisti</h4>
@@ -241,7 +241,7 @@ const CapriTalks: React.FC = () => {
             <img src="/src/assets/freccia1-3.svg" alt="arrow" />
           </div>
 
-          <div className="ct-diagram-node" style={{ width: '130px' }}>
+          <div className="ct-diagram-node lowered" style={{ width: '130px' }}>
             <img src="/src/assets/leader.svg" alt="Opinion leader" className="ct-diagram-img" />
             <div>
               <h4 style={{ fontSize: '0.8rem' }}>Opinion leader e intellettuali</h4>
