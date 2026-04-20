@@ -48,7 +48,7 @@ const CapriTalks: React.FC = () => {
       <div className="ct-header">
         <div className="ct-header-container">
           <button onClick={() => setActiveView('home')} className="ct-logo-link">
-            <img src="/src/assets/logo.svg" alt="Spin Factor" style={{ filter: 'brightness(0)' }} height="32" />
+            <img src="/src/assets/logo.svg" alt="Spin Factor" height="32" />
           </button>
         </div>
       </div>
@@ -70,23 +70,24 @@ const CapriTalks: React.FC = () => {
             <div className="ct-sponsor-group">
               <span className="ct-sponsor-label">UN PROGETTO</span>
               <div className="ct-sponsor-logos">
-                <img src="/src/assets/logo.svg" alt="Spin Factor" className="ct-sponsor-logo" style={{ filter: 'brightness(0)' }} />
+                <img src="/src/assets/logo.svg" alt="Spin Factor" className="ct-sponsor-logo" />
               </div>
             </div>
             
             <div className="ct-sponsor-group">
               <span className="ct-sponsor-label">CON IL PATROCINIO DI</span>
-              <div className="ct-sponsor-logos">
-                <span style={{ fontSize: '0.8rem', fontWeight: 'bold' }}>Ministero della Cultura</span>
-                <span style={{ fontSize: '0.8rem', fontWeight: 'bold' }}>Ministero del Turismo</span>
+              <div className="ct-sponsor-logos" style={{ gap: '24px' }}>
+                <img src="/src/assets/palazzo-chigi.svg" alt="Palazzo Chigi" className="ct-sponsor-logo" style={{ height: '40px' }} />
+                <img src="/src/assets/mic.svg" alt="Ministero della Cultura" className="ct-sponsor-logo" style={{ height: '32px' }} />
+                <img src="/src/assets/mit.svg" alt="Ministero del Turismo" className="ct-sponsor-logo" style={{ height: '32px' }} />
               </div>
             </div>
 
             <div className="ct-sponsor-group">
               <span className="ct-sponsor-label">MEDIA PARTNER</span>
-              <div className="ct-sponsor-logos">
-                <span style={{ fontSize: '0.8rem', fontWeight: 'bold' }}>Sky tg24</span>
-                <span style={{ fontSize: '0.8rem', fontWeight: 'bold' }}>Adnkronos</span>
+              <div className="ct-sponsor-logos" style={{ gap: '24px' }}>
+                <img src="/src/assets/skytg24.svg" alt="Sky TG24" className="ct-sponsor-logo" style={{ height: '28px' }} />
+                <img src="/src/assets/adn.svg" alt="Adnkronos" className="ct-sponsor-logo" style={{ height: '24px' }} />
               </div>
             </div>
           </div>
