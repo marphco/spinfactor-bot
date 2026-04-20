@@ -11,6 +11,7 @@ const PORT = process.env.PORT || 5001;
 const ALLOWED_ORIGINS = [
   process.env.CLIENT_URL,
   'http://localhost:5173',
+  'http://localhost:5174', // Added to support local port shifts
   'https://spinfactor-bot.vercel.app'
 ];
 
@@ -21,7 +22,7 @@ app.use(cors({
   origin: function (origin, callback) {
     // allow requests with no origin (like mobile apps or curl requests)
     if (!origin) return callback(null, true);
-    if (ALLOWED_ORIGINS.indexOf(origin) === -1 && origin !== 'http://localhost:5173') {
+    if (ALLOWED_ORIGINS.indexOf(origin) === -1 && !origin.startsWith('http://localhost:51')) {
       return callback(new Error('The CORS policy for this site does not allow access from the specified Origin.'), false);
     }
     return callback(null, true);

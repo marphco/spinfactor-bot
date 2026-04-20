@@ -93,7 +93,7 @@ const LegalView: React.FC<LegalViewProps> = ({ type }) => {
               <h4 style={{ 
                 fontSize: '1.1rem', 
                 fontWeight: 700, 
-                color: 'white', 
+                color: '#0D2B67', 
                 marginBottom: '1rem',
                 letterSpacing: '-0.01em'
               }}>

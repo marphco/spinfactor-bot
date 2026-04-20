@@ -94,7 +94,7 @@ const BlobButton: React.FC<BlobButtonProps> = ({
                   src={Icon} 
                   className={`blob-icon custom-svg-icon ${color === '#FFFFFF' ? 'white-blob-icon' : ''}`} 
                   style={{ 
-                    width: (label === 'SIAMO' ? size * 0.14 : label === 'HUMAN' ? size * 0.25 : size * 0.18), 
+                    width: (label === 'SIAMO' ? size * 0.14 : label === 'HUMAN' ? size * 0.32 : size * 0.18), 
                     height: 'auto' 
                   }} 
                   alt="" 
@@ -171,6 +171,16 @@ const BlobHero: React.FC<BlobHeroProps> = ({ onNavigate }) => {
       { x: -230, y: -130 * ySquash, size: 180 },      // Top Left
     ];
 
+    const blobColors = [
+      '#8FB8DE', // Blue Ice
+      '#84CAE7', // Sky Blue
+      '#3F88C5', // Steel Blue
+      '#009FB7', // Pacific Blue
+      '#003D5B', // Yale Blue
+      '#004385', // Steel Azure
+      '#0D2B67'  // Imperial Blue
+    ];
+
     // Build the final sections array
     const finalSections = shuffled.map((p, i) => ({
       ...p,
@@ -178,36 +188,11 @@ const BlobHero: React.FC<BlobHeroProps> = ({ onNavigate }) => {
       y: coords[i].y * finalCoordsScale,
       size: coords[i].size * finalBlobSizeScale,
       isCenter: coords[i].isCenter || false,
-      color: palette[i],
+      color: blobColors[i],
     }));
 
     setShuffledSections(finalSections);
-
-    return () => window.removeEventListener('resize', handleResize);
   }, [isMobile]);
-
-  /* 
-    PREVIOUS PALETTE (Cyberpunk / Deep Tones):
-    const palette = [
-      '#009FB7', // Teal
-      '#7209B7', // Amethyst (Premium Violet)
-      '#3A0CA3', // Deep Indigo
-      '#06D6A0', // Emerald Green
-      '#F72585', // Electric Rose
-      '#4CC9F0', // Vivid Azure
-      '#03045E', // Midnight Blue
-    ];
-  */
-
-  const palette = [
-    '#FF3366', // Red
-    '#FF8800', // Orange
-    '#FFDD00', // Yellow
-    '#00D656', // Green
-    '#009FB7', // Cyan / Light Blue
-    '#9D00FF', // Purple
-    '#FFFFFF', // White
-  ];
 
   if (shuffledSections.length === 0) return null;
 

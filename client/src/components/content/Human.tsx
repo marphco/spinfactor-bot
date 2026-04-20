@@ -101,7 +101,7 @@ const Human: React.FC = () => {
                   {bullet.icon}
                 </div>
                 <div>
-                  <h4 style={{ fontSize: '1.05rem', fontWeight: 700, marginBottom: '6px', color: 'white' }}>{bullet.title}</h4>
+                  <h4 style={{ fontSize: '1.05rem', fontWeight: 700, marginBottom: '6px', color: '#0D2B67' }}>{bullet.title}</h4>
                   <p style={{ fontSize: '0.9rem', lineHeight: 1.6, opacity: 0.75, margin: 0 }}>{bullet.desc}</p>
                 </div>
               </motion.div>
@@ -127,7 +127,7 @@ const Human: React.FC = () => {
           <div className="mag-grid mag-grid--3" style={{ gridAutoRows: '1fr' }}>
             {indexBullets.map((bullet, idx) => (
               <div key={idx} className="mag-card" style={{ padding: '24px', height: '100%' }}>
-                <h4 style={{ color: 'white', fontSize: '1rem', fontWeight: 800, marginBottom: '12px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                <h4 style={{ color: '#0D2B67', fontSize: '1rem', fontWeight: 800, marginBottom: '12px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
                   {bullet.title}
                 </h4>
                 <p style={{ fontSize: '0.85rem', lineHeight: 1.6, opacity: 0.75, margin: 0 }}>

@@ -112,7 +112,7 @@ const AreeIntervento: React.FC = () => {
                       {feat.icon}
                     </div>
                     <div>
-                      <h4 style={{ fontSize: '1rem', fontWeight: 700, marginBottom: '8px', color: 'white' }}>
+                      <h4 style={{ fontSize: '1rem', fontWeight: 700, marginBottom: '8px', color: '#0D2B67' }}>
                         {feat.title}
                       </h4>
                       <p style={{ fontSize: '0.85rem', lineHeight: 1.6, opacity: 0.75, margin: 0 }}>

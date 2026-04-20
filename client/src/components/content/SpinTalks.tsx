@@ -88,7 +88,7 @@ const SpinTalks: React.FC = () => {
                   <MapPin size={24} />
                 </div>
                 <div>
-                  <h3 style={{ margin: '0 0 6px 0', fontSize: '1.1rem', fontWeight: 800, color: 'white' }}>Headquarters Roma</h3>
+                  <h3 style={{ margin: '0 0 6px 0', fontSize: '1.1rem', fontWeight: 800, color: '#0D2B67' }}>Headquarters Roma</h3>
                   <p style={{ margin: 0, opacity: 0.7, fontSize: '0.95rem', lineHeight: 1.5 }}>Via della Scrofa, 117 — 00186 Roma</p>
                 </div>
               </div>
@@ -107,7 +107,7 @@ const SpinTalks: React.FC = () => {
               </div>
               
               <div className="premium-badge-wrapper" style={{ marginBottom: '1.5rem', display: 'flex', gap: '12px' }}>
-                <span className="mag-badge" style={{ background: 'var(--primary)', color: 'black', fontWeight: 800, padding: '4px 12px', borderRadius: '4px', fontSize: '0.75rem', letterSpacing: '0.1em' }}>SAVE THE DATE</span>
+                <span className="mag-badge" style={{ background: 'var(--accent)', color: 'var(--imperial-blue)', fontWeight: 800, padding: '4px 12px', borderRadius: '4px', fontSize: '0.75rem', letterSpacing: '0.1em' }}>SAVE THE DATE</span>
                 <span style={{ fontSize: '0.9rem', fontWeight: 600, color: 'var(--primary)' }}>15-16 Maggio 2026</span>
               </div>
 
@@ -131,7 +131,7 @@ const SpinTalks: React.FC = () => {
                     style={{ padding: '32px', height: '100%' }}
                   >
                     <div className="mag-icon-box" style={{ marginBottom: '20px' }}>{guide.icon}</div>
-                    <h4 style={{ fontSize: '1.1rem', fontWeight: 800, marginBottom: '12px', color: 'white' }}>{guide.title}</h4>
+                    <h4 style={{ fontSize: '1.1rem', fontWeight: 800, marginBottom: '12px', color: '#0D2B67' }}>{guide.title}</h4>
                     <p style={{ fontSize: '0.85rem', lineHeight: 1.6, opacity: 0.7 }}>{guide.desc}</p>
                   </motion.div>
                 ))}
@@ -148,7 +148,7 @@ const SpinTalks: React.FC = () => {
                     style={{ padding: '32px' }}
                   >
                     <div className="mag-icon-box" style={{ marginBottom: '20px' }}>{guide.icon}</div>
-                    <h4 style={{ fontSize: '1.1rem', fontWeight: 800, marginBottom: '12px', color: 'white' }}>{guide.title}</h4>
+                    <h4 style={{ fontSize: '1.1rem', fontWeight: 800, marginBottom: '12px', color: '#0D2B67' }}>{guide.title}</h4>
                     <p style={{ fontSize: '0.85rem', lineHeight: 1.6, opacity: 0.7 }}>{guide.desc}</p>
                   </motion.div>
                 ))}
