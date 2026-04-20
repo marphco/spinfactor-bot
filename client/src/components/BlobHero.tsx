@@ -94,7 +94,7 @@ const BlobButton: React.FC<BlobButtonProps> = ({
                   src={Icon} 
                   className={`blob-icon custom-svg-icon ${color === '#FFFFFF' ? 'white-blob-icon' : ''}`} 
                   style={{ 
-                    width: (label === 'SIAMO' ? size * 0.14 : size * 0.18), 
+                    width: (label === 'SIAMO' ? size * 0.14 : label === 'HUMAN' ? size * 0.25 : size * 0.18), 
                     height: 'auto' 
                   }} 
                   alt="" 
