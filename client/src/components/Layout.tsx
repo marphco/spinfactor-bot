@@ -14,11 +14,13 @@ interface LayoutProps {
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   const { activeView, setActiveView } = useView();
   const isHome = activeView === 'home';
+  const isCapriTalks = activeView === 'capri-talks';
 
   return (
     <div className={`layout ${isHome ? 'is-home-state' : ''}`}>
-      <header className={`nav-header ${isHome ? 'is-navbar-home' : ''}`}>
-        <div className="header-container-aligned">
+      {!isCapriTalks && (
+        <header className={`nav-header ${isHome ? 'is-navbar-home' : ''}`}>
+          <div className="header-container-aligned">
           <AnimatePresence>
             {!isHome && (
               <motion.div
@@ -45,15 +47,16 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           </motion.div>
         </div>
       </header>
+      )}
       
-      <main className={`main-content ${!isHome ? 'subpage-padding' : ''}`}>
+      <main className={`main-content ${(!isHome && !isCapriTalks) ? 'subpage-padding' : ''}`}>
         {children}
       </main>
       
-      <div className={`bottom-fixed ${!isHome ? 'is-subpage' : ''}`}>
+      <div className={`bottom-fixed ${(!isHome && !isCapriTalks) ? 'is-subpage' : ''}`} style={isCapriTalks ? {position: 'static'} : {}}>
         <CookieNotice />
-        <ChatBar />
-        <Footer isHome={isHome} />
+        {!isCapriTalks && <ChatBar />}
+        {!isCapriTalks && <Footer isHome={isHome} />}
       </div>
     </div>
   );

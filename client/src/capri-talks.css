@@ -38,6 +38,81 @@
 }
 
 /* =========================================================================
+   HEADER & FOOTER (ISOLATED)
+   ========================================================================= */
+.ct-header {
+  width: 100%;
+  padding: 24px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.ct-logo-link {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.ct-footer {
+  margin-top: 80px;
+  padding: 40px 0;
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid rgba(0,0,0,0.05);
+}
+
+.ct-footer .footer-container {
+  max-width: 900px;
+  width: 100%;
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .ct-footer .footer-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 32px;
+  }
+}
+
+.ct-footer .footer-section {
+  color: #888;
+}
+
+.ct-footer .social-icon-link {
+  color: #888;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+  padding: 8px;
+}
+
+.ct-footer .social-icon-link:hover {
+  opacity: 1;
+  color: var(--primary);
+}
+
+.ct-footer .footer-text-link {
+  color: #888;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.85rem;
+  padding: 0;
+}
+
+.ct-footer .footer-divider {
+  color: #ccc;
+  margin: 0 10px;
+}
+
+/* =========================================================================
    HERO SECTION
    ========================================================================= */
 .ct-hero {

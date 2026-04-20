@@ -14,11 +14,15 @@ import {
   Briefcase,
   GraduationCap
 } from 'lucide-react';
+import { FaInstagram, FaLinkedinIn, FaTiktok, FaXTwitter } from "react-icons/fa6";
+import { useView } from '../../context/ViewContext';
 
 // Import isolated light theme
 import '../../capri-talks.css';
 
 const CapriTalks: React.FC = () => {
+  const { setActiveView } = useView();
+  const currentYear = new Date().getFullYear();
   // Adding a class to body or HTML might be tricky for SPA, 
   // we rely on the .capri-talks-page scoping, 
   // but let's ensure the body scrollbar is standard if needed.
@@ -40,6 +44,15 @@ const CapriTalks: React.FC = () => {
       exit={{ opacity: 0 }}
       className="capri-talks-page"
     >
+      {/* LOCAL HEADER */}
+      <div className="ct-header">
+        <div className="ct-header-container">
+          <button onClick={() => setActiveView('home')} className="ct-logo-link">
+            <img src="/src/assets/logo.svg" alt="Spin Factor" style={{ filter: 'brightness(0)' }} height="32" />
+          </button>
+        </div>
+      </div>
+
       <div className="ct-container">
         
         {/* HERO SECTION */}
@@ -282,6 +295,36 @@ const CapriTalks: React.FC = () => {
           La selezione degli ospiti avviene in funzione della rilevanza dei temi trattati e della capacità di offrire chiavi di lettura autorevoli e non convenzionali.
         </p>
 
+      </div>
+
+      {/* LOCAL STATIC FOOTER */}
+      <div className="ct-footer">
+        <div className="footer-container">
+          <div className="footer-section">
+            <span style={{ fontSize: '0.9rem' }}>© {currentYear} Spin Factor s.r.l.</span>
+          </div>
+
+          <div className="footer-section socials" style={{ display: 'flex', gap: '16px' }}>
+            <a href="https://www.instagram.com/spin.factor" target="_blank" rel="noopener noreferrer" className="social-icon-link">
+              <FaInstagram size={18} />
+            </a>
+            <a href="https://www.tiktok.com/@spin.factor" target="_blank" rel="noopener noreferrer" className="social-icon-link">
+              <FaTiktok size={18} />
+            </a>
+            <a href="https://x.com/SpinFactorIT" target="_blank" rel="noopener noreferrer" className="social-icon-link">
+              <FaXTwitter size={18} />
+            </a>
+            <a href="https://www.linkedin.com/company/spinfactor" target="_blank" rel="noopener noreferrer" className="social-icon-link">
+              <FaLinkedinIn size={18} />
+            </a>
+          </div>
+
+          <div className="footer-section legal-links">
+            <button onClick={() => setActiveView('privacy-policy')} className="footer-text-link">Privacy</button>
+            <span className="footer-divider">•</span>
+            <button onClick={() => setActiveView('cookie-policy')} className="footer-text-link">Cookie</button>
+          </div>
+        </div>
       </div>
     </motion.div>
   );
