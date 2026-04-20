@@ -433,8 +433,7 @@
   }
   
   .ct-section-title {
-    font-size: clamp(1.8rem, 8vw, 2.5rem) !important;
-    white-space: nowrap;
+    font-size: clamp(1.5rem, 8vw, 2.5rem) !important;
   }
   
   .ct-sponsors {

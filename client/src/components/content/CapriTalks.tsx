@@ -205,7 +205,7 @@ const CapriTalks: React.FC = () => {
         </p>
 
         {/* I PROTAGONISTI */}
-        <h2 className="ct-section-title">I PROTAGONISTI</h2>
+        <h2 className="ct-section-title">I&nbsp;PROTAGONISTI</h2>
         
         <div className="ct-diagram ct-diagram-guidelines">
           <div className="ct-diagram-node" style={{ width: '130px' }}>
