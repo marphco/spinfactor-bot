@@ -795,13 +795,16 @@ img.white-blob-icon {
   margin-bottom: 24px;
 }
 
-/* Home-specific adjustment for short viewports */
 @media (min-width: 769px) and (max-height: 850px) {
   .layout.is-home-state .chat-wrapper {
     margin-bottom: 12px;
   }
   .layout.is-home-state .fixed-footer {
     padding: 8px 0;
+  }
+  /* LIFT THE HUB ON SHORT VIEWPORTS */
+  .layout.is-home-state .radial-nav-container {
+    transform: translateY(-40px); /* Shift the whole menu UP */
   }
 }
 
@@ -1631,29 +1634,15 @@ img.white-blob-icon {
 /* --- MINIMAL COOKIE NOTICE (NO BORDER) --- */
 .cookie-notice-minimal {
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto 8px;
+  max-width: 900px;
+  margin: 0 auto 12px;
   padding: 0 24px;
   z-index: 100;
-  display: flex;
-  justify-content: flex-end; /* Move to the right on desktop */
 }
 
-@media (min-width: 769px) and (max-height: 850px) {
+@media (max-width: 768px) {
   .cookie-notice-minimal {
-    position: fixed;
-    bottom: 80px;
-    right: 20px;
-    width: auto;
-    margin: 0;
-    padding: 0;
-  }
-  .cookie-content-minimal {
-    background: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(10px);
-    padding: 8px 16px;
-    border-radius: 100px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 8px;
   }
 }
 

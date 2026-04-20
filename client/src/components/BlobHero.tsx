@@ -147,19 +147,19 @@ const BlobHero: React.FC<BlobHeroProps> = ({ onNavigate }) => {
     
     let laptopScale = 1.0;
     if (!isMobile) {
-      if (vHeight < 850) {
-        // Linear scale down from 850px height
-        laptopScale = Math.max(0.75, vHeight / 850);
+      if (vHeight < 880) {
+        // More aggressive scale down starting from 880px height
+        laptopScale = Math.max(0.68, vHeight / 960);
       }
-      // Also account for very narrow but non-mobile windows
+      // Also account for narrow windows
       if (vWidth < 1200) {
-        laptopScale = Math.min(laptopScale, Math.max(0.8, vWidth / 1200));
+        laptopScale = Math.min(laptopScale, Math.max(0.75, vWidth / 1200));
       }
     }
 
     // Dynamic Scaling Factors
     const coordsScale = isMobile ? 0.52 : laptopScale; 
-    const blobSizeScale = isMobile ? 0.52 : laptopScale; 
+    const blobSizeScale = isMobile ? 0.52 : (laptopScale * 0.95); // Slightly smaller blobs to favor air
 
     // All available sections
     const allSections = [
