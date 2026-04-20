@@ -16,6 +16,8 @@ Nel 2019, con un team qualificato di sviluppatori italiani, progetta Human, una 
 
 Nel 2023 la società si apre alle relazioni istituzionali, al networking e al corporate. Nel 2025 nascono gli Spin Talks e i Capri Talks.`;
 
+import TiberioImage from '../../assets/tiberio.png';
+
 const ChiSiamo: React.FC = () => {
   const { content: corporateContent, loading: corporateLoading } = useSectionContent(
     'Siamo', 
@@ -38,8 +40,6 @@ const ChiSiamo: React.FC = () => {
             <span className="mag-label">IDENTITY & STRATEGY</span>
           </div>
           <h2 className="mag-h2">Siamo.</h2>
-          
-
 
           <div className={`mag-intro ${corporateLoading ? 'loading-shimmer' : ''}`}>
             {(corporateContent || CORPORATE_FALLBACK).split('\n\n').map((p, i) => (
@@ -55,7 +55,7 @@ const ChiSiamo: React.FC = () => {
             className="mag-card" 
             style={{ 
               marginTop: '1rem',
-              marginBottom: '3rem',
+              marginBottom: '4rem',
               border: '1px solid rgba(0, 159, 183, 0.4)',
               background: 'rgba(0, 159, 183, 0.05)',
               padding: 'clamp(20px, 5vw, 32px)',
@@ -82,33 +82,54 @@ const ChiSiamo: React.FC = () => {
             <div className="mag-cyan-line" />
             <span className="mag-label">Il Fondatore</span>
           </div>
-          <h2 className="mag-h2" style={{ fontSize: '3.5rem' }}>Tiberio Brunetti.</h2>
+          <h2 className="mag-h2">Tiberio Brunetti.</h2>
           
-          <div className={`mag-intro ${founderLoading ? 'loading-shimmer' : ''}`} style={{ color: 'var(--text-dim)', marginBottom: '3rem' }}>
-            {(founderContent || FOUNDER_FALLBACK).split('\n\n').map((p, i) => (
-              <p key={i} style={{ marginBottom: '1.8rem' }}><FormattedText text={p} /></p>
-            ))}
-          </div>
+          <div className="mag-split-container">
+            <div className="mag-content-column">
+              <div className={`mag-intro ${founderLoading ? 'loading-shimmer' : ''}`} style={{ color: 'var(--text-dim)', marginBottom: '3rem', maxWidth: 'none' }}>
+                {(founderContent || FOUNDER_FALLBACK).split('\n\n').map((p, i) => (
+                  <p key={i} style={{ marginBottom: '1.8rem' }}><FormattedText text={p} /></p>
+                ))}
+              </div>
 
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="mag-card" 
-            style={{ 
-              flexDirection: 'row', 
-              alignItems: 'center', 
-              gap: '24px',
-              border: '1px solid rgba(0, 159, 183, 0.3)',
-              background: 'rgba(0, 159, 183, 0.03)'
-            }}
-          >
-            <div className="mag-icon-box" style={{ minWidth: '48px', height: '48px', borderRadius: '50%' }}>
-              <Wine size={24} />
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="mag-card" 
+                style={{ 
+                  flexDirection: 'row', 
+                  alignItems: 'center', 
+                  gap: '24px',
+                  border: '1px solid rgba(0, 159, 183, 0.3)',
+                  background: 'rgba(0, 159, 183, 0.03)',
+                  marginTop: '1rem'
+                }}
+              >
+                <div className="mag-icon-box" style={{ minWidth: '48px', height: '48px', borderRadius: '50%' }}>
+                  <Wine size={24} />
+                </div>
+                <p style={{ margin: 0, fontSize: '1rem', opacity: 0.9, fontStyle: 'italic', lineHeight: 1.6 }}>
+                  Imprenditore vinicolo a tempo perso, porta avanti sull’isola di Capri la ultrasecolare tradizione enologica di famiglia.
+                </p>
+              </motion.div>
             </div>
-            <p style={{ margin: 0, fontSize: '1rem', opacity: 0.9, fontStyle: 'italic', lineHeight: 1.6 }}>
-              Imprenditore vinicolo a tempo perso, porta avanti sull’isola di Capri la ultrasecolare tradizione enologica di famiglia.
-            </p>
-          </motion.div>
+
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              className="mag-image-column"
+            >
+              <div className="mag-founder-image-wrapper">
+                <img src={TiberioImage} alt="Tiberio Brunetti" className="mag-founder-image" />
+                <div className="mag-image-caption">
+                  <span>Founder & CEO</span>
+                </div>
+              </div>
+            </motion.div>
+          </div>
         </section>
       </div>
     </motion.div>
