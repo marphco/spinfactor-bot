@@ -432,6 +432,11 @@
     padding-top: 20px;
   }
   
+  .ct-section-title {
+    font-size: clamp(1.8rem, 8vw, 2.5rem) !important;
+    white-space: nowrap;
+  }
+  
   .ct-sponsors {
     flex-direction: column;
     align-items: center;
