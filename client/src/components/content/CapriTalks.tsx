@@ -46,10 +46,7 @@ const CapriTalks: React.FC = () => {
           <h1 className="ct-hero-title">CAPRI TALKS</h1>
           
           <div className="ct-hero-image">
-            {/* Placeholder - replace with actual image later */}
-            <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#888' }}>
-              [Immagine Panoramica Faraglioni]
-            </div>
+            <img src="/src/assets/capri1.png" alt="Capri Talks Panoramica" />
           </div>
 
           <div className="ct-sponsors">
@@ -100,10 +97,7 @@ const CapriTalks: React.FC = () => {
 
         <div className="ct-concept-split">
           <div className="ct-concept-image">
-            {/* Placeholder square image */}
-            <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#888' }}>
-              [Foto Quadrata Capri]
-            </div>
+            <img src="/src/assets/capri2.png" alt="Capri Talks Meeting" />
           </div>
           <div className="ct-concept-text">
             <p>
@@ -135,10 +129,7 @@ const CapriTalks: React.FC = () => {
         </div>
 
         <div className="ct-panoramic-image">
-          {/* Placeholder panoramic image */}
-          <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#888' }}>
-            [Immagine Panoramica Bassa Faraglioni]
-          </div>
+          <img src="/src/assets/capri3.png" alt="Capri Talks Orizzontale" />
         </div>
 
         {/* LINEE GUIDA */}
