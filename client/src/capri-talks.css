@@ -314,10 +314,14 @@
 .ct-diagram {
   display: flex;
   justify-content: center;
-  align-items: center;
-  gap: 0;
+  align-items: flex-start;
+  gap: 16px;
   margin-bottom: 40px;
   flex-wrap: nowrap;
+}
+
+.ct-diagram-guidelines {
+  gap: 24px;
 }
 
 .ct-diagram-node {
@@ -326,7 +330,11 @@
   align-items: center;
   text-align: center;
   gap: 16px;
-  width: 160px;
+  width: 130px;
+}
+
+.ct-diagram-node.lowered {
+  margin-top: 30px;
 }
 
 .ct-icon-circle {
@@ -354,17 +362,20 @@
 }
 
 .ct-diagram-img {
-  height: 90px;
+  height: 80px;
   width: auto;
   object-fit: contain;
   flex-shrink: 0;
 }
 
 .ct-arrow {
-  color: #009fb7;
-  opacity: 0.5;
-  margin: 0 10px;
-  margin-top: -40px; /* Aligns with circle center */
+  margin-top: 30px;
+}
+
+.ct-arrow img {
+  width: 50px;
+  height: auto;
+  object-fit: contain;
 }
 
 .ct-centered-text {
@@ -451,12 +462,24 @@
   
   .ct-diagram {
     flex-direction: column;
+    align-items: center;
     gap: 32px;
+  }
+
+  .ct-diagram-guidelines {
+    gap: 32px;
+  }
+
+  .ct-diagram-node.lowered {
+    margin-top: 0;
   }
   
   .ct-arrow {
-    transform: rotate(90deg);
     margin: 0;
+  }
+
+  .ct-arrow img {
+    transform: rotate(90deg);
   }
 
   .ct-cards-grid {

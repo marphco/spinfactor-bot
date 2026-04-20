@@ -144,7 +144,7 @@ const CapriTalks: React.FC = () => {
         {/* LINEE GUIDA */}
         <h2 className="ct-section-title">LINEE GUIDA</h2>
         
-        <div className="ct-diagram">
+        <div className="ct-diagram ct-diagram-guidelines">
           <div className="ct-diagram-node">
             <img src="/src/assets/contaminazioni.svg" alt="Contaminazioni" className="ct-diagram-img" />
             <div>
@@ -157,7 +157,7 @@ const CapriTalks: React.FC = () => {
             <img src="/src/assets/freccia1.svg" alt="arrow" />
           </div>
           
-          <div className="ct-diagram-node">
+          <div className="ct-diagram-node lowered">
             <img src="/src/assets/connessioni.svg" alt="Connessioni" className="ct-diagram-img" />
             <div>
               <h4>Connessioni</h4>
