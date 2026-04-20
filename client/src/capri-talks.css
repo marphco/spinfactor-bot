@@ -482,6 +482,16 @@
     transform: rotate(90deg);
   }
 
+  /* Offset for Linee Guida nodes on mobile */
+  .ct-diagram-guidelines .ct-diagram-node:nth-child(1),
+  .ct-diagram-guidelines .ct-diagram-node:nth-child(5) {
+    transform: translateX(40px);
+  }
+
+  .ct-diagram-guidelines .ct-diagram-node:nth-child(3) {
+    transform: translateX(-40px);
+  }
+
   .ct-cards-grid {
     grid-template-columns: 1fr;
   }
