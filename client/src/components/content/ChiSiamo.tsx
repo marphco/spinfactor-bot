@@ -84,50 +84,44 @@ const ChiSiamo: React.FC = () => {
           </div>
           <h2 className="mag-h2">Tiberio Brunetti.</h2>
           
-          <div className="mag-split-container">
-            <div className="mag-content-column">
-              <div className={`mag-intro ${founderLoading ? 'loading-shimmer' : ''}`} style={{ color: 'var(--text-dim)', marginBottom: '3rem', maxWidth: 'none' }}>
-                {(founderContent || FOUNDER_FALLBACK).split('\n\n').map((p, i) => (
-                  <p key={i} style={{ marginBottom: '1.8rem' }}><FormattedText text={p} /></p>
-                ))}
-              </div>
-
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="mag-card" 
-                style={{ 
-                  flexDirection: 'row', 
-                  alignItems: 'center', 
-                  gap: '24px',
-                  border: '1px solid rgba(0, 159, 183, 0.3)',
-                  background: 'rgba(0, 159, 183, 0.03)',
-                  marginTop: '1rem'
-                }}
-              >
-                <div className="mag-icon-box" style={{ minWidth: '48px', height: '48px', borderRadius: '50%' }}>
-                  <Wine size={24} />
-                </div>
-                <p style={{ margin: 0, fontSize: '1rem', opacity: 0.9, fontStyle: 'italic', lineHeight: 1.6 }}>
-                  Imprenditore vinicolo a tempo perso, porta avanti sull’isola di Capri la ultrasecolare tradizione enologica di famiglia.
-                </p>
-              </motion.div>
-            </div>
-
+          <div className="mag-founder-layout">
             <motion.div 
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="mag-image-column"
+              className="mag-founder-image-wrapper floating"
             >
-              <div className="mag-founder-image-wrapper">
-                <img src={TiberioImage} alt="Tiberio Brunetti" className="mag-founder-image" />
-                <div className="mag-image-caption">
-                  <span>Founder & CEO</span>
-                </div>
+              <img src={TiberioImage} alt="Tiberio Brunetti" className="mag-founder-image" />
+            </motion.div>
+
+            <div className={`mag-intro ${founderLoading ? 'loading-shimmer' : ''}`} style={{ color: 'var(--text-dim)', marginBottom: '3rem', maxWidth: 'none' }}>
+              {(founderContent || FOUNDER_FALLBACK).split('\n\n').map((p, i) => (
+                <p key={i} style={{ marginBottom: '1.8rem' }}><FormattedText text={p} /></p>
+              ))}
+            </div>
+
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="mag-card" 
+              style={{ 
+                flexDirection: 'row', 
+                alignItems: 'center', 
+                gap: '24px',
+                border: '1px solid rgba(0, 159, 183, 0.3)',
+                background: 'rgba(0, 159, 183, 0.03)',
+                marginTop: '1rem',
+                clear: 'both'
+              }}
+            >
+              <div className="mag-icon-box" style={{ minWidth: '48px', height: '48px', borderRadius: '50%' }}>
+                <Wine size={24} />
               </div>
+              <p style={{ margin: 0, fontSize: '1rem', opacity: 0.9, fontStyle: 'italic', lineHeight: 1.6 }}>
+                Imprenditore vinicolo a tempo perso, porta avanti sull’isola di Capri la ultrasecolare traditione enologica di famiglia.
+              </p>
             </motion.div>
           </div>
         </section>
