@@ -97,18 +97,18 @@ const CapriTalks: React.FC = () => {
         <h2 className="ct-section-title">IL CONCEPT</h2>
         
         <div className="ct-concept-top">
-          <div className="ct-concept-paragraph">
-            <Lightbulb size={48} className="ct-concept-icon" strokeWidth={1.5} />
+          <div className="ct-concept-paragraph left">
+            <img src="/src/assets/lampadina.svg" alt="Concept Idea" className="ct-concept-icon" />
             <p>
               Gli Spin Talks sono un ciclo di incontri creati per dare spazio a <strong>idee, esperienze e confronti</strong> sui grandi temi del nostro tempo: politica, istituzioni, media, economia, cultura, innovazione e società.
             </p>
           </div>
           
-          <div className="ct-concept-paragraph">
+          <div className="ct-concept-paragraph right">
+            <img src="/src/assets/pin.svg" alt="Location" className="ct-concept-icon" />
             <p>
               Gli appuntamenti si tengono durante l'anno nella sede di Spin Factor a <strong>Roma</strong>, in via della Scrofa, e si estendono in un'<strong>edizione annuale a Capri</strong>.
             </p>
-            <MapPin size={48} className="ct-concept-icon red" strokeWidth={1.5} />
           </div>
         </div>
 
