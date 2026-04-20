@@ -1556,31 +1556,39 @@ img.white-blob-icon {
 /* --- MINIMAL COOKIE NOTICE (NO BORDER) --- */
 .cookie-notice-minimal {
   width: 100%;
+  max-width: 900px;
+  margin: 0 auto 12px;
+  padding: 0 24px;
+  z-index: 100;
+}
+
+.cookie-notice-capri {
+  width: 100%;
   max-width: 800px;
   margin: 0 auto 20px;
   padding: 12px 24px;
   z-index: 10000;
-  background: rgba(10, 25, 30, 0.85);
+  background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.05);
   border-radius: 16px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
-}
-
-/* Light theme override for Capri Talks */
-.capri-talks-page ~ .bottom-fixed .cookie-notice-minimal,
-.capri-talks-page .cookie-notice-minimal {
-  background: rgba(255, 255, 255, 0.9);
-  border-color: rgba(0, 0, 0, 0.05);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .cookie-content-minimal {
   display: flex;
   align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.cookie-notice-capri .cookie-content-minimal {
   justify-content: space-between;
   gap: 20px;
+  border-bottom: none;
 }
 
 .cookie-text-minimal {

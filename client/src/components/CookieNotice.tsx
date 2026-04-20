@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useView } from '../context/ViewContext';
 
 const CookieNotice: React.FC = () => {
-  const { setActiveView, isChatOpen } = useView();
+  const { activeView, setActiveView, isChatOpen } = useView();
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -26,7 +26,7 @@ const CookieNotice: React.FC = () => {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0 }}
-          className="cookie-notice-minimal"
+          className={activeView === 'capri-talks' ? "cookie-notice-capri" : "cookie-notice-minimal"}
         >
           <div className="cookie-content-minimal">
             <span className="cookie-text-minimal">
