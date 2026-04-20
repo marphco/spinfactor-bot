@@ -7,6 +7,7 @@ import { Societa } from './content/SocietaMetodo';
 import Diciamo from './content/Diciamo';
 import AreeIntervento from './content/AreeIntervento';
 import SpinTalks from './content/SpinTalks';
+import CapriTalks from './content/CapriTalks';
 import Podcast from './content/Podcast';
 import LegalView from './content/LegalView';
 import ContactForm from './ContactForm';
@@ -34,7 +35,7 @@ const ViewManager: React.FC = () => {
             <Route path="/diciamo" element={<Diciamo key="diciamo" />} />
             <Route path="/facciamo" element={<AreeIntervento key="facciamo" />} />
             <Route path="/spin-talks" element={<SpinTalks key="spin-talks" />} />
-            <Route path="/capri-talks" element={<SpinTalks key="capri-talks" />} />
+            <Route path="/capri-talks" element={<CapriTalks key="capri-talks" />} />
             <Route path="/human" element={<Human key="human" />} />
             <Route path="/podcast" element={<Podcast key="podcast" />} />
             <Route path="/privacy-policy" element={<LegalView type="privacy-policy" />} />

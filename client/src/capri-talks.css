@@ -1,0 +1,359 @@
+/* =========================================================================
+   CAPRI TALKS - ISOLATED LIGHT THEME
+   ========================================================================= */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&display=swap');
+
+.capri-talks-page {
+  /* Override global dark theme */
+  background-color: #ffffff !important;
+  color: #1a1a1a !important;
+  min-height: 100vh;
+  /* Make sure it sits above the dark background clearly */
+  position: relative;
+  z-index: 10;
+  padding-bottom: 80px;
+}
+
+/* Base typography overrides for this specific page */
+.capri-talks-page h1, 
+.capri-talks-page h2, 
+.capri-talks-page h3, 
+.capri-talks-page h4 {
+  font-family: 'Playfair Display', serif !important;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.capri-talks-page p {
+  color: #4a4a4a !important;
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+}
+
+/* Container */
+.ct-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* =========================================================================
+   HERO SECTION
+   ========================================================================= */
+.ct-hero {
+  text-align: center;
+  padding-top: 80px;
+  padding-bottom: 40px;
+}
+
+.ct-hero-title {
+  color: var(--primary) !important;
+  font-size: 5rem !important;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 24px !important;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.ct-hero-image {
+  width: 100%;
+  border-radius: 24px;
+  overflow: hidden;
+  margin-bottom: 40px;
+  background-color: #f0f0f0; /* placeholder bg */
+  aspect-ratio: 21 / 9;
+}
+
+.ct-hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.ct-sponsors {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 32px;
+  padding: 0 24px;
+  border-top: 1px solid #eaeaea;
+  padding-top: 24px;
+}
+
+.ct-sponsor-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ct-sponsor-label {
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #888 !important;
+  font-family: 'Inter', sans-serif;
+}
+
+.ct-sponsor-logos {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.ct-sponsor-logo {
+  height: 24px;
+  width: auto;
+  /* Filter strictly to match original colors/blacks depending on the logo provided */
+}
+
+/* =========================================================================
+   SECTION HEADERS
+   ========================================================================= */
+.ct-section-title {
+  text-align: center;
+  font-size: 3rem !important;
+  font-weight: 700;
+  margin: 80px 0 40px 0 !important;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+}
+
+/* =========================================================================
+   IL CONCEPT
+   ========================================================================= */
+.ct-concept-top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 48px;
+  gap: 24px;
+}
+
+.ct-concept-paragraph {
+  max-width: 700px;
+  font-size: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.ct-concept-icon {
+  color: var(--primary);
+}
+
+.ct-concept-icon.red {
+  color: #ff6b6b;
+}
+
+.ct-concept-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.ct-concept-image {
+  border-radius: 24px;
+  overflow: hidden;
+  background-color: #f0f0f0;
+  aspect-ratio: 1; /* Square */
+}
+
+.ct-concept-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.ct-concept-text {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.ct-concept-text p {
+  font-size: 1rem;
+  margin: 0;
+}
+
+/* =========================================================================
+   2026 (DIS)UNITI
+   ========================================================================= */
+.ct-columns-text {
+  display: grid;
+  grid-template-columns: 1fr 1px 1fr;
+  gap: 32px;
+  margin-bottom: 40px;
+}
+
+.ct-divider {
+  background-color: rgba(0, 159, 183, 0.3); /* cyan tinted line */
+  width: 1px;
+  height: 100%;
+}
+
+.ct-columns-text p {
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.ct-panoramic-image {
+  width: 100%;
+  border-radius: 24px;
+  overflow: hidden;
+  background-color: #f0f0f0;
+  aspect-ratio: 21 / 7;
+}
+
+.ct-panoramic-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* =========================================================================
+   DIAGRAMS & ICONS (Linee Guida / Protagonisti)
+   ========================================================================= */
+.ct-diagram {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  margin-bottom: 40px;
+  flex-wrap: nowrap;
+}
+
+.ct-diagram-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+  width: 160px;
+}
+
+.ct-icon-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.ct-icon-circle.coral { background-color: #e56b6f; }
+.ct-icon-circle.cyan { background-color: #009fb7; }
+
+.ct-diagram-node h4 {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 0.9rem !important;
+  font-weight: 700;
+}
+
+.ct-diagram-node p {
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+.ct-arrow {
+  color: #009fb7;
+  opacity: 0.5;
+  margin: 0 10px;
+  margin-top: -40px; /* Aligns with circle center */
+}
+
+.ct-centered-text {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+}
+
+/* =========================================================================
+   GLI INCONTRI CARDS
+   ========================================================================= */
+.ct-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.ct-card {
+  padding: 40px 24px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  gap: 16px;
+  color: white;
+  min-height: 140px;
+}
+
+.ct-card.cyan { background-color: #009fb7; }
+.ct-card.coral { background-color: #e56b6f; }
+
+.ct-card h4 {
+  color: white !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 1.1rem !important;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.ct-card svg {
+  opacity: 0.9;
+}
+
+/* =========================================================================
+   RESPONSIVE
+   ========================================================================= */
+@media (max-width: 768px) {
+  .ct-hero-title {
+    font-size: 3rem !important;
+    padding-top: 20px;
+  }
+  
+  .ct-sponsors {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  .ct-concept-split {
+    grid-template-columns: 1fr;
+  }
+  
+  .ct-columns-text {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
+  .ct-divider {
+    display: none;
+  }
+  
+  .ct-diagram {
+    flex-direction: column;
+    gap: 32px;
+  }
+  
+  .ct-arrow {
+    transform: rotate(90deg);
+    margin: 0;
+  }
+
+  .ct-cards-grid {
+    grid-template-columns: 1fr;
+  }
+}
