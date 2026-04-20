@@ -131,6 +131,7 @@ const BlobHero: React.FC<BlobHeroProps> = ({ onNavigate }) => {
     };
   }, []);
 
+  useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
     };
@@ -145,21 +146,13 @@ const BlobHero: React.FC<BlobHeroProps> = ({ onNavigate }) => {
     const vHeight = window.innerHeight;
     const vWidth = window.innerWidth;
     
-    let laptopScale = 1.0;
-    if (!isMobile) {
-      if (vHeight < 880) {
-        // More aggressive scale down starting from 880px height
-        laptopScale = Math.max(0.68, vHeight / 960);
-      }
-      // Also account for narrow windows
-      if (vWidth < 1200) {
-        laptopScale = Math.min(laptopScale, Math.max(0.75, vWidth / 1200));
-      }
-    }
+    // Dynamic Scaling Factors - DELEGATED TO CSS FOR LAPTOPS
+    const coordsScale = isMobile ? 0.52 : 1.0; 
+    const blobSizeScale = isMobile ? 0.52 : 1.0; 
 
-    // Dynamic Scaling Factors
-    const coordsScale = isMobile ? 0.52 : laptopScale; 
-    const blobSizeScale = isMobile ? 0.52 : (laptopScale * 0.95); // Slightly smaller blobs to favor air
+    const ySquash = 1.0;
+    const finalCoordsScale = coordsScale;
+    const finalBlobSizeScale = blobSizeScale;
 
     // All available sections
     const allSections = [
@@ -178,20 +171,20 @@ const BlobHero: React.FC<BlobHeroProps> = ({ onNavigate }) => {
     // Fixed radial coordinates (0 is center, 1-6 are peripheral)
     const coords = [
       { x: 0, y: 0, size: 230, isCenter: true },      // Center Hub
-      { x: 0, y: -260, size: 190 },                  // Top
-      { x: 230, y: -130, size: 180 },                // Top Right
-      { x: 230, y: 130, size: 180 },                 // Bottom Right
-      { x: 0, y: 260, size: 200 },                   // Bottom
-      { x: -230, y: 130, size: 200 },                // Bottom Left
-      { x: -230, y: -130, size: 180 },               // Top Left
+      { x: 0, y: -260 * ySquash, size: 190 },         // Top
+      { x: 230, y: -130 * ySquash, size: 180 },       // Top Right
+      { x: 230, y: 130 * ySquash, size: 180 },        // Bottom Right
+      { x: 0, y: 260 * ySquash, size: 200 },          // Bottom
+      { x: -230, y: 130 * ySquash, size: 200 },       // Bottom Left
+      { x: -230, y: -130 * ySquash, size: 180 },      // Top Left
     ];
 
     // Build the final sections array
     const finalSections = shuffled.map((p, i) => ({
       ...p,
-      x: coords[i].x * coordsScale,
-      y: coords[i].y * coordsScale,
-      size: coords[i].size * blobSizeScale,
+      x: coords[i].x * finalCoordsScale,
+      y: coords[i].y * finalCoordsScale,
+      size: coords[i].size * finalBlobSizeScale,
       isCenter: coords[i].isCenter || false,
       color: palette[i],
     }));
@@ -199,7 +192,7 @@ const BlobHero: React.FC<BlobHeroProps> = ({ onNavigate }) => {
     setShuffledSections(finalSections);
 
     return () => window.removeEventListener('resize', handleResize);
-  }, [isMobile, window.innerHeight, window.innerWidth]);
+  }, [isMobile]);
 
   /* 
     PREVIOUS PALETTE (Cyberpunk / Deep Tones):
