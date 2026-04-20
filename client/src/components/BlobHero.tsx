@@ -131,11 +131,35 @@ const BlobHero: React.FC<BlobHeroProps> = ({ onNavigate }) => {
     };
   }, []);
 
-  useEffect(() => {
-    // Breakpoint fix: Switch to mobile only at 768px as requested
-    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
     handleResize();
     window.addEventListener('resize', handleResize);
+
+    // Dynamic Scaling Factor for Laptops / Small Desktops
+    // We want the full hub to fit comfortably within the viewport height.
+    // Fixed peripheral offset is 260px (y). Plus blob size ~100px.
+    // Total height needed ~720px + header/footer. 
+    // If height is small, we scale everything down.
+    const vHeight = window.innerHeight;
+    const vWidth = window.innerWidth;
+    
+    let laptopScale = 1.0;
+    if (!isMobile) {
+      if (vHeight < 850) {
+        // Linear scale down from 850px height
+        laptopScale = Math.max(0.75, vHeight / 850);
+      }
+      // Also account for very narrow but non-mobile windows
+      if (vWidth < 1200) {
+        laptopScale = Math.min(laptopScale, Math.max(0.8, vWidth / 1200));
+      }
+    }
+
+    // Dynamic Scaling Factors
+    const coordsScale = isMobile ? 0.52 : laptopScale; 
+    const blobSizeScale = isMobile ? 0.52 : laptopScale; 
 
     // All available sections
     const allSections = [
@@ -151,10 +175,6 @@ const BlobHero: React.FC<BlobHeroProps> = ({ onNavigate }) => {
     // Total Shuffle!
     const shuffled = [...allSections].sort(() => Math.random() - 0.5);
     
-    // Dynamic Scaling Factors
-    const coordsScale = isMobile ? 0.52 : 1.0; 
-    const blobSizeScale = isMobile ? 0.52 : 1.0; 
-
     // Fixed radial coordinates (0 is center, 1-6 are peripheral)
     const coords = [
       { x: 0, y: 0, size: 230, isCenter: true },      // Center Hub
@@ -179,7 +199,7 @@ const BlobHero: React.FC<BlobHeroProps> = ({ onNavigate }) => {
     setShuffledSections(finalSections);
 
     return () => window.removeEventListener('resize', handleResize);
-  }, [isMobile]);
+  }, [isMobile, window.innerHeight, window.innerWidth]);
 
   /* 
     PREVIOUS PALETTE (Cyberpunk / Deep Tones):
