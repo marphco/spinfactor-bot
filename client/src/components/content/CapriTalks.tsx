@@ -6,6 +6,34 @@ import { useView } from '../../context/ViewContext';
 // Import isolated light theme
 import '../../capri-talks.css';
 
+// Import Assets for Production
+import logo from '../../assets/logo.svg';
+import capri1 from '../../assets/capri1.png';
+import capri2 from '../../assets/capri2.png';
+import capri3 from '../../assets/capri3.png';
+import palazzoChigi from '../../assets/palazzo-chigi.svg';
+import mic from '../../assets/mic.svg';
+import mit from '../../assets/mit.svg';
+import skytg24 from '../../assets/skytg24.svg';
+import adn from '../../assets/adn.svg';
+import lampadina from '../../assets/lampadina.svg';
+import pin from '../../assets/pin.svg';
+import contaminazioni from '../../assets/contaminazioni.svg';
+import freccia1 from '../../assets/freccia1.svg';
+import connessioni from '../../assets/connessioni.svg';
+import freccia2 from '../../assets/freccia2.svg';
+import visioni from '../../assets/visioni.svg';
+import interviste from '../../assets/interviste.svg';
+import dialoghi from '../../assets/dialoghi.svg';
+import networking from '../../assets/networking.svg';
+import rappresentanti from '../../assets/rappresentanti.svg';
+import freccia1_1 from '../../assets/freccia1-1.svg';
+import direttori from '../../assets/direttori.svg';
+import freccia1_2 from '../../assets/freccia1-2.svg';
+import imprenditori from '../../assets/imprenditori.svg';
+import freccia1_3 from '../../assets/freccia1-3.svg';
+import leader from '../../assets/leader.svg';
+
 const CapriTalks: React.FC = () => {
   const { setActiveView } = useView();
   const currentYear = new Date().getFullYear();
@@ -34,7 +62,7 @@ const CapriTalks: React.FC = () => {
       <div className="ct-header">
         <div className="ct-header-container">
           <button onClick={() => setActiveView('home')} className="ct-logo-link">
-            <img src="/src/assets/logo.svg" alt="Spin Factor" height="32" />
+            <img src={logo} alt="Spin Factor" height="32" />
           </button>
         </div>
       </div>
@@ -46,31 +74,31 @@ const CapriTalks: React.FC = () => {
           <h1 className="ct-hero-title">CAPRI TALKS</h1>
           
           <div className="ct-hero-image">
-            <img src="/src/assets/capri1.png" alt="Capri Talks Panoramica" />
+            <img src={capri1} alt="Capri Talks Panoramica" />
           </div>
 
           <div className="ct-sponsors">
             <div className="ct-sponsor-group">
               <span className="ct-sponsor-label">UN PROGETTO</span>
               <div className="ct-sponsor-logos">
-                <img src="/src/assets/logo.svg" alt="Spin Factor" className="ct-sponsor-logo" />
+                <img src={logo} alt="Spin Factor" className="ct-sponsor-logo" />
               </div>
             </div>
             
             <div className="ct-sponsor-group">
               <span className="ct-sponsor-label">CON IL PATROCINIO DI</span>
               <div className="ct-sponsor-logos" style={{ gap: '24px' }}>
-                <img src="/src/assets/palazzo-chigi.svg" alt="Palazzo Chigi" className="ct-sponsor-logo" style={{ height: '40px' }} />
-                <img src="/src/assets/mic.svg" alt="Ministero della Cultura" className="ct-sponsor-logo" style={{ height: '32px' }} />
-                <img src="/src/assets/mit.svg" alt="Ministero del Turismo" className="ct-sponsor-logo" style={{ height: '32px' }} />
+                <img src={palazzoChigi} alt="Palazzo Chigi" className="ct-sponsor-logo" style={{ height: '40px' }} />
+                <img src={mic} alt="Ministero della Cultura" className="ct-sponsor-logo" style={{ height: '32px' }} />
+                <img src={mit} alt="Ministero del Turismo" className="ct-sponsor-logo" style={{ height: '32px' }} />
               </div>
             </div>
 
             <div className="ct-sponsor-group">
               <span className="ct-sponsor-label">MEDIA PARTNER</span>
               <div className="ct-sponsor-logos" style={{ gap: '24px' }}>
-                <img src="/src/assets/skytg24.svg" alt="Sky TG24" className="ct-sponsor-logo" style={{ height: '28px' }} />
-                <img src="/src/assets/adn.svg" alt="Adnkronos" className="ct-sponsor-logo" style={{ height: '24px' }} />
+                <img src={skytg24} alt="Sky TG24" className="ct-sponsor-logo" style={{ height: '28px' }} />
+                <img src={adn} alt="Adnkronos" className="ct-sponsor-logo" style={{ height: '24px' }} />
               </div>
             </div>
           </div>
@@ -81,14 +109,14 @@ const CapriTalks: React.FC = () => {
         
         <div className="ct-concept-top">
           <div className="ct-concept-paragraph left">
-            <img src="/src/assets/lampadina.svg" alt="Concept Idea" className="ct-concept-icon" />
+            <img src={lampadina} alt="Concept Idea" className="ct-concept-icon" />
             <p>
               Gli Spin Talks sono un ciclo di incontri creati per dare spazio a <strong>idee, esperienze e confronti</strong> sui grandi temi del nostro tempo: politica, istituzioni, media, economia, cultura, innovazione e società.
             </p>
           </div>
           
           <div className="ct-concept-paragraph right">
-            <img src="/src/assets/pin.svg" alt="Location" className="ct-concept-icon" />
+            <img src={pin} alt="Location" className="ct-concept-icon" />
             <p>
               Gli appuntamenti si tengono durante l'anno nella sede di Spin Factor a <strong>Roma</strong>, in via della Scrofa, e si estendono in un'<strong>edizione annuale a Capri</strong>.
             </p>
@@ -97,7 +125,7 @@ const CapriTalks: React.FC = () => {
 
         <div className="ct-concept-split">
           <div className="ct-concept-image">
-            <img src="/src/assets/capri2.png" alt="Capri Talks Meeting" />
+            <img src={capri2} alt="Capri Talks Meeting" />
           </div>
           <div className="ct-concept-text">
             <p>
@@ -129,7 +157,7 @@ const CapriTalks: React.FC = () => {
         </div>
 
         <div className="ct-panoramic-image">
-          <img src="/src/assets/capri3.png" alt="Capri Talks Orizzontale" />
+          <img src={capri3} alt="Capri Talks Orizzontale" />
         </div>
 
         {/* LINEE GUIDA */}
@@ -137,7 +165,7 @@ const CapriTalks: React.FC = () => {
         
         <div className="ct-diagram ct-diagram-guidelines">
           <div className="ct-diagram-node">
-            <img src="/src/assets/contaminazioni.svg" alt="Contaminazioni" className="ct-diagram-img" />
+            <img src={contaminazioni} alt="Contaminazioni" className="ct-diagram-img" />
             <div>
               <h4>Contaminazioni</h4>
               <p>tra mondi diversi</p>
@@ -145,11 +173,11 @@ const CapriTalks: React.FC = () => {
           </div>
           
           <div className="ct-arrow">
-            <img src="/src/assets/freccia1.svg" alt="arrow" />
+            <img src={freccia1} alt="arrow" />
           </div>
           
           <div className="ct-diagram-node lowered">
-            <img src="/src/assets/connessioni.svg" alt="Connessioni" className="ct-diagram-img" />
+            <img src={connessioni} alt="Connessioni" className="ct-diagram-img" />
             <div>
               <h4>Connessioni</h4>
               <p>tra idee, persone e territori</p>
@@ -157,11 +185,11 @@ const CapriTalks: React.FC = () => {
           </div>
           
           <div className="ct-arrow">
-            <img src="/src/assets/freccia2.svg" alt="arrow" />
+            <img src={freccia2} alt="arrow" />
           </div>
           
           <div className="ct-diagram-node">
-            <img src="/src/assets/visioni.svg" alt="Visioni" className="ct-diagram-img" />
+            <img src={visioni} alt="Visioni" className="ct-diagram-img" />
             <div>
               <h4>Visioni</h4>
               <p>sulle trasformazioni in atto</p>
@@ -178,15 +206,15 @@ const CapriTalks: React.FC = () => {
         
         <div className="ct-cards-grid">
           <div className="ct-card cyan">
-            <img src="/src/assets/interviste.svg" alt="Interviste" style={{ height: '48px', objectFit: 'contain' }} />
+            <img src={interviste} alt="Interviste" style={{ height: '48px', objectFit: 'contain' }} />
             <h4>Interviste<br />e faccia a faccia</h4>
           </div>
           <div className="ct-card coral">
-            <img src="/src/assets/dialoghi.svg" alt="Dialoghi" style={{ height: '48px', objectFit: 'contain' }} />
+            <img src={dialoghi} alt="Dialoghi" style={{ height: '48px', objectFit: 'contain' }} />
             <h4>Dialoghi<br />e conversazioni</h4>
           </div>
           <div className="ct-card cyan">
-            <img src="/src/assets/networking.svg" alt="Networking" style={{ height: '48px', objectFit: 'contain' }} />
+            <img src={networking} alt="Networking" style={{ height: '48px', objectFit: 'contain' }} />
             <h4>Networking</h4>
           </div>
         </div>
@@ -200,40 +228,40 @@ const CapriTalks: React.FC = () => {
         
         <div className="ct-diagram ct-diagram-guidelines">
           <div className="ct-diagram-node" style={{ width: '130px' }}>
-            <img src="/src/assets/rappresentanti.svg" alt="Rappresentanti" className="ct-diagram-img" />
+            <img src={rappresentanti} alt="Rappresentanti" className="ct-diagram-img" />
             <div>
               <h4 style={{ fontSize: '0.8rem' }}>Rappresentanti del mondo istituzionale e politico</h4>
             </div>
           </div>
           
           <div className="ct-arrow">
-            <img src="/src/assets/freccia1-1.svg" alt="arrow" />
+            <img src={freccia1_1} alt="arrow" />
           </div>
           
           <div className="ct-diagram-node lowered" style={{ width: '130px' }}>
-            <img src="/src/assets/direttori.svg" alt="Direttori" className="ct-diagram-img" />
+            <img src={direttori} alt="Direttori" className="ct-diagram-img" />
             <div>
               <h4 style={{ fontSize: '0.8rem' }}>Direttori di testata e giornalisti</h4>
             </div>
           </div>
           
           <div className="ct-arrow">
-            <img src="/src/assets/freccia1-2.svg" alt="arrow" />
+            <img src={freccia1_2} alt="arrow" />
           </div>
           
           <div className="ct-diagram-node" style={{ width: '130px' }}>
-            <img src="/src/assets/imprenditori.svg" alt="Imprenditori" className="ct-diagram-img" />
+            <img src={imprenditori} alt="Imprenditori" className="ct-diagram-img" />
             <div>
               <h4 style={{ fontSize: '0.8rem' }}>Imprenditori e manager</h4>
             </div>
           </div>
 
           <div className="ct-arrow">
-            <img src="/src/assets/freccia1-3.svg" alt="arrow" />
+            <img src={freccia1_3} alt="arrow" />
           </div>
 
           <div className="ct-diagram-node lowered" style={{ width: '130px' }}>
-            <img src="/src/assets/leader.svg" alt="Opinion leader" className="ct-diagram-img" />
+            <img src={leader} alt="Opinion leader" className="ct-diagram-img" />
             <div>
               <h4 style={{ fontSize: '0.8rem' }}>Opinion leader e intellettuali</h4>
             </div>
