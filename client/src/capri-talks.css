@@ -134,7 +134,7 @@
 .ct-hero-image {
   width: 100%;
   margin-bottom: 40px;
-  margin-top: -70px;
+  margin-top: -52px;
   position: relative;
   z-index: 2;
 }
@@ -426,6 +426,10 @@
   .ct-hero-title {
     font-size: 3rem !important;
     padding-top: 20px;
+  }
+  
+  .ct-hero-image {
+    margin-top: -42px;
   }
   
   .ct-section-title {
