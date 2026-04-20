@@ -138,14 +138,6 @@ const BlobHero: React.FC<BlobHeroProps> = ({ onNavigate }) => {
     handleResize();
     window.addEventListener('resize', handleResize);
 
-    // Dynamic Scaling Factor for Laptops / Small Desktops
-    // We want the full hub to fit comfortably within the viewport height.
-    // Fixed peripheral offset is 260px (y). Plus blob size ~100px.
-    // Total height needed ~720px + header/footer. 
-    // If height is small, we scale everything down.
-    const vHeight = window.innerHeight;
-    const vWidth = window.innerWidth;
-    
     // Dynamic Scaling Factors - DELEGATED TO CSS FOR LAPTOPS
     const coordsScale = isMobile ? 0.52 : 1.0; 
     const blobSizeScale = isMobile ? 0.52 : 1.0; 
