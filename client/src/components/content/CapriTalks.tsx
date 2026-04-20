@@ -1,19 +1,5 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { 
-  Lightbulb, 
-  MapPin, 
-  Globe, 
-  Network, 
-  Eye,
-  Users,
-  MessageSquare,
-  Link2,
-  Building2,
-  Newspaper,
-  Briefcase,
-  GraduationCap
-} from 'lucide-react';
 import { FaInstagram, FaLinkedinIn, FaTiktok, FaXTwitter } from "react-icons/fa6";
 import { useView } from '../../context/ViewContext';
 
@@ -160,9 +146,7 @@ const CapriTalks: React.FC = () => {
         
         <div className="ct-diagram">
           <div className="ct-diagram-node">
-            <div className="ct-icon-circle coral">
-              <Globe size={32} />
-            </div>
+            <img src="/src/assets/contaminazioni.svg" alt="Contaminazioni" className="ct-diagram-img" />
             <div>
               <h4>Contaminazioni</h4>
               <p>tra mondi diversi</p>
@@ -170,16 +154,11 @@ const CapriTalks: React.FC = () => {
           </div>
           
           <div className="ct-arrow">
-            <svg width="40" height="24" viewBox="0 0 40 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M0,12 Q20,0 40,12" fill="none" />
-              <polyline points="35,7 40,12 35,17" />
-            </svg>
+            <img src="/src/assets/freccia1.svg" alt="arrow" />
           </div>
           
           <div className="ct-diagram-node">
-            <div className="ct-icon-circle cyan">
-              <Network size={32} />
-            </div>
+            <img src="/src/assets/connessioni.svg" alt="Connessioni" className="ct-diagram-img" />
             <div>
               <h4>Connessioni</h4>
               <p>tra idee, persone e territori</p>
@@ -187,16 +166,11 @@ const CapriTalks: React.FC = () => {
           </div>
           
           <div className="ct-arrow">
-            <svg width="40" height="24" viewBox="0 0 40 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M0,12 Q20,24 40,12" fill="none" />
-              <polyline points="35,7 40,12 35,17" />
-            </svg>
+            <img src="/src/assets/freccia2.svg" alt="arrow" />
           </div>
           
           <div className="ct-diagram-node">
-            <div className="ct-icon-circle coral">
-              <Eye size={32} />
-            </div>
+            <img src="/src/assets/visioni.svg" alt="Visioni" className="ct-diagram-img" />
             <div>
               <h4>Visioni</h4>
               <p>sulle trasformazioni in atto</p>
@@ -213,15 +187,15 @@ const CapriTalks: React.FC = () => {
         
         <div className="ct-cards-grid">
           <div className="ct-card cyan">
-            <Users size={36} />
+            <img src="/src/assets/interviste.svg" alt="Interviste" style={{ height: '48px', objectFit: 'contain' }} />
             <h4>Interviste<br />e faccia a faccia</h4>
           </div>
           <div className="ct-card coral">
-            <MessageSquare size={36} />
+            <img src="/src/assets/dialoghi.svg" alt="Dialoghi" style={{ height: '48px', objectFit: 'contain' }} />
             <h4>Dialoghi<br />e conversazioni</h4>
           </div>
           <div className="ct-card cyan">
-            <Link2 size={36} />
+            <img src="/src/assets/networking.svg" alt="Networking" style={{ height: '48px', objectFit: 'contain' }} />
             <h4>Networking</h4>
           </div>
         </div>
@@ -235,57 +209,40 @@ const CapriTalks: React.FC = () => {
         
         <div className="ct-diagram">
           <div className="ct-diagram-node" style={{ width: '130px' }}>
-            <div className="ct-icon-circle cyan">
-              <Building2 size={28} />
-            </div>
+            <img src="/src/assets/rappresentanti.svg" alt="Rappresentanti" className="ct-diagram-img" />
             <div>
               <h4 style={{ fontSize: '0.8rem' }}>Rappresentanti del mondo istituzionale e politico</h4>
             </div>
           </div>
           
           <div className="ct-arrow">
-            <svg width="30" height="20" viewBox="0 0 30 20" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M0,10 Q15,0 30,10" fill="none" />
-              <polyline points="25,5 30,10 25,15" />
-            </svg>
+            <img src="/src/assets/freccia1-1.svg" alt="arrow" />
           </div>
           
           <div className="ct-diagram-node" style={{ width: '130px' }}>
-            <div className="ct-icon-circle coral">
-              <Newspaper size={28} />
-            </div>
+            <img src="/src/assets/direttori.svg" alt="Direttori" className="ct-diagram-img" />
             <div>
               <h4 style={{ fontSize: '0.8rem' }}>Direttori di testata e giornalisti</h4>
             </div>
           </div>
           
           <div className="ct-arrow">
-            <svg width="30" height="20" viewBox="0 0 30 20" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M0,10 Q15,20 30,10" fill="none" />
-              <polyline points="25,5 30,10 25,15" />
-            </svg>
+            <img src="/src/assets/freccia1-2.svg" alt="arrow" />
           </div>
           
           <div className="ct-diagram-node" style={{ width: '130px' }}>
-            <div className="ct-icon-circle cyan">
-              <Briefcase size={28} />
-            </div>
+            <img src="/src/assets/imprenditori.svg" alt="Imprenditori" className="ct-diagram-img" />
             <div>
               <h4 style={{ fontSize: '0.8rem' }}>Imprenditori e manager</h4>
             </div>
           </div>
 
           <div className="ct-arrow">
-            <svg width="30" height="20" viewBox="0 0 30 20" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M0,10 Q15,0 30,10" fill="none" />
-              <polyline points="25,5 30,10 25,15" />
-            </svg>
+            <img src="/src/assets/freccia1-3.svg" alt="arrow" />
           </div>
 
           <div className="ct-diagram-node" style={{ width: '130px' }}>
-            <div className="ct-icon-circle coral">
-              <GraduationCap size={28} />
-            </div>
+            <img src="/src/assets/leader.svg" alt="Opinion leader" className="ct-diagram-img" />
             <div>
               <h4 style={{ fontSize: '0.8rem' }}>Opinion leader e intellettuali</h4>
             </div>

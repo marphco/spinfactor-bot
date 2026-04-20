@@ -353,6 +353,13 @@
   margin: 0;
 }
 
+.ct-diagram-img {
+  height: 90px;
+  width: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
 .ct-arrow {
   color: #009fb7;
   opacity: 0.5;
