@@ -943,7 +943,7 @@ img.white-blob-icon {
 }
 
 @media (min-width: 1025px) {
-  .mag-intro {
+  .mag-founder-layout .mag-intro {
     text-align: justify;
     hyphens: auto;
   }
