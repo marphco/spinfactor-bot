@@ -319,17 +319,17 @@ body:has(.is-home-state) {
 }
 
 svg.blob-icon.white-blob-icon {
-  color: #242423 !important;
+  color: #004B57 !important;
   filter: none !important;
 }
 
 img.white-blob-icon {
-  /* CSS Filter to convert SVG to #242423 (Charcoal) */
-  filter: brightness(0) opacity(0.85) !important;
+  /* CSS Filter to match #004B57 (Deep Petroleum) */
+  filter: brightness(0) saturate(100%) invert(14%) sepia(45%) saturate(2200%) hue-rotate(160deg) brightness(90%) contrast(100%) !important;
 }
 
 .white-blob-text {
-  color: #242423 !important;
+  color: #004B57 !important;
   font-weight: 800;
 }
 
