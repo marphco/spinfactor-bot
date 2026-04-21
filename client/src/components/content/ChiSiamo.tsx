@@ -17,6 +17,7 @@ Nel 2019, con un team qualificato di sviluppatori italiani, progetta Human, una 
 Nel 2023 la società si apre alle relazioni istituzionali, al networking e al corporate. Nel 2025 nascono gli Spin Talks e i Capri Talks.`;
 
 import TiberioImage from '../../assets/tiberio.png';
+import CertificazioneImage from '../../assets/certificazione.jpg';
 
 const ChiSiamo: React.FC = () => {
   const { content: corporateContent, loading: corporateLoading } = useSectionContent(
@@ -74,6 +75,66 @@ const ChiSiamo: React.FC = () => {
               Comunicare per posizionare. <br/>
               Accreditarsi per crescere.
             </h3>
+          </motion.div>
+        </section>
+
+        <section className="mag-section" style={{ borderTop: 'none', paddingTop: 0 }}>
+          <div className="mag-label-wrapper">
+            <div className="mag-cyan-line" />
+            <span className="mag-label">COMMITMENT & QUALITY</span>
+          </div>
+          
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mag-card" 
+            style={{ 
+              display: 'flex',
+              flexDirection: 'row',
+              alignItems: 'center',
+              gap: 'clamp(24px, 5vw, 40px)',
+              border: '1px solid rgba(0, 159, 183, 0.3)',
+              background: 'linear-gradient(135deg, rgba(0, 159, 183, 0.04) 0%, rgba(255, 255, 255, 0.05) 100%)',
+              padding: 'clamp(20px, 4vw, 32px)',
+              marginTop: '1rem',
+              marginBottom: '2rem',
+              flexWrap: 'wrap'
+            }}
+          >
+            <div style={{ flex: '1', minWidth: '280px' }}>
+              <h4 style={{ 
+                margin: '0 0 12px 0', 
+                color: 'var(--primary)', 
+                fontSize: '1.2rem', 
+                fontWeight: 700,
+                letterSpacing: '-0.02em'
+              }}>
+                Eccellenza e Qualità Certificata.
+              </h4>
+              <p style={{ margin: 0, fontSize: '0.95rem', lineHeight: 1.6, opacity: 0.85 }}>
+                Spin Factor adotta un Sistema di Gestione per la Qualità conforme ai requisiti della normativa internazionale <strong>UNI EN ISO 9001:2015</strong>. Un impegno costante nel garantire rigore metodologico e standard d'eccellenza in ogni processo consulenziale.
+              </p>
+            </div>
+            
+            <div style={{ 
+              width: '120px', 
+              height: 'auto', 
+              background: 'white', 
+              padding: '12px', 
+              borderRadius: '12px',
+              boxShadow: '0 8px 24px rgba(0, 159, 183, 0.1)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              margin: '0 auto'
+            }}>
+              <img 
+                src={CertificazioneImage} 
+                alt="Certificazione UNI EN ISO 9001:2015" 
+                style={{ width: '100%', height: 'auto', borderRadius: '4px' }} 
+              />
+            </div>
           </motion.div>
         </section>
 
