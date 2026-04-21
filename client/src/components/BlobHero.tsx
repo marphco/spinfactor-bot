@@ -85,7 +85,7 @@ const BlobButton: React.FC<BlobButtonProps> = ({
           }}
           whileTap={{ scale: 0.95 }}
           onClick={onClick}
-          className={`blob-button ${color === '#FFFFFF' ? 'is-white-blob' : ''}`}
+          className={`blob-button ${['#FFFFFF', '#E8EDDF', '#F5CB5C'].includes(color) ? 'is-white-blob' : ''}`}
           style={{ 
             '--blob-color': color,
             '--size': `${size}px`,
@@ -101,7 +101,7 @@ const BlobButton: React.FC<BlobButtonProps> = ({
               typeof Icon === 'string' ? (
                 <img 
                   src={Icon} 
-                  className={`blob-icon custom-svg-icon ${color === '#FFFFFF' ? 'white-blob-icon' : ''}`} 
+                  className={`blob-icon custom-svg-icon ${['#FFFFFF', '#fdfdf5', '#F5CB5C'].includes(color) ? 'white-blob-icon' : ''}`} 
                   style={{ 
                     width: (label === 'SIAMO' ? size * 0.14 : label === 'HUMAN' ? size * 0.32 : size * 0.18), 
                     height: 'auto' 
@@ -109,10 +109,10 @@ const BlobButton: React.FC<BlobButtonProps> = ({
                   alt="" 
                 />
               ) : (
-                <Icon className={`blob-icon ${color === '#FFFFFF' ? 'white-blob-icon' : ''}`} size={size * 0.18} />
+                <Icon className={`blob-icon ${['#FFFFFF', '#fdfdf5', '#F5CB5C'].includes(color) ? 'white-blob-icon' : ''}`} size={size * 0.18} />
               )
             )}
-            <span className={`blob-label ${color === '#FFFFFF' ? 'white-blob-text' : ''}`}>{label}</span>
+            <span className={`blob-label ${['#FFFFFF', '#fdfdf5', '#F5CB5C'].includes(color) ? 'white-blob-text' : ''}`}>{label}</span>
           </div>
         </motion.button>
       </motion.div>
@@ -172,6 +172,16 @@ const BlobHero: React.FC<BlobHeroProps> = ({ onNavigate }) => {
       { id: 'contatti', label: 'CONTATTI', icon: Mail },
     ];
 
+    const blobColors = [
+      '#009ABA', // Cyan
+      '#F46036', // Orange
+      '#F5CB5C', // Gold
+      '#fdfdf5', // Beige refined
+      '#242423', // Charcoal
+      '#F46036', // Repeated Orange
+      '#009ABA'  // Repeated Cyan
+    ];
+
     // Total Shuffle!
     const shuffled = [...allSections].sort(() => Math.random() - 0.5);
     
@@ -186,24 +196,14 @@ const BlobHero: React.FC<BlobHeroProps> = ({ onNavigate }) => {
       { x: -230 * xScale, y: -130 * ySquash, size: 180 },      // Top Left
     ];
 
-    const blobColors = [
-      '#8FB8DE', // Blue Ice
-      '#84CAE7', // Sky Blue
-      '#3F88C5', // Steel Blue
-      '#009FB7', // Pacific Blue
-      '#003D5B', // Yale Blue
-      '#004385', // Steel Azure
-      '#0D2B67'  // Imperial Blue
-    ];
-
-    // Build the final sections array
+    // Build the final sections array with explicit color mapping
     const finalSections = shuffled.map((p, i) => ({
       ...p,
       x: coords[i].x * finalCoordsScale,
       y: coords[i].y * finalCoordsScale,
       size: coords[i].size * finalBlobSizeScale,
       isCenter: coords[i].isCenter || false,
-      color: blobColors[i],
+      color: blobColors[i] || '#009ABA',
       stretchX: stretchX,
     }));
 
@@ -229,6 +229,7 @@ const BlobHero: React.FC<BlobHeroProps> = ({ onNavigate }) => {
             <BlobButton 
               key={section.id}
               label={section.label}
+              color={section.color}
               onClick={() => {
                 if (section.id === 'human-data') {
                   onNavigate('human');

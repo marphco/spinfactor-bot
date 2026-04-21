@@ -283,6 +283,12 @@ body:has(.is-home-state) {
   box-shadow: 0 0 50px var(--blob-color);
 }
 
+.blob-button.is-white-blob:hover .blob-bg {
+  /* For light blobs, we decrease brightness slightly instead of increasing, to keep contrast with white background */
+  filter: blur(8px) brightness(0.96);
+  box-shadow: 0 0 40px rgba(0, 159, 183, 0.3);
+}
+
 .blob-content {
   display: flex;
   flex-direction: column;
