@@ -101,7 +101,7 @@ const BlobButton: React.FC<BlobButtonProps> = ({
               typeof Icon === 'string' ? (
                 <img 
                   src={Icon} 
-                  className={`blob-icon custom-svg-icon ${['#FFFFFF', '#fdfdf5', '#f5cb5c'].includes(color) ? 'white-blob-icon' : ''}`} 
+                  className={`blob-icon custom-svg-icon ${['#FFFFFF', '#fdfdf5', '#f5cb5c', '#FFADAD', '#FFD6A5', '#FDFFB6', '#CAFFBF', '#9BF6FF', '#A0C4FF', '#BDB2FF'].includes(color) ? 'white-blob-icon' : ''}`} 
                   style={{ 
                     width: (label === 'SIAMO' ? size * 0.14 : label === 'HUMAN' ? size * 0.32 : size * 0.18), 
                     height: 'auto' 
@@ -109,10 +109,10 @@ const BlobButton: React.FC<BlobButtonProps> = ({
                   alt="" 
                 />
               ) : (
-                <Icon className={`blob-icon ${['#FFFFFF', '#fdfdf5', '#f5cb5c'].includes(color) ? 'white-blob-icon' : ''}`} size={size * 0.18} />
+                <Icon className={`blob-icon ${['#FFFFFF', '#fdfdf5', '#f5cb5c', '#FFADAD', '#FFD6A5', '#FDFFB6', '#CAFFBF', '#9BF6FF', '#A0C4FF', '#BDB2FF'].includes(color) ? 'white-blob-icon' : ''}`} size={size * 0.18} />
               )
             )}
-            <span className={`blob-label ${['#FFFFFF', '#fdfdf5', '#f5cb5c'].includes(color) ? 'white-blob-text' : ''}`}>{label}</span>
+            <span className={`blob-label ${['#FFFFFF', '#fdfdf5', '#f5cb5c', '#FFADAD', '#FFD6A5', '#FDFFB6', '#CAFFBF', '#9BF6FF', '#A0C4FF', '#BDB2FF'].includes(color) ? 'white-blob-text' : ''}`}>{label}</span>
           </div>
         </motion.button>
       </motion.div>
@@ -173,13 +173,13 @@ const BlobHero: React.FC<BlobHeroProps> = ({ onNavigate }) => {
     ];
 
     const blobColors = [
-      '#009aba', // Corporate Cyan (Center)
-      '#f46046', // Orange
-      '#f5cb5c', // Yellow
-      '#242423', // Black
-      '#f46046', // Orange
-      '#f5cb5c', // Yellow
-      '#242423', // Black
+      '#CAFFBF', // Pastel Green (Center)
+      '#FFADAD', // Pastel Red
+      '#FFD6A5', // Pastel Orange
+      '#FDFFB6', // Pastel Yellow
+      '#9BF6FF', // Pastel Cyan
+      '#A0C4FF', // Pastel Blue
+      '#BDB2FF', // Pastel Violet
     ];
 
     // Total Shuffle!
