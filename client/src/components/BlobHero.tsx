@@ -22,6 +22,7 @@ interface BlobButtonProps {
   x?: number;
   y?: number;
   isMobile?: boolean;
+  stretchX?: number;
   continuousFloat?: boolean;
 }
 
@@ -37,6 +38,7 @@ const BlobButton: React.FC<BlobButtonProps> = ({
   x = 0,
   y = 0,
   isMobile = false,
+  stretchX = 1,
   continuousFloat = true
 }) => {
   const desktopAnimate = {
@@ -77,17 +79,24 @@ const BlobButton: React.FC<BlobButtonProps> = ({
         }}
       >
         <motion.button
-          whileHover={{ scale: 1.08 }}
+          whileHover={{ 
+            scaleX: stretchX * 1.04, 
+            scaleY: 1.04 
+          }}
           whileTap={{ scale: 0.95 }}
           onClick={onClick}
           className={`blob-button ${color === '#FFFFFF' ? 'is-white-blob' : ''}`}
           style={{ 
             '--blob-color': color,
-            '--size': `${size}px`
+            '--size': `${size}px`,
+            scaleX: stretchX
           } as React.CSSProperties}
         >
           <div className="blob-bg"></div>
-          <div className="blob-content">
+          <div 
+            className="blob-content"
+            style={{ transform: `scaleX(${1 / stretchX})` }}
+          >
             {Icon && (
               typeof Icon === 'string' ? (
                 <img 
@@ -117,6 +126,7 @@ interface BlobHeroProps {
 
 const BlobHero: React.FC<BlobHeroProps> = ({ onNavigate }) => {
   const [isMobile, setIsMobile] = useState(false);
+  const [isLaptop, setIsLaptop] = useState(false);
   const [shuffledSections, setShuffledSections] = useState<any[]>([]);
 
   // Viewport Lock: Ensure Home is always zero-scroll without affecting internal pages
@@ -134,15 +144,20 @@ const BlobHero: React.FC<BlobHeroProps> = ({ onNavigate }) => {
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
+      setIsLaptop(window.innerHeight < 940 && window.innerWidth >= 768);
     };
     handleResize();
     window.addEventListener('resize', handleResize);
 
-    // Dynamic Scaling Factors - DELEGATED TO CSS FOR LAPTOPS
+    // Dynamic Scaling Factors
     const coordsScale = isMobile ? 0.52 : 1.0; 
-    const blobSizeScale = isMobile ? 0.52 : 1.0; 
+    const blobSizeScale = isMobile ? 0.52 : (isLaptop ? 0.82 : 1.0); 
 
-    const ySquash = 1.0;
+    // Elliptical Logic for Laptop - Refined for more air
+    const ySquash = isLaptop ? 0.75 : 1.0;
+    const xScale = isLaptop ? 1.45 : 1.0;
+    const stretchX = isLaptop ? 1.35 : 1.0;
+    
     const finalCoordsScale = coordsScale;
     const finalBlobSizeScale = blobSizeScale;
 
@@ -151,7 +166,7 @@ const BlobHero: React.FC<BlobHeroProps> = ({ onNavigate }) => {
       { id: 'spin-talks', label: 'TALKS', icon: Mic },
       { id: 'chi-siamo', label: 'SIAMO', icon: SiamoIcon },
       { id: 'facciamo', label: 'FACCIAMO', icon: Zap },
-      { id: 'diciamo', label: 'DICIAMO', icon: Newspaper },
+      { id: 'stampa', label: 'STAMPA', icon: Newspaper },
       { id: 'podcast', label: 'PODCAST', icon: Headphones },
       { id: 'human-data', label: 'HUMAN', icon: HumanIcon },
       { id: 'contatti', label: 'CONTATTI', icon: Mail },
@@ -164,11 +179,11 @@ const BlobHero: React.FC<BlobHeroProps> = ({ onNavigate }) => {
     const coords = [
       { x: 0, y: 0, size: 230, isCenter: true },      // Center Hub
       { x: 0, y: -260 * ySquash, size: 190 },         // Top
-      { x: 230, y: -130 * ySquash, size: 180 },       // Top Right
-      { x: 230, y: 130 * ySquash, size: 180 },        // Bottom Right
+      { x: 230 * xScale, y: -130 * ySquash, size: 180 },       // Top Right
+      { x: 230 * xScale, y: 130 * ySquash, size: 180 },        // Bottom Right
       { x: 0, y: 260 * ySquash, size: 200 },          // Bottom
-      { x: -230, y: 130 * ySquash, size: 200 },       // Bottom Left
-      { x: -230, y: -130 * ySquash, size: 180 },      // Top Left
+      { x: -230 * xScale, y: 130 * ySquash, size: 200 },       // Bottom Left
+      { x: -230 * xScale, y: -130 * ySquash, size: 180 },      // Top Left
     ];
 
     const blobColors = [
@@ -189,10 +204,11 @@ const BlobHero: React.FC<BlobHeroProps> = ({ onNavigate }) => {
       size: coords[i].size * finalBlobSizeScale,
       isCenter: coords[i].isCenter || false,
       color: blobColors[i],
+      stretchX: stretchX,
     }));
 
     setShuffledSections(finalSections);
-  }, [isMobile]);
+  }, [isMobile, isLaptop]);
 
   if (shuffledSections.length === 0) return null;
 
@@ -218,12 +234,15 @@ const BlobHero: React.FC<BlobHeroProps> = ({ onNavigate }) => {
                   onNavigate('human');
                 } else if (section.id === 'chi-siamo') {
                   onNavigate('chi-siamo');
+                } else if (section.id === 'stampa') {
+                  onNavigate('stampa');
                 } else {
                   onNavigate(section.id);
                 }
               }}
               Icon={section.icon}
-              color={section.color}
+              continuousFloat={!section.isCenter}
+              stretchX={section.stretchX}
               delay={0.1 * index}
               size={section.size}
               x={section.x}

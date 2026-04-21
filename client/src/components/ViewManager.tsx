@@ -4,7 +4,7 @@ import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import BlobHero from './BlobHero';
 import ChiSiamo from './content/ChiSiamo';
 import { Societa } from './content/SocietaMetodo';
-import Diciamo from './content/Diciamo';
+import Stampa from './content/Stampa';
 import AreeIntervento from './content/AreeIntervento';
 import SpinTalks from './content/SpinTalks';
 import CapriTalks from './content/CapriTalks';
@@ -32,7 +32,7 @@ const ViewManager: React.FC = () => {
             <Route path="/" element={<BlobHero key="home" onNavigate={setActiveView} />} />
             <Route path="/siamo" element={<ChiSiamo key="chi-siamo" />} />
             <Route path="/societa" element={<Societa key="societa" />} />
-            <Route path="/diciamo" element={<Diciamo key="diciamo" />} />
+            <Route path="/stampa" element={<Stampa key="stampa" />} />
             <Route path="/facciamo" element={<AreeIntervento key="facciamo" />} />
             <Route path="/spin-talks" element={<SpinTalks key="spin-talks" />} />
             <Route path="/capri-talks" element={<CapriTalks key="capri-talks" />} />

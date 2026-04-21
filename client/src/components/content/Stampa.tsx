@@ -4,7 +4,7 @@ import { ExternalLink, Calendar } from 'lucide-react';
 import { getSortedPressItems } from '../../data/pressContent';
 import type { PressItem } from '../../data/pressContent';
 
-const Diciamo: React.FC = () => {
+const Stampa: React.FC = () => {
   const sortedItems = getSortedPressItems();
 
   return (
@@ -14,12 +14,12 @@ const Diciamo: React.FC = () => {
       className="content-page"
     >
       <div className="content-inner">
-        <section className="diciamo-header">
+        <section className="stampa-header">
           <div className="mag-label-wrapper">
             <div className="mag-cyan-line" />
             <span className="mag-label">Press & Media Relations</span>
           </div>
-          <h2 className="mag-h2">Diciamo.</h2>
+          <h2 className="mag-h2">Stampa.</h2>
           <h3 className="mag-tagline">La voce di Spin Factor nel dibattito pubblico.</h3>
           
           <div className="mag-intro">
@@ -119,4 +119,4 @@ const Diciamo: React.FC = () => {
   );
 };
 
-export default Diciamo;
+export default Stampa;

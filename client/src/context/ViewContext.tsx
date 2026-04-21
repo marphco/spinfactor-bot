@@ -14,7 +14,6 @@ const VIEW_TO_PATH: Record<string, string> = {
   'home': '/',
   'chi-siamo': '/siamo',
   'societa': '/societa',
-  'diciamo': '/diciamo',
   'facciamo': '/facciamo',
   'spin-talks': '/spin-talks',
   'capri-talks': '/capri-talks',
@@ -22,6 +21,7 @@ const VIEW_TO_PATH: Record<string, string> = {
   'podcast': '/podcast',
   'contatti': '/contatti',
   'press': '/press',
+  'stampa': '/stampa',
   'privacy-policy': '/privacy-policy',
   'cookie-policy': '/cookie-policy'
 };
