@@ -173,7 +173,7 @@ const BlobHero: React.FC<BlobHeroProps> = ({ onNavigate }) => {
     ];
 
     const blobColors = [
-      '#81D8D0', // Tiffany (Center)
+      '#009ABA', // Corporate Cyan (Center)
       '#EF233C', // Red
       '#FFB703', // Yellow
       '#242423', // Black
