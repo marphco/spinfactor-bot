@@ -101,7 +101,7 @@ const BlobButton: React.FC<BlobButtonProps> = ({
               typeof Icon === 'string' ? (
                 <img 
                   src={Icon} 
-                  className={`blob-icon custom-svg-icon ${['#FFFFFF', '#fdfdf5', '#81D8D0', '#FFB703'].includes(color) ? 'white-blob-icon' : ''}`} 
+                  className={`blob-icon custom-svg-icon ${['#FFFFFF', '#fdfdf5', '#f5cb5c'].includes(color) ? 'white-blob-icon' : ''}`} 
                   style={{ 
                     width: (label === 'SIAMO' ? size * 0.14 : label === 'HUMAN' ? size * 0.32 : size * 0.18), 
                     height: 'auto' 
@@ -109,10 +109,10 @@ const BlobButton: React.FC<BlobButtonProps> = ({
                   alt="" 
                 />
               ) : (
-                <Icon className={`blob-icon ${['#FFFFFF', '#fdfdf5', '#81D8D0', '#FFB703'].includes(color) ? 'white-blob-icon' : ''}`} size={size * 0.18} />
+                <Icon className={`blob-icon ${['#FFFFFF', '#fdfdf5', '#f5cb5c'].includes(color) ? 'white-blob-icon' : ''}`} size={size * 0.18} />
               )
             )}
-            <span className={`blob-label ${['#FFFFFF', '#fdfdf5', '#81D8D0', '#FFB703'].includes(color) ? 'white-blob-text' : ''}`}>{label}</span>
+            <span className={`blob-label ${['#FFFFFF', '#fdfdf5', '#f5cb5c'].includes(color) ? 'white-blob-text' : ''}`}>{label}</span>
           </div>
         </motion.button>
       </motion.div>
@@ -173,12 +173,12 @@ const BlobHero: React.FC<BlobHeroProps> = ({ onNavigate }) => {
     ];
 
     const blobColors = [
-      '#009ABA', // Corporate Cyan (Center)
-      '#EF233C', // Red
-      '#FFB703', // Yellow
+      '#009aba', // Corporate Cyan (Center)
+      '#f46046', // Orange
+      '#f5cb5c', // Yellow
       '#242423', // Black
-      '#EF233C', // Red
-      '#FFB703', // Yellow
+      '#f46046', // Orange
+      '#f5cb5c', // Yellow
       '#242423', // Black
     ];
 
