@@ -129,7 +129,7 @@ const CapriTalks: React.FC = () => {
           </div>
           <div className="ct-concept-text">
             <p>
-              L'isola azzurra il 15 e il 16 maggio ospiterà <strong>panel, interviste e incontri</strong> dando ritmo a un'agenda strutturata e attenta alla <strong>qualità</strong> dei contenuti.
+              L'isola azzurra in tra la fine della primavera e l’estate ospita <strong>panel, interviste e incontri</strong> dando ritmo a un'agenda strutturata e attenta alla <strong>qualità</strong> dei contenuti.
             </p>
             <p>
               I Capri Talks si distinguono per la capacità di costruire una rete solida e diretta tra amministratori locali, imprese, protagonisti dell'attualità e media.
@@ -137,14 +137,28 @@ const CapriTalks: React.FC = () => {
             <p>
               Ogni appuntamento è pensato per generare <strong>valore, opinioni e relazioni.</strong>
             </p>
-            <p style={{ fontSize: '0.9rem', opacity: 0.8 }}>
-              L'evento, curato da Davide Desario, direttore dell'Adnkronos, è promosso con il patrocinio della Presidenza del Consiglio dei Ministri, dei Ministeri della Cultura e del Turismo. Media partner sono Skytg24 e Adnkronos.
-            </p>
           </div>
         </div>
 
+        <div className="ct-concept-credits" style={{ gridColumn: '1 / -1', marginTop: '20px' }}>
+          <p style={{ fontSize: '0.9rem', opacity: 0.7 }}>
+            L'evento, curato da Davide Desario, direttore dell'Adnkronos, è promosso con il patrocinio della Presidenza del Consiglio dei Ministri, dei Ministeri della Cultura e del Turismo. Media partner sono Skytg24 e Adnkronos.
+          </p>
+        </div>
+
         {/* CAPRI TALKS 2026 (DIS)UNITI */}
-        <h2 className="ct-section-title">CAPRI TALKS 2026 (DIS)UNITI</h2>
+        <h2 className="ct-section-title" style={{ marginBottom: '0' }}>CAPRI TALKS 2026 (DIS)UNITI</h2>
+        <div style={{ textAlign: 'center', marginBottom: '32px', marginTop: '-4px' }}>
+          <span style={{ 
+            fontSize: '1.4rem', 
+            fontWeight: 600, 
+            color: 'var(--primary)', 
+            letterSpacing: '0.05em',
+            fontFamily: "'Playfair Display', serif"
+          }}>
+            15 – 16 maggio
+          </span>
+        </div>
         
         <div className="ct-columns-text">
           <p>

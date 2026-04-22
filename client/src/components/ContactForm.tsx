@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Send, MapPin, Mail, Building2, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react';
 import { useView } from '../context/ViewContext';
 import { API_BASE_URL } from '../apiConfig';
+import SedeCorte from '../assets/hq-courtyard.jpg';
 
 const ContactForm: React.FC = () => {
   const { setActiveView } = useView();
@@ -199,34 +200,50 @@ const ContactForm: React.FC = () => {
             </div>
           </div>
 
-          <div className="mag-grid mag-grid--2">
-            <div className="mag-card">
-              <div className="mag-icon-box">
-                <MapPin size={20} />
+          <div className="mag-grid mag-grid--2" style={{ alignItems: 'stretch' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+              <div className="mag-card">
+                <div className="mag-icon-box">
+                  <MapPin size={20} />
+                </div>
+                <div>
+                  <h4 style={{ fontSize: '1.1rem', fontWeight: 800, marginBottom: '4px' }}>ROMA</h4>
+                  <p className="mag-label" style={{ fontSize: '0.65rem', marginBottom: '12px', display: 'block' }}>Sede Principale</p>
+                  <div style={{ fontSize: '0.9rem', opacity: 0.8, lineHeight: 1.5 }}>
+                    <p>via della Scrofa, 117</p>
+                    <p>00186</p>
+                  </div>
+                </div>
               </div>
-              <div>
-                <h4 style={{ fontSize: '1.1rem', fontWeight: 800, marginBottom: '4px' }}>ROMA</h4>
-                <p className="mag-label" style={{ fontSize: '0.65rem', marginBottom: '12px', display: 'block' }}>Sede Principale</p>
-                <div style={{ fontSize: '0.9rem', opacity: 0.8, lineHeight: 1.5 }}>
-                  <p>via della Scrofa, 117</p>
-                  <p>00186</p>
+              
+              <div className="mag-card">
+                <div className="mag-icon-box">
+                  <MapPin size={20} />
+                </div>
+                <div>
+                  <h4 style={{ fontSize: '1.1rem', fontWeight: 800, marginBottom: '4px' }}>NAPOLI</h4>
+                  <p className="mag-label" style={{ fontSize: '0.65rem', marginBottom: '12px', display: 'block' }}>Sede Legale</p>
+                  <div style={{ fontSize: '0.9rem', opacity: 0.8, lineHeight: 1.5 }}>
+                    <p>via Vittoria Colonna, 14</p>
+                    <p>80121</p>
+                  </div>
                 </div>
               </div>
             </div>
-            
-            <div className="mag-card">
-              <div className="mag-icon-box">
-                <MapPin size={20} />
-              </div>
-              <div>
-                <h4 style={{ fontSize: '1.1rem', fontWeight: 800, marginBottom: '4px' }}>NAPOLI</h4>
-                <p className="mag-label" style={{ fontSize: '0.65rem', marginBottom: '12px', display: 'block' }}>Sede Legale</p>
-                <div style={{ fontSize: '0.9rem', opacity: 0.8, lineHeight: 1.5 }}>
-                  <p>via Vittoria Colonna, 14</p>
-                  <p>80121</p>
-                </div>
-              </div>
-            </div>
+
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              style={{ 
+                borderRadius: '16px', 
+                overflow: 'hidden', 
+                boxShadow: '0 20px 40px rgba(0,0,0,0.1)',
+                height: '100%'
+              }}
+            >
+              <img src={SedeCorte} alt="Spin Factor HQ Courtyard" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            </motion.div>
           </div>
         </section>
 
