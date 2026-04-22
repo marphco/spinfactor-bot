@@ -236,8 +236,7 @@ body:has(.is-home-state) {
   justify-content: center;
   z-index: 10;
   overflow: visible;
-  grid-template-rows: 1fr auto;
-  align-self: end;
+  transform: translateY(clamp(45px, 8vh, 100px));
 }
 
 /* Laptop fix consolidated below to avoid selector specificity conflicts */
@@ -951,8 +950,11 @@ img.white-blob-icon {
   padding: 12px 24px;
   border-radius: 999px;
   border: 1px solid var(--glass-border);
-  transition: var(--transition);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: all 0.5s var(--transition);
+}
+
+.blob-link:not(:hover) {
+  opacity: 0.8;
 }
 
 .back-btn:hover {
