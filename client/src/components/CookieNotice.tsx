@@ -23,33 +23,28 @@ const CookieNotice: React.FC = () => {
     <AnimatePresence>
       {isVisible && !isChatOpen && (
         <motion.div 
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: 20 }}
-          className="mag-cookie-notice"
+          exit={{ opacity: 0 }}
+          className="cookie-notice-capri"
         >
-          <div className="mag-cookie-background"></div>
-          <div className="mag-cookie-content">
-            <div className="mag-cookie-text-area">
-              <span className="mag-cookie-title">Informativa sui Cookie</span>
-              <p className="mag-cookie-description">
-                Utilizziamo i cookie per analizzare il traffico e migliorare la tua esperienza sul nostro hub. 
-                Scegliendo "Accetta", acconsenti al nostro utilizzo dei cookie.
-              </p>
+          <div className="cookie-content-minimal">
+            <span className="cookie-text-minimal">
+              Utilizziamo i cookie per migliorare la tua esperienza. 
               <button 
                 onClick={() => setActiveView('cookie-policy')}
-                className="mag-cookie-link"
+                className="cookie-link-minimal"
               >
-                Scopri di più
+                Dettagli
               </button>
-            </div>
-            <div className="mag-cookie-actions">
-              <button onClick={handleAccept} className="mag-cookie-btn accept">
-                ACCETTA TUTTO
+            </span>
+            <div className="cookie-actions-minimal">
+              <button onClick={handleAccept} className="cookie-btn-minimal accept">
+                ACCETTA
               </button>
               <button 
                 onClick={() => setIsVisible(false)} 
-                className="mag-cookie-btn close"
+                className="cookie-btn-minimal close"
                 aria-label="Chiudi"
               >
                 ✕
