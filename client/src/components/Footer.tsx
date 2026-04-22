@@ -9,12 +9,12 @@ const SOCIAL_LINKS = [
     href: "https://www.instagram.com/spin.factor", 
     icon: FaInstagram 
   },
-  { 
+  /* { 
     id: "x", 
     label: "X", 
     href: "https://x.com/SpinFactorIT", 
     icon: FaXTwitter 
-  },
+  }, */
   { 
     id: "linkedin", 
     label: "LinkedIn", 

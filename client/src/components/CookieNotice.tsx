@@ -23,28 +23,33 @@ const CookieNotice: React.FC = () => {
     <AnimatePresence>
       {isVisible && !isChatOpen && (
         <motion.div 
-          initial={{ opacity: 0, y: 10 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0 }}
-          className={activeView === 'capri-talks' ? "cookie-notice-capri" : "cookie-notice-minimal"}
+          exit={{ opacity: 0, y: 20 }}
+          className="mag-cookie-notice"
         >
-          <div className="cookie-content-minimal">
-            <span className="cookie-text-minimal">
-              Utilizziamo i cookie per migliorare la tua esperienza. 
+          <div className="mag-cookie-background"></div>
+          <div className="mag-cookie-content">
+            <div className="mag-cookie-text-area">
+              <span className="mag-cookie-title">Informativa sui Cookie</span>
+              <p className="mag-cookie-description">
+                Utilizziamo i cookie per analizzare il traffico e migliorare la tua esperienza sul nostro hub. 
+                Scegliendo "Accetta", acconsenti al nostro utilizzo dei cookie.
+              </p>
               <button 
                 onClick={() => setActiveView('cookie-policy')}
-                className="cookie-link-minimal"
+                className="mag-cookie-link"
               >
-                Dettagli
+                Scopri di più
               </button>
-            </span>
-            <div className="cookie-actions-minimal">
-              <button onClick={handleAccept} className="cookie-btn-minimal accept">
-                ACCETTA
+            </div>
+            <div className="mag-cookie-actions">
+              <button onClick={handleAccept} className="mag-cookie-btn accept">
+                ACCETTA TUTTO
               </button>
               <button 
                 onClick={() => setIsVisible(false)} 
-                className="cookie-btn-minimal close"
+                className="mag-cookie-btn close"
                 aria-label="Chiudi"
               >
                 ✕

@@ -1789,82 +1789,70 @@ img.white-blob-icon {
 }
 
 /* --- MINIMAL COOKIE NOTICE (NO BORDER) --- */
-.cookie-notice-minimal {
+.mag-cookie-notice {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
   width: 100%;
-  max-width: 900px;
-  margin: 0 auto 12px;
-  padding: 0 24px;
-  z-index: 100;
+  z-index: 100000;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.4);
 }
 
-@media (max-width: 768px) {
-  .cookie-notice-minimal {
-    margin-bottom: 8px;
-  }
+.mag-cookie-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, #0D2B67 0%, #051941 100%);
+  border-top: 1px solid rgba(0, 234, 255, 0.3);
+  z-index: -1;
 }
 
-.cookie-notice-capri {
-  width: 100%;
-  max-width: 800px;
-  margin: 0 auto 20px;
-  padding: 12px 24px;
-  z-index: 10000;
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-}
-
-.cookie-content-minimal {
+.mag-cookie-content {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px 40px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 12px;
-  padding: 6px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
-}
-
-.cookie-notice-capri .cookie-content-minimal {
   justify-content: space-between;
-  gap: 20px;
-  border-bottom: none;
+  gap: 40px;
+  width: 100%;
 }
 
-.cookie-text-minimal {
-  font-size: 11px;
-  color: var(--text-dim);
-  opacity: 0.8;
+.mag-cookie-text-area {
+  flex: 1;
 }
 
-.cookie-link-minimal {
+.mag-cookie-title {
+  display: block;
+  font-family: 'Outfit', sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 4px;
+}
+
+.mag-cookie-description {
+  font-size: 14px;
+  line-height: 1.4;
+  color: white;
+  margin: 0;
+  font-weight: 400;
+}
+
+.mag-cookie-link {
   background: none;
   border: none;
   color: var(--primary);
   text-decoration: underline;
   cursor: pointer;
-  margin-left: 6px;
-  font-size: 11px;
-  padding: 0;
-}
-
-.cookie-actions-minimal {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.cookie-btn-minimal {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  transition: all 0.3s ease;
-}
-
-.cookie-btn-minimal.accept {
-  color: var(--primary);
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.05em;
