@@ -17,6 +17,7 @@ Nel 2019, con un team qualificato di sviluppatori italiani, progetta Human, una 
 Nel 2023 la società si apre alle relazioni istituzionali, al networking e al corporate. Nel 2025 nascono gli Spin Talks e i Capri Talks.`;
 
 import TiberioImage from '../../assets/tiberio.png';
+import WarRoomImage from '../../assets/warroom.jpg';
 import CertificazioneImage from '../../assets/certificazione.jpg';
 
 const ChiSiamo: React.FC = () => {
@@ -41,44 +42,55 @@ const ChiSiamo: React.FC = () => {
             <span className="mag-label">IDENTITY & STRATEGY</span>
           </div>
           <h2 className="mag-h2">Siamo.</h2>
+          
+          <div className="mag-warroom-layout">
+            <div className={`mag-warroom-text mag-intro ${corporateLoading ? 'loading-shimmer' : ''}`}>
+              {(corporateContent || CORPORATE_FALLBACK).split('\n\n').map((p, i) => (
+                <p key={i}>
+                  <FormattedText text={p} />
+                </p>
+              ))}
+            </div>
 
-          <div className={`mag-intro ${corporateLoading ? 'loading-shimmer' : ''}`}>
-            {(corporateContent || CORPORATE_FALLBACK).split('\n\n').map((p, i) => (
-              <p key={i} style={{ marginBottom: '1.8rem' }}>
-                <FormattedText text={p} />
-              </p>
-            ))}
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              className="mag-warroom-image-container"
+            >
+              <img src={WarRoomImage} alt="Spin Factor War Room" />
+            </motion.div>
+
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.98 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="mag-warroom-card mag-card" 
+              style={{ 
+                marginTop: '0',
+                background: 'rgba(0, 159, 183, 0.05)',
+                padding: '24px 32px',
+                textAlign: 'center'
+              }}
+            >
+              <h3 style={{ 
+                margin: 0, 
+                color: 'var(--primary)', 
+                fontSize: 'clamp(1.1rem, 4.5vw, 1.5rem)', 
+                fontWeight: 600, 
+                lineHeight: 1.6,
+                letterSpacing: '-0.01em'
+              }}>
+                Comprendere per decidere. <br/>
+                Comunicare per posizionare. <br/>
+                Accreditarsi per crescere.
+              </h3>
+            </motion.div>
           </div>
-
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.98 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="mag-card" 
-            style={{ 
-              marginTop: '1rem',
-              marginBottom: '4rem',
-              border: '1px solid rgba(0, 159, 183, 0.4)',
-              background: 'rgba(0, 159, 183, 0.05)',
-              padding: 'clamp(20px, 5vw, 32px)',
-              textAlign: 'center'
-            }}
-          >
-            <h3 style={{ 
-              margin: 0, 
-              color: 'var(--primary)', 
-              fontSize: 'clamp(1.1rem, 4.5vw, 1.5rem)', 
-              fontWeight: 600, 
-              lineHeight: 1.6,
-              letterSpacing: '-0.01em'
-            }}>
-              Comprendere per decidere. <br/>
-              Comunicare per posizionare. <br/>
-              Accreditarsi per crescere.
-            </h3>
-          </motion.div>
         </section>
 
-        <section className="mag-section" style={{ borderTop: 'none', paddingTop: 0 }}>
+        <section className="mag-section" style={{ borderTop: 'none', paddingTop: 0, marginTop: '4rem' }}>
           <div className="mag-label-wrapper">
             <div className="mag-cyan-line" />
             <span className="mag-label">COMMITMENT & QUALITY</span>
@@ -138,7 +150,7 @@ const ChiSiamo: React.FC = () => {
           </motion.div>
         </section>
 
-        <section className="mag-section">
+        <section className="mag-section" style={{ borderTop: 'none', paddingTop: 0 }}>
           <div className="mag-label-wrapper">
             <div className="mag-cyan-line" />
             <span className="mag-label">Il Fondatore</span>
@@ -171,7 +183,6 @@ const ChiSiamo: React.FC = () => {
                 flexDirection: 'row', 
                 alignItems: 'center', 
                 gap: '24px',
-                border: '1px solid rgba(0, 159, 183, 0.3)',
                 background: 'rgba(0, 159, 183, 0.03)',
                 marginTop: '1rem',
                 clear: 'both'
@@ -181,7 +192,7 @@ const ChiSiamo: React.FC = () => {
                 <Wine size={24} />
               </div>
               <p style={{ margin: 0, fontSize: '1rem', opacity: 0.9, fontStyle: 'italic', lineHeight: 1.6 }}>
-                Imprenditore vinicolo a tempo perso, porta avanti sull’isola di Capri la ultrasecolare traditione enologica di famiglia.
+                Imprenditore vinicolo a tempo perso, porta avanti sull’isola di Capri la ultrasecolare tradizione enologica di famiglia.
               </p>
             </motion.div>
           </div>

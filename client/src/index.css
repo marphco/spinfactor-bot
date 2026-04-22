@@ -211,7 +211,7 @@ body:has(.is-home-state) {
   width: var(--size, 200px);
   height: var(--size, 200px);
   position: relative;
-  color: white; /* Restored to white for brand consistency */
+  color: white;
   font-family: var(--heading);
   font-weight: 800;
   font-size: 1.1rem;
@@ -236,7 +236,8 @@ body:has(.is-home-state) {
   justify-content: center;
   z-index: 10;
   overflow: visible;
-  transform: translateY(clamp(45px, 8vh, 100px)); /* Slightly lowered from the previous 30-80px range as requested */
+  grid-template-rows: 1fr auto;
+  align-self: end;
 }
 
 /* Laptop fix consolidated below to avoid selector specificity conflicts */
@@ -1017,7 +1018,7 @@ img.white-blob-icon {
   font-size: 1.15rem;
   line-height: 1.8;
   margin-bottom: 4rem;
-  max-width: 800px;
+  width: 100%;
   opacity: 0.9;
 }
 
@@ -1049,6 +1050,71 @@ img.white-blob-icon {
   position: sticky;
   top: 140px;
   z-index: 5;
+}
+
+.mag-founder-image-wrapper.floating-left {
+  float: left;
+  margin-left: 0;
+  margin-right: 50px;
+}
+
+/* War Room Specific Grid Layout */
+.mag-warroom-layout {
+  display: grid;
+  grid-template-areas: 
+    "text"
+    "image"
+    "card";
+  gap: 30px;
+  width: 100%;
+  margin-bottom: 4rem;
+}
+
+.mag-warroom-text { grid-area: text; }
+.mag-warroom-image-container { grid-area: image; }
+.mag-warroom-card { grid-area: card; }
+
+.mag-warroom-image-container {
+  width: 100%;
+  max-height: 280px;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 20px 40px -10px rgba(13, 43, 103, 0.1);
+  background: white;
+}
+
+.mag-warroom-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+@media (min-width: 1025px) {
+  .mag-warroom-layout {
+    grid-template-areas: 
+      "image text"
+      "image card";
+    grid-template-columns: 44% 1fr;
+    grid-template-rows: 1fr auto;
+    align-items: stretch;
+    gap: 15px 60px;
+  }
+
+  .mag-warroom-image-container {
+    max-height: 450px;
+    align-self: end;
+  }
+  
+  .mag-warroom-card {
+    align-self: end;
+  }
+
+  .mag-warroom-text {
+    align-self: start;
+    margin-bottom: 0;
+  }
 }
 
 .mag-founder-image-wrapper {
