@@ -137,28 +137,14 @@ const CapriTalks: React.FC = () => {
             <p>
               Ogni appuntamento è pensato per generare <strong>valore, opinioni e relazioni.</strong>
             </p>
+            <p style={{ fontSize: '0.9rem', opacity: 0.8 }}>
+              L'evento, curato da Davide Desario, direttore dell'Adnkronos, è promosso con il patrocinio della Presidenza del Consiglio dei Ministri, dei Ministeri della Cultura e del Turismo. Media partner sono Skytg24 e Adnkronos.
+            </p>
           </div>
         </div>
 
-        <div className="ct-concept-credits" style={{ gridColumn: '1 / -1', marginTop: '20px' }}>
-          <p style={{ fontSize: '0.9rem', opacity: 0.7 }}>
-            L'evento, curato da Davide Desario, direttore dell'Adnkronos, è promosso con il patrocinio della Presidenza del Consiglio dei Ministri, dei Ministeri della Cultura e del Turismo. Media partner sono Skytg24 e Adnkronos.
-          </p>
-        </div>
-
         {/* CAPRI TALKS 2026 (DIS)UNITI */}
-        <h2 className="ct-section-title" style={{ marginBottom: '0' }}>CAPRI TALKS 2026 (DIS)UNITI</h2>
-        <div style={{ textAlign: 'center', marginBottom: '32px', marginTop: '-4px' }}>
-          <span style={{ 
-            fontSize: '1.4rem', 
-            fontWeight: 600, 
-            color: 'var(--primary)', 
-            letterSpacing: '0.05em',
-            fontFamily: "'Playfair Display', serif"
-          }}>
-            15 – 16 maggio
-          </span>
-        </div>
+        <h2 className="ct-section-title">CAPRI TALKS 2026 (DIS)UNITI</h2>
         
         <div className="ct-columns-text">
           <p>
