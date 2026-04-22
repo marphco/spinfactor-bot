@@ -51,7 +51,7 @@ const Human: React.FC = () => {
   const indexBullets = [
     {
       title: "Integrazione Unica",
-      desc: "Unisce i dati delle ricerche demoscopiche con la rilevanza delle problematiche elaborate da Human® in rete."
+      desc: "Unisce i dati delle ricerche demoscopiche con i temi rilevati da Human® in rete."
     },
     {
       title: "Media Ponderata",

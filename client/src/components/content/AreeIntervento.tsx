@@ -29,7 +29,7 @@ const AreeIntervento: React.FC = () => {
     {
       label: "Consulenza Politica",
       tagline: "Vincere è un’attitudine.",
-      intro: "Sviluppiamo e attuiamo piani di consulenza strategica con percorsi di comunicazione integrata su tutti i livelli, comprese le campagne elettorali.",
+      intro: "Sviluppiamo e attuiamo piani di consulenza che puntano al successo attraverso percorsi di comunicazione che si applicano al settore pubblico e privato, comprese le campagne elettorali.",
       features: [
         { title: "Comunicazione Politica e Istituzionale", desc: "Studio, pianificazione e coordinamento strategico della comunicazione integrata per partiti, ministeri, enti e relativi vertici.", icon: <Megaphone size={18} /> },
         { title: "Campaign Management", desc: "Ideazione, pianificazione e coordinamento di campagne elettorali per candidati sindaco, presidenti di Regione, Parlamento nazionale ed europeo.", icon: <Target size={18} /> },
@@ -41,7 +41,7 @@ const AreeIntervento: React.FC = () => {
       tagline: "Governare la narrazione.",
       intro: "Pianifichiamo azioni mirate per consolidare l’identità del cliente attraverso azioni specifiche e continuative.",
       features: [
-        { title: "Media Engagement", desc: "Azioni mirate e targettizzate con i media nazionali di riferimento per rafforzarne il posizionamento in maniera continuativa.", icon: <Newspaper size={18} /> },
+        { title: "Media Engagement", desc: "Azioni mirate e targettizzate con i media nazionali di riferimento per rafforzare il posizionamento in modo costante.", icon: <Newspaper size={18} /> },
         { title: "Comunicazione di Crisi", desc: "Gestione tempestiva di tutte le fasi della crisi reputazionale, in pieno coordinamento con l’area legal.", icon: <AlertTriangle size={18} /> }
       ]
     },
@@ -61,7 +61,7 @@ const AreeIntervento: React.FC = () => {
       intro: "Definiamo e sviluppiamo percorsi esclusivi e particolareggiati per costruire relazioni pubbliche e istituzionali stabili, efficaci e coerenti.",
       features: [
         { title: "Mappatura Interlocutori", desc: "Identifichiamo gli attori rilevanti per il posizionamento del cliente e per l’attivazione di relazioni significative.", icon: <Network size={18} /> },
-        { title: "Percorsi di Accreditamento", desc: "Traiettorie relazionali su misura per favorire interlocuzioni qualificate, credibili e continuative.", icon: <Award size={18} /> },
+        { title: "Percorsi di Accreditamento", desc: "Traiettorie relazionali su misura per favorire interlocuzioni qualificate, credibili e continue.", icon: <Award size={18} /> },
         { title: "Cura delle relazioni", desc: "Accompagniamo il cliente nel consolidamento di relazioni stabili, orientate a rafforzarne autorevolezza e riconoscibilità.", icon: <Heart size={18} /> }
       ]
     }
