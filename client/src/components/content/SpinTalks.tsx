@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
-  MapPin, 
   Share2, 
   Handshake,
   Compass,
@@ -17,7 +16,7 @@ import Courtyard from '../../assets/spin-talks2.jpg';
 import Platea2 from '../../assets/spin-talks3.jpg';
 import Fountain from '../../assets/spin-talks4.jpg';
 import Talks5 from '../../assets/spin-talks5.jpg';
-import SedeEsterno from '../../assets/hq-exterior.jpg';
+
 
 const SPIN_FALLBACK = `Gli **Spin Talks** sono un ciclo di incontri creati per dare spazio a idee, esperienze e confronti sui grandi temi del nostro tempo: politica, istituzioni, media, economia, cultura, innovazione e società. 
 
