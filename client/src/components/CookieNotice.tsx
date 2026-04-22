@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useView } from '../context/ViewContext';
 
 const CookieNotice: React.FC = () => {
-  const { activeView, setActiveView, isChatOpen } = useView();
+  const { setActiveView, isChatOpen } = useView();
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {

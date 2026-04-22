@@ -1,6 +1,6 @@
 import React from 'react';
 import { useView } from '../context/ViewContext';
-import { FaInstagram, FaLinkedinIn, FaTiktok, FaXTwitter } from "react-icons/fa6";
+import { FaInstagram, FaLinkedinIn, FaTiktok } from "react-icons/fa6";
 
 const SOCIAL_LINKS = [
   { 
