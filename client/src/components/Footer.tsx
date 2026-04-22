@@ -1,6 +1,6 @@
 import React from 'react';
 import { useView } from '../context/ViewContext';
-import { FaInstagram, FaLinkedinIn, FaTiktok, FaXTwitter } from "react-icons/fa6";
+import { FaInstagram, FaLinkedinIn, FaXTwitter } from "react-icons/fa6";
 
 const SOCIAL_LINKS = [
   { 
@@ -8,12 +8,6 @@ const SOCIAL_LINKS = [
     label: "Instagram", 
     href: "https://www.instagram.com/spin.factor", 
     icon: FaInstagram 
-  },
-  { 
-    id: "tiktok", 
-    label: "TikTok", 
-    href: "https://www.tiktok.com/@spin.factor", 
-    icon: FaTiktok 
   },
   { 
     id: "x", 

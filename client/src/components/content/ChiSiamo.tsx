@@ -17,7 +17,7 @@ Nel 2019, con un team qualificato di sviluppatori italiani, progetta Human, una 
 Nel 2023 la società si apre alle relazioni istituzionali, al networking e al corporate. Nel 2025 nascono gli Spin Talks e i Capri Talks.`;
 
 import TiberioImage from '../../assets/tiberio.png';
-import WarRoomImage from '../../assets/warroom.jpg';
+import WarRoomImage from '../../assets/warroom2.jpg';
 import CertificazioneImage from '../../assets/certificazione.jpg';
 
 const ChiSiamo: React.FC = () => {
