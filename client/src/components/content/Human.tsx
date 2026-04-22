@@ -4,7 +4,7 @@ import { BrainCircuit, CheckCircle2, Zap, Target, Search } from 'lucide-react';
 import { useSectionContent } from '../../hooks/useSectionContent';
 import { FormattedText } from '../FormattedText';
 
-const HUMAN_FALLBACK = `La tecnologia al servizio del pensiero. Human® è la piattaforma di proprietà di Spin Factor, con brevetto depositato e realizzata interamente con algoritmo italiano.`;
+const HUMAN_FALLBACK = `Human® è la piattaforma di proprietà di Spin Factor, con brevetto depositato e realizzata interamente con algoritmo italiano.`;
 
 const INDEX_FALLBACK = `La convergenza tra Big Data e Demoscopia. L’Human Index è l'esclusivo indicatore di convergenza sviluppato da Spin Factor per eliminare ogni zona d'ombra nel monitoraggio dell'opinione pubblica.`;
 

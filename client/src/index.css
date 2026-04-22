@@ -1797,17 +1797,6 @@ img.white-blob-icon {
   z-index: 100;
 }
 
-@media (max-width: 768px) {
-  .cookie-notice-minimal {
-    margin-bottom: 8px;
-  }
-  .cookie-notice-capri {
-    width: calc(100% - 32px);
-    margin: 0 auto 16px;
-    padding: 10px 16px;
-  }
-}
-
 .cookie-notice-capri {
   width: 100%;
   max-width: 800px;
@@ -1820,6 +1809,17 @@ img.white-blob-icon {
   border: 1px solid rgba(0, 0, 0, 0.05);
   border-radius: 16px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .cookie-notice-minimal {
+    margin-bottom: 8px;
+  }
+  .cookie-notice-capri {
+    width: calc(100% - 48px) !important;
+    margin: 0 auto 32px !important;
+    padding: 12px 20px !important;
+  }
 }
 
 .cookie-content-minimal {
