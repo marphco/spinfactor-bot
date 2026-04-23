@@ -127,6 +127,7 @@ interface BlobHeroProps {
 const BlobHero: React.FC<BlobHeroProps> = ({ onNavigate }) => {
   const [isMobile, setIsMobile] = useState(false);
   const [isLaptop, setIsLaptop] = useState(false);
+  const [isMedium, setIsMedium] = useState(false);
   const [shuffledSections, setShuffledSections] = useState<any[]>([]);
 
   // Viewport Lock: Ensure Home is always zero-scroll without affecting internal pages
@@ -145,18 +146,19 @@ const BlobHero: React.FC<BlobHeroProps> = ({ onNavigate }) => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
       setIsLaptop(window.innerHeight < 940 && window.innerWidth >= 768);
+      setIsMedium(window.innerHeight >= 940 && window.innerHeight < 1180 && window.innerWidth >= 768);
     };
     handleResize();
     window.addEventListener('resize', handleResize);
 
     // Dynamic Scaling Factors
     const coordsScale = isMobile ? 0.52 : 1.0; 
-    const blobSizeScale = isMobile ? 0.52 : (isLaptop ? 0.82 : 1.0); 
+    const blobSizeScale = isMobile ? 0.52 : (isLaptop ? 0.82 : (isMedium ? 0.92 : 1.0)); 
 
-    // Elliptical Logic for Laptop - Refined for more air
-    const ySquash = isLaptop ? 0.75 : 1.0;
-    const xScale = isLaptop ? 1.45 : 1.0;
-    const stretchX = isLaptop ? 1.35 : 1.0;
+    // Elliptical Logic for Laptop & Medium - Refined for more air
+    const ySquash = isLaptop ? 0.75 : (isMedium ? 0.85 : 1.0);
+    const xScale = isLaptop ? 1.45 : (isMedium ? 1.25 : 1.0);
+    const stretchX = isLaptop ? 1.35 : (isMedium ? 1.2 : 1.0);
     
     const finalCoordsScale = coordsScale;
     const finalBlobSizeScale = blobSizeScale;
@@ -208,7 +210,7 @@ const BlobHero: React.FC<BlobHeroProps> = ({ onNavigate }) => {
     }));
 
     setShuffledSections(finalSections);
-  }, [isMobile, isLaptop]);
+  }, [isMobile, isLaptop, isMedium]);
 
   if (shuffledSections.length === 0) return null;
 
