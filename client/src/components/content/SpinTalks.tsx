@@ -38,7 +38,7 @@ const CAPRI_GUIDELINES = [
 ];
 
 const SpinTalks: React.FC = () => {
-  const { activeView, setActiveView } = useView();
+  const { activeView } = useView();
   const isCapri = activeView === 'capri-talks';
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [isMobile, setIsMobile] = useState(typeof window !== 'undefined' ? window.innerWidth < 768 : false);
