@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Send, MapPin, Mail, Building2, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react';
 import { useView } from '../context/ViewContext';
 import { API_BASE_URL } from '../apiConfig';
-import SedeCorte from '../assets/hq-courtyard.jpg';
+import ContactImage from '../assets/contatti.jpg';
 
 const ContactForm: React.FC = () => {
   const { setActiveView } = useView();
@@ -242,7 +242,7 @@ const ContactForm: React.FC = () => {
                 height: '100%'
               }}
             >
-              <img src={SedeCorte} alt="Spin Factor HQ Courtyard" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <img src={ContactImage} alt="Spin Factor Office" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
             </motion.div>
           </div>
         </section>
