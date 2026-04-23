@@ -24,7 +24,14 @@ app.use(cors({
   origin: function (origin, callback) {
     // allow requests with no origin (like mobile apps or curl requests)
     if (!origin) return callback(null, true);
-    if (ALLOWED_ORIGINS.indexOf(origin) === -1 && !origin.startsWith('http://localhost:51')) {
+    const isLocal = origin.startsWith('http://localhost:51') || 
+                   origin.startsWith('http://127.0.0.1') ||
+                   origin.startsWith('http://192.168.') || 
+                   origin.startsWith('http://10.') || 
+                   origin.startsWith('http://172.') || 
+                   origin.startsWith('http://169.254.');
+
+    if (ALLOWED_ORIGINS.indexOf(origin) === -1 && !isLocal) {
       return callback(new Error('The CORS policy for this site does not allow access from the specified Origin.'), false);
     }
     return callback(null, true);
