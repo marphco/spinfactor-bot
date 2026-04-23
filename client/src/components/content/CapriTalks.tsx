@@ -33,6 +33,8 @@ import freccia1_2 from '../../assets/freccia1-2.svg';
 import imprenditori from '../../assets/imprenditori.svg';
 import freccia1_3 from '../../assets/freccia1-3.svg';
 import leader from '../../assets/leader.svg';
+import metaLogo from '../../assets/meta.svg';
+import cittaCapri from '../../assets/citta-capri.jpg';
 
 const CapriTalks: React.FC = () => {
   const { setActiveView } = useView();
@@ -91,6 +93,14 @@ const CapriTalks: React.FC = () => {
                 <img src={palazzoChigi} alt="Palazzo Chigi" className="ct-sponsor-logo" style={{ height: '40px' }} />
                 <img src={mic} alt="Ministero della Cultura" className="ct-sponsor-logo" style={{ height: '32px' }} />
                 <img src={mit} alt="Ministero del Turismo" className="ct-sponsor-logo" style={{ height: '32px' }} />
+                <img src={cittaCapri} alt="Città di Capri" className="ct-sponsor-logo" style={{ height: '32px' }} />
+              </div>
+            </div>
+
+            <div className="ct-sponsor-group">
+              <span className="ct-sponsor-label">PARTNER TECNICO</span>
+              <div className="ct-sponsor-logos">
+                <img src={metaLogo} alt="Meta" className="ct-sponsor-logo" style={{ height: '20px' }} />
               </div>
             </div>
 
@@ -142,7 +152,7 @@ const CapriTalks: React.FC = () => {
 
         <div className="ct-concept-credits">
           <p>
-            L'evento, curato da Davide Desario, direttore dell'Adnkronos, è promosso con il patrocinio della Presidenza del Consiglio dei Ministri, dei Ministeri della Cultura e del Turismo. Media partner sono Skytg24 e Adnkronos.
+            L'evento, curato da Davide Desario, direttore dell'Adnkronos, è promosso con il patrocinio della Presidenza del Consiglio dei Ministri, dei Ministeri della Cultura e del Turismo e del Comune di Capri. Media partner sono Skytg24 e Adnkronos. Partner tecnico Meta.
           </p>
         </div>
 
