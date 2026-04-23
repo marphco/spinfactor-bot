@@ -138,12 +138,15 @@ app.post('/api/contact', async (req, res) => {
   try {
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
-      port: process.env.SMTP_PORT,
-      secure: true, // Use SSL for port 465
+      port: parseInt(process.env.SMTP_PORT),
+      secure: parseInt(process.env.SMTP_PORT) === 465, 
       auth: {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS,
       },
+      connectionTimeout: 15000, // 15 seconds timeout
+      greetingTimeout: 15000,
+      socketTimeout: 30000,
     });
 
     const mailOptions = {
