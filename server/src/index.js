@@ -12,7 +12,9 @@ const ALLOWED_ORIGINS = [
   process.env.CLIENT_URL,
   'http://localhost:5173',
   'http://localhost:5174', // Added to support local port shifts
-  'https://spinfactor-bot.vercel.app'
+  'https://spinfactor-bot.vercel.app',
+  'https://www.spinfactor.it',
+  'https://spinfactor.it'
 ];
 
 // Middleware
