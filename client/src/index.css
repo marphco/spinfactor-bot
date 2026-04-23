@@ -907,7 +907,7 @@ img.white-blob-icon {
     margin: 0 !important;
     display: flex !important;
     justify-content: center !important;
-    transform: translateY(-40px) scale(0.88); 
+    transform: translateY(-15px) scale(0.92); 
     transform-origin: center center;
   }
   .layout.is-home-state .hero-tagline {

@@ -153,12 +153,12 @@ const BlobHero: React.FC<BlobHeroProps> = ({ onNavigate }) => {
 
     // Dynamic Scaling Factors
     const coordsScale = isMobile ? 0.52 : 1.0; 
-    const blobSizeScale = isMobile ? 0.52 : (isLaptop ? 0.82 : (isMedium ? 0.92 : 1.0)); 
+    const blobSizeScale = isMobile ? 0.52 : (isLaptop ? 0.82 : (isMedium ? 0.95 : 1.0)); 
 
     // Elliptical Logic for Laptop & Medium - Refined for more air
-    const ySquash = isLaptop ? 0.75 : (isMedium ? 0.85 : 1.0);
+    const ySquash = isLaptop ? 0.75 : (isMedium ? 0.95 : 1.0);
     const xScale = isLaptop ? 1.45 : (isMedium ? 1.25 : 1.0);
-    const stretchX = isLaptop ? 1.35 : (isMedium ? 1.2 : 1.0);
+    const stretchX = isLaptop ? 1.35 : (isMedium ? 1.15 : 1.0);
     
     const finalCoordsScale = coordsScale;
     const finalBlobSizeScale = blobSizeScale;
