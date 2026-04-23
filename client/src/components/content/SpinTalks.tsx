@@ -80,7 +80,7 @@ const SpinTalks: React.FC = () => {
       className="content-page"
     >
       <div className="content-inner">
-        {/* Toggle Nav */}
+        {/* Toggle Nav (Temporaneamente nascosto)
         <div className="tabs-nav glass" style={{ marginBottom: '3rem' }}>
           <button 
             className={!isCapri ? 'active' : ''} 
@@ -95,6 +95,7 @@ const SpinTalks: React.FC = () => {
             Capri Talks
           </button>
         </div>
+        */}
 
         <AnimatePresence mode="wait">
           {!isCapri ? (
