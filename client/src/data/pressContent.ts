@@ -41,7 +41,7 @@ export const PRESS_ITEMS: PressItem[] = [
     date: "15 Aprile 2026",
     brand: "Il Sole 24 Ore",
     logo: s24,
-    href: "https://www.ilsole24ore.com/art/vinitaly-superstar-social-7-giorni-14700-contenuti-e-98-milioni-interazioni-AlonmgXC",
+    href: "https://www.ilsole24ore.com/art/vinitaly-superstar-social-7-giorni-14700-contenuti-e-98-milioni-interazioni-AIonmgXC",
   },
   {
     title: `No alle armi e all’Europa: la nostalgia gialloverde della coppia Conte-Salvini`,
