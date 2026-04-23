@@ -1,5 +1,6 @@
 const express = require('express');
 const nodemailer = require('nodemailer');
+const { Resend } = require('resend');
 
 const cors = require('cors');
 const morgan = require('morgan');
@@ -7,6 +8,7 @@ const helmet = require('helmet');
 require('dotenv').config();
 
 const app = express();
+const resend = new Resend(process.env.RESEND_API_KEY);
 const PORT = process.env.PORT || 5001;
 const ALLOWED_ORIGINS = [
   process.env.CLIENT_URL,
@@ -126,7 +128,6 @@ app.post('/api/contact', async (req, res) => {
 
   // Anti-spam Check (Honeypot)
   if (company) {
-    // Silently reject spam
     return res.status(200).json({ success: true, message: 'Message received (spam)' });
   }
 
@@ -136,25 +137,11 @@ app.post('/api/contact', async (req, res) => {
   }
 
   try {
-    const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST,
-      port: parseInt(process.env.SMTP_PORT),
-      secure: parseInt(process.env.SMTP_PORT) === 465, 
-      auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
-      },
-      connectionTimeout: 15000, // 15 seconds timeout
-      greetingTimeout: 15000,
-      socketTimeout: 30000,
-    });
-
-    const mailOptions = {
-      from: `"${name}" <${process.env.SENDER_EMAIL}>`,
-      replyTo: email,
+    const { data, error } = await resend.emails.send({
+      from: 'Spin Factor <noreply@spinfactor.it>',
       to: process.env.RECEIVER_EMAIL,
       subject: `Nuovo messaggio da Spin Factor Bot: ${name}`,
-      text: `Nome: ${name}\nEmail: ${email}\nMessaggio: ${message}`,
+      replyTo: email,
       html: `
         <h3>Nuovo contatto dal sito</h3>
         <p><strong>Nome:</strong> ${name}</p>
@@ -162,15 +149,17 @@ app.post('/api/contact', async (req, res) => {
         <p><strong>Messaggio:</strong></p>
         <p>${message.replace(/\n/g, '<br>')}</p>
       `,
-    };
+    });
 
+    if (error) {
+      console.error('Resend Error:', error);
+      return res.status(500).json({ success: false, message: 'Errore nell\'invio del messaggio.' });
+    }
 
-
-    await transporter.sendMail(mailOptions);
     res.status(200).json({ success: true, message: 'Messaggio inviato con successo!' });
   } catch (error) {
-    console.error('Error sending email:', error);
-    res.status(500).json({ success: false, message: 'Errore durante l\'invio del messaggio. Riprova più tardi.' });
+    console.error('Server Error sending email:', error);
+    res.status(500).json({ success: false, message: 'Errore durante l\'invio del messaggio.' });
   }
 });
 
