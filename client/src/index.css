@@ -1301,16 +1301,28 @@ img.white-blob-icon {
 }
 
 .input-group input, .input-group textarea {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(0, 159, 183, 0.1);
+  background: var(--surface);
+  border: 1px solid rgba(0, 159, 183, 0.15);
   padding: 16px;
   border-radius: 12px;
-  color: white;
+  color: var(--text);
   width: 100%;
   font-family: inherit;
   font-size: 16px;
   line-height: 1.5;
   transition: var(--transition);
+}
+
+.input-group input:focus, .input-group textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  background: white;
+  box-shadow: 0 4px 20px rgba(0, 159, 183, 0.08);
+}
+
+.input-group input::placeholder, .input-group textarea::placeholder {
+  color: var(--text-dim);
+  opacity: 0.6;
 }
 
 .input-group textarea {
@@ -1796,7 +1808,7 @@ img.white-blob-icon {
 }
 
 .footer-text-link:hover {
-  color: white;
+  color: var(--primary);
 }
 
 .footer-divider {
