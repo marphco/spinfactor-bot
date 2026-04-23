@@ -1,9 +1,10 @@
 import ilriformista from "../assets/ilriformista.svg";
 import libero from "../assets/libero.png";
 import adn from "../assets/adn.svg";
-import skytg24 from "../assets/skytg24.svg";
 import corriere from "../assets/corriere.svg";
 import la7 from "../assets/la7.svg";
+import s24 from "../assets/s24.svg";
+import urania from "../assets/urania.svg";
 
 export interface PressItem {
   title: string;
@@ -36,11 +37,11 @@ export const PRESS_ITEMS: PressItem[] = [
     href: "https://www.adnkronos.com/politica/referendum-giustizia-spin-factor-su-social-si-avanti-57-contro-il-43-del-no_6Btef6tie01CiKSrPfGRWY",
   },
   {
-    title: `Gradimento verso Giorgia Meloni`,
-    date: "23 Dicembre 2025",
-    brand: "Sky TG24",
-    logo: skytg24,
-    href: "https://www.instagram.com/p/DSnDVc8iqc_/",
+    title: `Vinitaly superstar social: in 7 giorni 14.700 contenuti e 98 milioni di interazioni`,
+    date: "15 Aprile 2026",
+    brand: "Il Sole 24 Ore",
+    logo: s24,
+    href: "https://www.ilsole24ore.com/art/vinitaly-superstar-social-7-giorni-14700-contenuti-e-98-milioni-interazioni-AlonmgXC",
   },
   {
     title: `No alle armi e all’Europa: la nostalgia gialloverde della coppia Conte-Salvini`,
@@ -50,11 +51,11 @@ export const PRESS_ITEMS: PressItem[] = [
     href: "https://roma.corriere.it/notizie/politica/25_dicembre_11/conte-salvini-nostalgia-gialloverde-no-armi-europa-ea6dbac5-82f3-4497-a6f5-e34f308dcxlk.shtml",
   },
   {
-    title: `Atreju è un successo, Brunetti: “Un laboratorio pop e culturale che dialoga con la contemporaneità”`,
-    date: "10 Dicembre 2025",
-    brand: "Il Riformista",
-    logo: ilriformista,
-    href: "https://www.instagram.com/p/DSFseTqikUX/?img_index=1",
+    title: `Sui social utenti scatenati per Italia fuori dai Mondiali, le parole chiave sono durissime`,
+    date: "14 Aprile 2026",
+    brand: "ADN Kronos",
+    logo: adn,
+    href: "https://www.adnkronos.com/sport/sui-social-utenti-scatenati-per-italia-fuori-dai-mondiali-le-parole-chiave-sono-durissime_4HeJYJmoQQHI53a1zsXvet",
   },
   {
     title: `Gli italiani e la paura della guerra`,
@@ -62,6 +63,13 @@ export const PRESS_ITEMS: PressItem[] = [
     brand: "LA7",
     logo: la7,
     href: "https://www.la7.it/tagada/video/gli-italiani-e-la-paura-della-guerra-08-12-2025-624006",
+  },
+  {
+    title: `Intervista a Tiberio Brunetti`,
+    date: "22 Aprile 2026",
+    brand: "Urania",
+    logo: urania,
+    href: "https://uraniamedia.it/watch/intervista-tiberio-brunetti",
   },
 ];
 
