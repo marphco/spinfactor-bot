@@ -13,7 +13,7 @@ import { useSectionContent } from '../../hooks/useSectionContent';
 import { useView } from '../../context/ViewContext';
 import Platea1 from '../../assets/spin-talks1.jpg';
 import Courtyard from '../../assets/spin-talks2.jpg';
-import Platea2 from '../../assets/spin-talks3.jpg';
+import Platea2 from '../../assets/spin-talks6.jpeg';
 import Fountain from '../../assets/spin-talks4.jpg';
 import Talks5 from '../../assets/spin-talks5.jpg';
 
