@@ -165,7 +165,7 @@ const SpinTalks: React.FC = () => {
                       transition={{ delay: 0.3 }}
                       style={{ alignSelf: 'flex-end', width: '85%', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 10px 25px rgba(0,0,0,0.08)' }}
                     >
-                      <img src={Platea2} alt="Talks Discussion" style={{ width: '100%', height: '200px', objectFit: 'cover', display: 'block' }} />
+                      <img src={Platea2} alt="Talks Discussion" style={{ width: '100%', height: '200px', objectFit: 'cover', objectPosition: 'center', display: 'block' }} />
                     </motion.div>
                   </>
                 ) : (
@@ -218,7 +218,7 @@ const SpinTalks: React.FC = () => {
                         style={{ flex: '0.6', borderRadius: '20px', overflow: 'hidden', boxShadow: '0 20px 40px rgba(0,0,0,0.1)', cursor: 'pointer' }}
                         whileHover={{ scale: 1.02 }}
                       >
-                        <img src={Platea2} alt="Talks Discussion" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+                        <img src={Platea2} alt="Talks Discussion" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', display: 'block' }} />
                       </motion.div>
                     </div>
                   </>
