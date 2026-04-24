@@ -1,3 +1,4 @@
+// ViewContext.tsx
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 
@@ -18,6 +19,7 @@ const VIEW_TO_PATH: Record<string, string> = {
   'spin-talks': '/spin-talks',
   'capri-talks': '/capri-talks',
   'human': '/human',
+  'ricerche': '/ricerche',
   'podcast': '/podcast',
   'contatti': '/contatti',
   'press': '/press',
@@ -30,13 +32,12 @@ const PATH_TO_VIEW: Record<string, string> = Object.entries(VIEW_TO_PATH).reduce
   (acc, [view, path]) => ({ ...acc, [path]: view }), {}
 );
 
-export const ViewProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+export function ViewProvider({ children }: { children: React.ReactNode }) {
   const navigate = useNavigate();
   const location = useLocation();
   const [activeView, setActiveViewState] = useState('home');
   const [isChatOpen, setIsChatOpen] = useState(false);
 
-  // Sync state with URL on mount and location change
   useEffect(() => {
     const view = PATH_TO_VIEW[location.pathname] || 'home';
     setActiveViewState(view);
@@ -52,10 +53,11 @@ export const ViewProvider: React.FC<{ children: React.ReactNode }> = ({ children
       {children}
     </ViewContext.Provider>
   );
-};
+}
 
-export const useView = () => {
+export function useView() {
   const context = useContext(ViewContext);
   if (!context) throw new Error('useView must be used within a ViewProvider');
   return context;
-};
+}
+

@@ -12,6 +12,7 @@ import Podcast from './content/Podcast';
 import LegalView from './content/LegalView';
 import ContactForm from './ContactForm';
 import Human from './content/Human';
+import Ricerche from './content/Ricerche';
 import { useView } from '../context/ViewContext';
 
 const ViewManager: React.FC = () => {
@@ -33,6 +34,7 @@ const ViewManager: React.FC = () => {
             <Route path="/siamo" element={<ChiSiamo key="chi-siamo" />} />
             <Route path="/societa" element={<Societa key="societa" />} />
             <Route path="/stampa" element={<Stampa key="stampa" />} />
+            <Route path="/ricerche" element={<Ricerche key="ricerche" />} />
             <Route path="/facciamo" element={<AreeIntervento key="facciamo" />} />
             <Route path="/spin-talks" element={<SpinTalks key="spin-talks" />} />
             <Route path="/capri-talks" element={<CapriTalks key="capri-talks" />} />

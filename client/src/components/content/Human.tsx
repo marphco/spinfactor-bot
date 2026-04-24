@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { BrainCircuit, CheckCircle2, Zap, Target, Search } from 'lucide-react';
 import { useSectionContent } from '../../hooks/useSectionContent';
+import { useView } from '../../context/ViewContext';
 import { FormattedText } from '../FormattedText';
 
 const HUMAN_FALLBACK = `Human® è la piattaforma di proprietà di Spin Factor, con brevetto depositato e realizzata interamente con algoritmo italiano.`;
@@ -9,6 +10,7 @@ const HUMAN_FALLBACK = `Human® è la piattaforma di proprietà di Spin Factor, 
 const INDEX_FALLBACK = `La convergenza tra Big Data e Demoscopia. L’Human Index è l'esclusivo indicatore di convergenza sviluppato da Spin Factor per eliminare ogni zona d'ombra nel monitoraggio dell'opinione pubblica.`;
 
 const Human: React.FC = () => {
+  const { activeView, setActiveView } = useView();
   const { content: humanContent, loading: humanLoading } = useSectionContent(
     'Human Tecnologia', 
     HUMAN_FALLBACK,
@@ -70,6 +72,27 @@ const Human: React.FC = () => {
       className="content-page"
     >
       <div className="content-inner">
+        {/* Toggle Nav */}
+        <div className="tabs-nav glass" style={{ 
+          marginBottom: '3rem', 
+          position: 'relative', 
+          zIndex: 10,
+          display: 'flex' 
+        }}>
+          <button 
+            className={activeView === 'human' ? 'active' : ''} 
+            onClick={() => setActiveView('human')}
+          >
+            Human
+          </button>
+          <button 
+            className={activeView === 'ricerche' ? 'active' : ''} 
+            onClick={() => setActiveView('ricerche')}
+          >
+            Ricerche
+          </button>
+        </div>
+
         {/* SECTION 1: HUMAN® */}
         <section className="human-main-section">
           <div className="mag-label-wrapper">
