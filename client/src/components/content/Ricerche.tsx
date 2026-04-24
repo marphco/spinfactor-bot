@@ -43,7 +43,7 @@ const Ricerche: React.FC = () => {
             <span className="mag-label">Insight & Analysis</span>
           </div>
           <h2 className="mag-h2">Ricerche.</h2>
-          <h3 className="mag-tagline">Human decodifica il dibattito digitale.</h3>
+          <h3 className="mag-tagline">Human® interpreta il dibattito digitale.</h3>
           
           <div className="mag-intro">
             <p style={{ marginBottom: '4rem' }}>
