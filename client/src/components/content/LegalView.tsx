@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ShieldCheck, Cookie } from 'lucide-react';
+import { FormattedText } from '../FormattedText';
 
 interface LegalViewProps {
   type: 'privacy-policy' | 'cookie-policy';
@@ -48,7 +49,7 @@ const LegalView: React.FC<LegalViewProps> = ({ type }) => {
       },
       {
         title: 'Tipologie di cookie utilizzati',
-        text: 'Questa Applicazione utilizza Cookie Tecnici (necessari per il funzionamento) e Cookie Analitici di Terze Parti (Google Analytics 4). Questi ultimi sono utilizzati per raccogliere informazioni in forma aggregata sul numero degli utenti e su come questi visitano il sito. I dati sono trattati da Google in conformità con la propria privacy policy.'
+        text: 'Questa Applicazione utilizza Cookie Tecnici (necessari per il funzionamento) e Cookie Analitici di Terze Parti (Google Analytics 4). Questi ultimi sono utilizzati per raccogliere informazioni in forma aggregata sul numero degli utenti e su come questi visitano il sito. I dati sono trattati da Google in conformità con la propria [privacy policy](https://policies.google.com/privacy).'
       },
       {
         title: 'Consenso e Gestione',
@@ -99,7 +100,9 @@ const LegalView: React.FC<LegalViewProps> = ({ type }) => {
               }}>
                 {section.title}
               </h4>
-              <p className="mag-p" style={{ fontSize: '0.95rem', opacity: 0.8 }}>{section.text}</p>
+              <p className="mag-p" style={{ fontSize: '0.95rem', opacity: 0.8 }}>
+                <FormattedText text={section.text} />
+              </p>
             </motion.section>
           ))}
         </div>
