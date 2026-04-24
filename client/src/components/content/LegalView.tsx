@@ -11,7 +11,7 @@ const LegalView: React.FC<LegalViewProps> = ({ type }) => {
     label: 'Legal & Privacy',
     title: 'Privacy Policy',
     tagline: 'Informazioni sul trattamento dei dati personali.',
-    lastUpdated: '17 Aprile 2026',
+    lastUpdated: '24 Aprile 2026',
     icon: ShieldCheck,
     sections: [
       {
@@ -39,7 +39,7 @@ const LegalView: React.FC<LegalViewProps> = ({ type }) => {
     label: 'Legal & Compliance',
     title: 'Cookie Policy',
     tagline: 'Gestione e utilizzo dei cookie su questo sito.',
-    lastUpdated: '17 Aprile 2026',
+    lastUpdated: '24 Aprile 2026',
     icon: Cookie,
     sections: [
       {
@@ -48,7 +48,7 @@ const LegalView: React.FC<LegalViewProps> = ({ type }) => {
       },
       {
         title: 'Tipologie di cookie utilizzati',
-        text: 'Questa Applicazione utilizza Cookie Tecnici (necessari per il funzionamento) e Cookie di Terze Parti (per analisi statistiche aggregate tramite Google Analytics 4).'
+        text: 'Questa Applicazione utilizza Cookie Tecnici (necessari per il funzionamento) e Cookie Analitici di Terze Parti (Google Analytics 4). Questi ultimi sono utilizzati per raccogliere informazioni in forma aggregata sul numero degli utenti e su come questi visitano il sito. I dati sono trattati da Google in conformità con la propria privacy policy.'
       },
       {
         title: 'Consenso e Gestione',

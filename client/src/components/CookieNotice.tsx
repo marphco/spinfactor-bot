@@ -16,6 +16,17 @@ const CookieNotice: React.FC = () => {
 
   const handleAccept = () => {
     localStorage.setItem('cookie-accepted', 'true');
+    
+    // Update Google Analytics consent
+    if (typeof (window as any).gtag === 'function') {
+      (window as any).gtag('consent', 'update', {
+        'ad_storage': 'granted',
+        'ad_user_data': 'granted',
+        'ad_personalization': 'granted',
+        'analytics_storage': 'granted'
+      });
+    }
+    
     setIsVisible(false);
   };
 

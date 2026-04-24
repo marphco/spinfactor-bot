@@ -27,12 +27,21 @@
     <meta property="twitter:image" content="https://spinfactor-bot.vercel.app/og-image.png" />
 
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RQ6KG1E28"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
+      
+      // Default consent state (GDPR Compliant)
+      gtag('consent', 'default', {
+        'ad_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied',
+        'analytics_storage': 'denied'
+      });
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RQ6KG1E28"></script>
+    <script>
       gtag('js', new Date());
-
       gtag('config', 'G-1RQ6KG1E28');
     </script>
   </head>
