@@ -38,7 +38,7 @@ const CAPRI_GUIDELINES = [
 ];
 
 const SpinTalks: React.FC = () => {
-  const { activeView } = useView();
+  const { activeView, setActiveView } = useView();
   const isCapri = activeView === 'capri-talks';
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [isMobile, setIsMobile] = useState(typeof window !== 'undefined' ? window.innerWidth < 768 : false);
@@ -80,22 +80,22 @@ const SpinTalks: React.FC = () => {
       className="content-page"
     >
       <div className="content-inner">
-        {/* Toggle Nav (Temporaneamente nascosto)
+        {/* Toggle Nav */}
         <div className="tabs-nav glass" style={{ marginBottom: '3rem' }}>
           <button 
-            className={!isCapri ? 'active' : ''} 
+            className={activeView === 'spin-talks' ? 'active' : ''} 
             onClick={() => setActiveView('spin-talks')}
           >
             Spin Talks
           </button>
           <button 
-            className={isCapri ? 'active' : ''} 
+            className={activeView === 'capri-talks' ? 'active' : ''} 
             onClick={() => setActiveView('capri-talks')}
           >
             Capri Talks
           </button>
         </div>
-        */}
+
 
         <AnimatePresence mode="wait">
           {!isCapri ? (
