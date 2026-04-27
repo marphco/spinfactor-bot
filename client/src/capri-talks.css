@@ -491,6 +491,14 @@
     gap: 24px;
   }
 
+  .ct-patrocini-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px 40px;
+    align-items: center;
+    justify-items: center;
+  }
+
   .ct-concept-paragraph.left,
   .ct-concept-paragraph.right {
     flex-direction: column;

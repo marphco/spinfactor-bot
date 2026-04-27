@@ -90,7 +90,7 @@ const CapriTalks: React.FC = () => {
               
               <div className="ct-sponsor-group">
                 <span className="ct-sponsor-label">CON IL PATROCINIO DI</span>
-                <div className="ct-sponsor-logos">
+                <div className="ct-sponsor-logos ct-patrocini-grid">
                   <img src={palazzoChigi} alt="Palazzo Chigi" className="ct-sponsor-logo" style={{ height: '40px' }} />
                   <img src={mic} alt="Ministero della Cultura" className="ct-sponsor-logo" style={{ height: '32px' }} />
                   <img src={mit} alt="Ministero del Turismo" className="ct-sponsor-logo" style={{ height: '32px' }} />
@@ -101,17 +101,17 @@ const CapriTalks: React.FC = () => {
 
             <div className="ct-sponsors-row">
               <div className="ct-sponsor-group">
-                <span className="ct-sponsor-label">PARTNER TECNICO</span>
-                <div className="ct-sponsor-logos">
-                  <img src={metaLogo} alt="Meta" className="ct-sponsor-logo" style={{ height: '24px' }} />
-                </div>
-              </div>
-
-              <div className="ct-sponsor-group">
                 <span className="ct-sponsor-label">MEDIA PARTNER</span>
                 <div className="ct-sponsor-logos">
                   <img src={skytg24} alt="Sky TG24" className="ct-sponsor-logo" style={{ height: '28px' }} />
                   <img src={adn} alt="Adnkronos" className="ct-sponsor-logo" style={{ height: '24px' }} />
+                </div>
+              </div>
+
+              <div className="ct-sponsor-group">
+                <span className="ct-sponsor-label">PARTNER TECNICO</span>
+                <div className="ct-sponsor-logos">
+                  <img src={metaLogo} alt="Meta" className="ct-sponsor-logo" style={{ height: '18px' }} />
                 </div>
               </div>
             </div>
