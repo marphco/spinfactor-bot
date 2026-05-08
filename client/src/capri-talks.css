@@ -228,7 +228,7 @@
 
 /* anema e core has an extreme 15:1 aspect ratio: pin width so it can't blow up vertically */
 .ct-logo-anema {
-  width: 170px !important;
+  width: 130px !important;
   height: auto !important;
   max-width: 100%;
 }

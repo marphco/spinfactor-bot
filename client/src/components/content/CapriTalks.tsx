@@ -356,11 +356,11 @@ const CapriTalks: React.FC = () => {
           <div className="ct-sponsor-group ct-sponsor-group-wide">
             <span className="ct-sponsor-label">CON IL SUPPORTO DI</span>
             <div className="ct-sponsor-logos ct-support-row">
-              <img src={snavLogo} alt="SNAV" className="ct-sponsor-logo" style={{ height: '32px' }} />
-              <img src={tiberioLogo} alt="Tiberio" className="ct-sponsor-logo" style={{ height: '36px' }} />
-              <img src={lapalmaLogo} alt="Hotel La Palma" className="ct-sponsor-logo" style={{ height: '40px' }} />
+              <img src={snavLogo} alt="SNAV" className="ct-sponsor-logo" style={{ height: '22px' }} />
+              <img src={tiberioLogo} alt="Tiberio" className="ct-sponsor-logo" style={{ height: '26px' }} />
+              <img src={lapalmaLogo} alt="Hotel La Palma" className="ct-sponsor-logo" style={{ height: '28px' }} />
               <img src={anemaLogo} alt="Anema e Core" className="ct-sponsor-logo ct-logo-anema" />
-              <img src={redLogo} alt="RED Rescue & Emergency Devices" className="ct-sponsor-logo" style={{ height: '36px' }} />
+              <img src={redLogo} alt="RED Rescue & Emergency Devices" className="ct-sponsor-logo" style={{ height: '26px' }} />
             </div>
           </div>
         </div>
