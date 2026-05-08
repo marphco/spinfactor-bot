@@ -192,6 +192,47 @@
   /* Filter strictly to match original colors/blacks depending on the logo provided */
 }
 
+.ct-sponsor-group-wide {
+  width: 100%;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+}
+
+.ct-collab-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 32px 40px;
+  align-items: center;
+  justify-items: center;
+  width: 100%;
+  min-height: 0;
+  padding-top: 4px;
+}
+
+.ct-collab-grid img {
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.ct-support-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 24px 28px;
+  width: 100%;
+  min-height: 0;
+  padding-top: 4px;
+}
+
+/* anema e core has an extreme 15:1 aspect ratio: pin width so it can't blow up vertically */
+.ct-logo-anema {
+  width: 170px !important;
+  height: auto !important;
+  max-width: 100%;
+}
+
 /* =========================================================================
    SECTION HEADERS
    ========================================================================= */
@@ -499,6 +540,15 @@
     justify-items: center;
   }
 
+  .ct-collab-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px 24px;
+  }
+
+  .ct-support-row {
+    gap: 24px 32px;
+  }
+
   .ct-concept-paragraph.left,
   .ct-concept-paragraph.right {
     flex-direction: column;
@@ -750,6 +800,11 @@
   justify-content: center;
   margin-top: 16px;
   margin-bottom: 24px;
+}
+
+.ct-program-download-top {
+  margin-top: -16px;
+  margin-bottom: 48px;
 }
 
 .ct-program-download {

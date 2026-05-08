@@ -36,6 +36,19 @@ import freccia1_3 from '../../assets/freccia1-3.svg';
 import leader from '../../assets/leader.svg';
 import metaLogo from '../../assets/meta.svg';
 import cittaCapri from '../../assets/citta-capri.jpg';
+import enavLogo from '../../assets/enav.svg';
+import enelLogo from '../../assets/enel.svg';
+import gseLogo from '../../assets/gse.svg';
+import autostradeLogo from '../../assets/autostrade.svg';
+import renexiaLogo from '../../assets/renexia.svg';
+import wintimeLogo from '../../assets/wintime.svg';
+import marinaLogo from '../../assets/marina.svg';
+import fivenLogo from '../../assets/fiven.svg';
+import snavLogo from '../../assets/snav.svg';
+import tiberioLogo from '../../assets/tiberio.svg';
+import lapalmaLogo from '../../assets/lapalma.svg';
+import anemaLogo from '../../assets/anema.svg';
+import redLogo from '../../assets/red.svg';
 
 type Speaker = { name: string; role: string };
 type Block = { speakers: Speaker[]; moderator?: Speaker };
@@ -200,47 +213,9 @@ const CapriTalks: React.FC = () => {
         {/* HERO SECTION */}
         <div className="ct-hero">
           <h1 className="ct-hero-title">CAPRI TALKS</h1>
-          
+
           <div className="ct-hero-image">
             <img src={capri1} alt="Capri Talks Panoramica" />
-          </div>
-
-          <div className="ct-sponsors">
-            <div className="ct-sponsors-row">
-              <div className="ct-sponsor-group">
-                <span className="ct-sponsor-label">UN PROGETTO</span>
-                <div className="ct-sponsor-logos">
-                  <img src={logo} alt="Spin Factor" className="ct-sponsor-logo" />
-                </div>
-              </div>
-              
-              <div className="ct-sponsor-group">
-                <span className="ct-sponsor-label">CON IL PATROCINIO DI</span>
-                <div className="ct-sponsor-logos ct-patrocini-grid">
-                  <img src={palazzoChigi} alt="Palazzo Chigi" className="ct-sponsor-logo" style={{ height: '40px' }} />
-                  <img src={mic} alt="Ministero della Cultura" className="ct-sponsor-logo" style={{ height: '32px' }} />
-                  <img src={mit} alt="Ministero del Turismo" className="ct-sponsor-logo" style={{ height: '32px' }} />
-                  <img src={cittaCapri} alt="Città di Capri" className="ct-sponsor-logo" style={{ height: '48px' }} />
-                </div>
-              </div>
-            </div>
-
-            <div className="ct-sponsors-row">
-              <div className="ct-sponsor-group">
-                <span className="ct-sponsor-label">MEDIA PARTNER</span>
-                <div className="ct-sponsor-logos">
-                  <img src={skytg24} alt="Sky TG24" className="ct-sponsor-logo" style={{ height: '28px' }} />
-                  <img src={adn} alt="Adnkronos" className="ct-sponsor-logo" style={{ height: '24px' }} />
-                </div>
-              </div>
-
-              <div className="ct-sponsor-group">
-                <span className="ct-sponsor-label">PARTNER TECNICO</span>
-                <div className="ct-sponsor-logos">
-                  <img src={metaLogo} alt="Meta" className="ct-sponsor-logo" style={{ height: '18px' }} />
-                </div>
-              </div>
-            </div>
           </div>
         </div>
 
@@ -271,6 +246,122 @@ const CapriTalks: React.FC = () => {
                 controls
               />
             )}
+          </div>
+        </div>
+
+        {/* PROGRAMMA */}
+        <h2 className="ct-section-title">PROGRAMMA</h2>
+
+        <div className="ct-program-download-wrapper ct-program-download-top">
+          <a
+            className="ct-program-download"
+            href="/media/programma-capri-talks-2026.pdf"
+            download
+          >
+            <Download size={18} />
+            <span>Scarica il programma in PDF</span>
+          </a>
+        </div>
+
+        <div className="ct-program-grid">
+          {PROGRAM.map((day) => (
+            <div key={day.dayLabel} className="ct-program-day">
+              <div className="ct-program-day-header">
+                <span className="ct-program-day-label">{day.dayLabel}</span>
+                <span className="ct-program-day-time">{day.time}</span>
+              </div>
+
+              <div className="ct-program-panels">
+                {day.panels.map((panel) => (
+                  <div key={panel.title} className="ct-program-panel">
+                    <h3 className="ct-program-panel-title">{panel.title}</h3>
+                    {panel.blocks.map((block, bIdx) => (
+                      <div key={bIdx} className="ct-program-block">
+                        <ul className="ct-program-speakers">
+                          {block.speakers.map((s) => (
+                            <li key={s.name} className="ct-program-speaker">
+                              <span className="ct-program-speaker-name">{s.name}</span>
+                              <span className="ct-program-speaker-role">{s.role}</span>
+                            </li>
+                          ))}
+                        </ul>
+                        {block.moderator && (
+                          <div className="ct-program-moderator">
+                            <span className="ct-program-moderator-label">/ Conduce</span>
+                            <span className="ct-program-speaker-name">{block.moderator.name}</span>
+                            <span className="ct-program-speaker-role">{block.moderator.role}</span>
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* SPONSORS */}
+        <div className="ct-sponsors">
+          <div className="ct-sponsors-row">
+            <div className="ct-sponsor-group">
+              <span className="ct-sponsor-label">UN PROGETTO</span>
+              <div className="ct-sponsor-logos">
+                <img src={logo} alt="Spin Factor" className="ct-sponsor-logo" />
+              </div>
+            </div>
+
+            <div className="ct-sponsor-group">
+              <span className="ct-sponsor-label">CON IL PATROCINIO DI</span>
+              <div className="ct-sponsor-logos ct-patrocini-grid">
+                <img src={palazzoChigi} alt="Palazzo Chigi" className="ct-sponsor-logo" style={{ height: '40px' }} />
+                <img src={mic} alt="Ministero della Cultura" className="ct-sponsor-logo" style={{ height: '32px' }} />
+                <img src={mit} alt="Ministero del Turismo" className="ct-sponsor-logo" style={{ height: '32px' }} />
+                <img src={cittaCapri} alt="Città di Capri" className="ct-sponsor-logo" style={{ height: '48px' }} />
+              </div>
+            </div>
+          </div>
+
+          <div className="ct-sponsors-row">
+            <div className="ct-sponsor-group">
+              <span className="ct-sponsor-label">MEDIA PARTNER</span>
+              <div className="ct-sponsor-logos">
+                <img src={skytg24} alt="Sky TG24" className="ct-sponsor-logo" style={{ height: '28px' }} />
+                <img src={adn} alt="Adnkronos" className="ct-sponsor-logo" style={{ height: '24px' }} />
+              </div>
+            </div>
+
+            <div className="ct-sponsor-group">
+              <span className="ct-sponsor-label">PARTNER TECNICO</span>
+              <div className="ct-sponsor-logos">
+                <img src={metaLogo} alt="Meta" className="ct-sponsor-logo" style={{ height: '18px' }} />
+              </div>
+            </div>
+          </div>
+
+          <div className="ct-sponsor-group ct-sponsor-group-wide">
+            <span className="ct-sponsor-label">IN COLLABORAZIONE CON</span>
+            <div className="ct-sponsor-logos ct-collab-grid">
+              <img src={enavLogo} alt="ENAV" className="ct-sponsor-logo" style={{ height: '44px' }} />
+              <img src={enelLogo} alt="Enel" className="ct-sponsor-logo" style={{ height: '36px' }} />
+              <img src={gseLogo} alt="GSE" className="ct-sponsor-logo" style={{ height: '44px' }} />
+              <img src={autostradeLogo} alt="Autostrade per l'Italia" className="ct-sponsor-logo" style={{ height: '32px' }} />
+              <img src={renexiaLogo} alt="Renexia" className="ct-sponsor-logo" style={{ height: '36px' }} />
+              <img src={wintimeLogo} alt="WinTime" className="ct-sponsor-logo" style={{ height: '52px' }} />
+              <img src={marinaLogo} alt="Marina di Capri" className="ct-sponsor-logo" style={{ height: '52px' }} />
+              <img src={fivenLogo} alt="Fiven AI Driven" className="ct-sponsor-logo" style={{ height: '36px' }} />
+            </div>
+          </div>
+
+          <div className="ct-sponsor-group ct-sponsor-group-wide">
+            <span className="ct-sponsor-label">CON IL SUPPORTO DI</span>
+            <div className="ct-sponsor-logos ct-support-row">
+              <img src={snavLogo} alt="SNAV" className="ct-sponsor-logo" style={{ height: '32px' }} />
+              <img src={tiberioLogo} alt="Tiberio" className="ct-sponsor-logo" style={{ height: '36px' }} />
+              <img src={lapalmaLogo} alt="Hotel La Palma" className="ct-sponsor-logo" style={{ height: '40px' }} />
+              <img src={anemaLogo} alt="Anema e Core" className="ct-sponsor-logo ct-logo-anema" />
+              <img src={redLogo} alt="RED Rescue & Emergency Devices" className="ct-sponsor-logo" style={{ height: '36px' }} />
+            </div>
           </div>
         </div>
 
@@ -332,58 +423,6 @@ const CapriTalks: React.FC = () => {
 
         <div className="ct-panoramic-image">
           <img src={capri3} alt="Capri Talks Orizzontale" />
-        </div>
-
-        {/* PROGRAMMA */}
-        <h2 className="ct-section-title">PROGRAMMA</h2>
-
-        <div className="ct-program-grid">
-          {PROGRAM.map((day) => (
-            <div key={day.dayLabel} className="ct-program-day">
-              <div className="ct-program-day-header">
-                <span className="ct-program-day-label">{day.dayLabel}</span>
-                <span className="ct-program-day-time">{day.time}</span>
-              </div>
-
-              <div className="ct-program-panels">
-                {day.panels.map((panel) => (
-                  <div key={panel.title} className="ct-program-panel">
-                    <h3 className="ct-program-panel-title">{panel.title}</h3>
-                    {panel.blocks.map((block, bIdx) => (
-                      <div key={bIdx} className="ct-program-block">
-                        <ul className="ct-program-speakers">
-                          {block.speakers.map((s) => (
-                            <li key={s.name} className="ct-program-speaker">
-                              <span className="ct-program-speaker-name">{s.name}</span>
-                              <span className="ct-program-speaker-role">{s.role}</span>
-                            </li>
-                          ))}
-                        </ul>
-                        {block.moderator && (
-                          <div className="ct-program-moderator">
-                            <span className="ct-program-moderator-label">/ Conduce</span>
-                            <span className="ct-program-speaker-name">{block.moderator.name}</span>
-                            <span className="ct-program-speaker-role">{block.moderator.role}</span>
-                          </div>
-                        )}
-                      </div>
-                    ))}
-                  </div>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <div className="ct-program-download-wrapper">
-          <a
-            className="ct-program-download"
-            href="/media/programma-capri-talks-2026.pdf"
-            download
-          >
-            <Download size={18} />
-            <span>Scarica il programma in PDF</span>
-          </a>
         </div>
 
         {/* LINEE GUIDA */}
