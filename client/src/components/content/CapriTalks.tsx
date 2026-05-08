@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaInstagram, FaLinkedinIn, FaTiktok, FaXTwitter } from "react-icons/fa6";
+import { Download, Play } from 'lucide-react';
 import { useView } from '../../context/ViewContext';
 
 // Import isolated light theme
@@ -36,9 +37,134 @@ import leader from '../../assets/leader.svg';
 import metaLogo from '../../assets/meta.svg';
 import cittaCapri from '../../assets/citta-capri.jpg';
 
+type Speaker = { name: string; role: string };
+type Block = { speakers: Speaker[]; moderator?: Speaker };
+type Panel = { title: string; blocks: Block[] };
+type DayProgram = { dayLabel: string; time: string; panels: Panel[] };
+
+const PROGRAM: DayProgram[] = [
+  {
+    dayLabel: 'Venerdì 15 Maggio',
+    time: 'Ore 17:30',
+    panels: [
+      {
+        title: 'Saluti istituzionali',
+        blocks: [
+          { speakers: [{ name: 'Paolo Falco', role: 'Sindaco di Capri' }] },
+        ],
+      },
+      {
+        title: 'Vivere meglio per vivere di più',
+        blocks: [
+          {
+            speakers: [{ name: 'Orazio Schillaci', role: 'Ministro della Salute' }],
+            moderator: { name: 'Davide Desario', role: 'Direttore Adnkronos' },
+          },
+        ],
+      },
+      {
+        title: "La cultura dell'artificiale",
+        blocks: [
+          {
+            speakers: [
+              { name: 'Alberto Barachini', role: "Sottosegretario all'Editoria" },
+              { name: 'Gabriella Buontempo', role: 'Presidente Centro Sperimentale di Cinematografia' },
+              { name: 'Stefano Graziano', role: 'Deputato Partito Democratico' },
+              { name: 'Paolo Emilio Russo', role: 'Deputato Forza Italia' },
+            ],
+            moderator: { name: 'Francesco Maesano', role: 'Giornalista TG1' },
+          },
+        ],
+      },
+      {
+        title: '(In)sicurezza energetica',
+        blocks: [
+          {
+            speakers: [
+              { name: 'Gilberto Pichetto', role: "Ministro dell'Ambiente e della Sicurezza Energetica" },
+              { name: 'Vinicio Vigilante', role: 'Amministratore Delegato GSE' },
+              { name: "Pier Lorenzo Dell'Orco", role: 'Amministratore Delegato Italgas Reti' },
+              { name: 'Laura Bononcini', role: 'Responsabile relazioni istituzionali sud Europa Meta' },
+              { name: 'Edoardo De Luca', role: 'Responsabile affari centrali ENEL' },
+              { name: 'Andrea Porchera', role: 'Responsabile relazioni istituzionali Renexia' },
+            ],
+            moderator: { name: 'Maria Antonietta Spadorcia', role: 'Vice direttore TG2' },
+          },
+        ],
+      },
+    ],
+  },
+  {
+    dayLabel: 'Sabato 16 Maggio',
+    time: 'Ore 17:30',
+    panels: [
+      {
+        title: 'The italian job',
+        blocks: [
+          {
+            speakers: [{ name: 'Claudio Durigon', role: 'Sottosegretario al Lavoro e alle Politiche Sociali' }],
+            moderator: { name: 'Davide Desario', role: 'Direttore Adnkronos' },
+          },
+          {
+            speakers: [
+              { name: 'Gabriele Fava', role: 'Presidente INPS' },
+              { name: 'Marta Schifone', role: "Deputato Fratelli d'Italia" },
+              { name: 'Luigi Marattin', role: 'Segretario Partito Liberaldemocratico' },
+              { name: 'Davide Ferraro', role: 'Amministratore Delegato WinTime' },
+            ],
+            moderator: { name: 'Francesco Maesano', role: 'Giornalista TG1' },
+          },
+        ],
+      },
+      {
+        title: "(Ri)connettere l'Italia",
+        blocks: [
+          {
+            speakers: [
+              { name: 'Leonardo Massa', role: 'Vice presidente sud Europa MSC Cruise' },
+              { name: 'Simone Stellato', role: 'Responsabile comunicazione esterna ENAV' },
+            ],
+            moderator: { name: 'Maria Antonietta Spadorcia', role: 'Vice direttore TG2' },
+          },
+        ],
+      },
+      {
+        title: 'La diplomazia del dialogo',
+        blocks: [
+          {
+            speakers: [
+              { name: 'Zakia Attanasio', role: 'Presidente Fondazione Mama Sofia Ets' },
+              { name: 'Isabella Rauti', role: 'Sottosegretario alla Difesa' },
+            ],
+            moderator: { name: 'Michele Cagiano De Azevedo', role: 'Vice direttore Sky TG24' },
+          },
+        ],
+      },
+      {
+        title: 'Difendere la libertà',
+        blocks: [
+          {
+            speakers: [{ name: 'Carlo Calenda', role: 'Segretario Azione' }],
+            moderator: { name: 'Francesco Maesano', role: 'Giornalista TG1' },
+          },
+        ],
+      },
+    ],
+  },
+];
+
 const CapriTalks: React.FC = () => {
   const { setActiveView } = useView();
   const currentYear = new Date().getFullYear();
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+  const [videoStarted, setVideoStarted] = useState(false);
+
+  const handlePlayVideo = () => {
+    setVideoStarted(true);
+    requestAnimationFrame(() => {
+      videoRef.current?.play().catch(() => { /* autoplay blocked, user can press controls */ });
+    });
+  };
   // Adding a class to body or HTML might be tricky for SPA, 
   // we rely on the .capri-talks-page scoping, 
   // but let's ensure the body scrollbar is standard if needed.
@@ -118,6 +244,36 @@ const CapriTalks: React.FC = () => {
           </div>
         </div>
 
+        {/* VIDEO */}
+        <div className="ct-video-wrapper">
+          <div className="ct-video-frame">
+            {!videoStarted && (
+              <button
+                type="button"
+                className="ct-video-poster"
+                onClick={handlePlayVideo}
+                aria-label="Riproduci video Capri Talks"
+              >
+                <img src="/media/capri-talks-poster.jpg" alt="" loading="lazy" decoding="async" />
+                <span className="ct-video-play-badge" aria-hidden="true">
+                  <Play size={28} />
+                </span>
+              </button>
+            )}
+            {videoStarted && (
+              <video
+                ref={videoRef}
+                className="ct-video"
+                src="/media/capri-talks.mp4"
+                poster="/media/capri-talks-poster.jpg"
+                preload="metadata"
+                playsInline
+                controls
+              />
+            )}
+          </div>
+        </div>
+
         {/* IL CONCEPT */}
         <h2 className="ct-section-title">IL CONCEPT</h2>
         
@@ -176,6 +332,58 @@ const CapriTalks: React.FC = () => {
 
         <div className="ct-panoramic-image">
           <img src={capri3} alt="Capri Talks Orizzontale" />
+        </div>
+
+        {/* PROGRAMMA */}
+        <h2 className="ct-section-title">PROGRAMMA</h2>
+
+        <div className="ct-program-grid">
+          {PROGRAM.map((day) => (
+            <div key={day.dayLabel} className="ct-program-day">
+              <div className="ct-program-day-header">
+                <span className="ct-program-day-label">{day.dayLabel}</span>
+                <span className="ct-program-day-time">{day.time}</span>
+              </div>
+
+              <div className="ct-program-panels">
+                {day.panels.map((panel) => (
+                  <div key={panel.title} className="ct-program-panel">
+                    <h3 className="ct-program-panel-title">{panel.title}</h3>
+                    {panel.blocks.map((block, bIdx) => (
+                      <div key={bIdx} className="ct-program-block">
+                        <ul className="ct-program-speakers">
+                          {block.speakers.map((s) => (
+                            <li key={s.name} className="ct-program-speaker">
+                              <span className="ct-program-speaker-name">{s.name}</span>
+                              <span className="ct-program-speaker-role">{s.role}</span>
+                            </li>
+                          ))}
+                        </ul>
+                        {block.moderator && (
+                          <div className="ct-program-moderator">
+                            <span className="ct-program-moderator-label">/ Conduce</span>
+                            <span className="ct-program-speaker-name">{block.moderator.name}</span>
+                            <span className="ct-program-speaker-role">{block.moderator.role}</span>
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="ct-program-download-wrapper">
+          <a
+            className="ct-program-download"
+            href="/media/programma-capri-talks-2026.pdf"
+            download
+          >
+            <Download size={18} />
+            <span>Scarica il programma in PDF</span>
+          </a>
         </div>
 
         {/* LINEE GUIDA */}
