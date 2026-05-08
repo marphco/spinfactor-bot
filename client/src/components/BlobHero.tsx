@@ -165,7 +165,7 @@ const BlobHero: React.FC<BlobHeroProps> = ({ onNavigate }) => {
 
     // All available sections
     const allSections = [
-      { id: 'spin-talks', label: 'TALKS', icon: Mic },
+      { id: 'capri-talks', label: 'TALKS', icon: Mic }, // TEMP: punta a Capri Talks per l'evento; ripristinare 'spin-talks' a evento concluso
       { id: 'chi-siamo', label: 'SIAMO', icon: SiamoIcon },
       { id: 'facciamo', label: 'FACCIAMO', icon: Zap },
       { id: 'stampa', label: 'STAMPA', icon: Newspaper },
