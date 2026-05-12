@@ -105,6 +105,18 @@ const PROGRAM: DayProgram[] = [
           },
         ],
       },
+      {
+        title: "L'Italia che verrà",
+        blocks: [
+          {
+            speakers: [
+              { name: 'Piero De Luca', role: 'Deputato Partito Democratico' },
+              { name: 'Maurizio Gasparri', role: 'Senatore Forza Italia' },
+            ],
+            moderator: { name: 'Francesco Maesano', role: 'Giornalista TG1' },
+          },
+        ],
+      },
     ],
   },
   {
@@ -136,6 +148,7 @@ const PROGRAM: DayProgram[] = [
             speakers: [
               { name: 'Leonardo Massa', role: 'Vice presidente sud Europa MSC Cruise' },
               { name: 'Simone Stellato', role: 'Responsabile comunicazione esterna ENAV' },
+              { name: 'Eliseo Cuccaro', role: 'Presidente Autorità Portuale del Mar Tirreno Centrale' },
             ],
             moderator: { name: 'Maria Antonietta Spadorcia', role: 'Vice direttore TG2' },
           },
@@ -167,7 +180,7 @@ const PROGRAM: DayProgram[] = [
 ];
 
 const CapriTalks: React.FC = () => {
-  const { setActiveView } = useView();
+  const { activeView, setActiveView } = useView();
   const currentYear = new Date().getFullYear();
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [videoStarted, setVideoStarted] = useState(false);
@@ -205,6 +218,20 @@ const CapriTalks: React.FC = () => {
           <button onClick={() => setActiveView('home')} className="ct-logo-link">
             <img src={logo} alt="Spin Factor" height="32" />
           </button>
+          <div className="ct-tabs-nav">
+            <button
+              className={activeView === 'spin-talks' ? 'active' : ''}
+              onClick={() => setActiveView('spin-talks')}
+            >
+              Spin Talks
+            </button>
+            <button
+              className={activeView === 'capri-talks' ? 'active' : ''}
+              onClick={() => setActiveView('capri-talks')}
+            >
+              Capri Talks
+            </button>
+          </div>
         </div>
       </div>
 
