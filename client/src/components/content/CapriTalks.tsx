@@ -297,6 +297,7 @@ const CapriTalks: React.FC = () => {
               <div className="ct-program-day-header">
                 <span className="ct-program-day-label">{day.dayLabel}</span>
                 <span className="ct-program-day-time">{day.time}</span>
+                <span className="ct-program-day-venue">Certosa di San Giacomo</span>
               </div>
 
               <div className="ct-program-panels">

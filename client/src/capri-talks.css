@@ -758,6 +758,15 @@
   opacity: 0.95;
 }
 
+.ct-program-day-venue {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  opacity: 0.9;
+  margin-top: 2px;
+}
+
 .ct-program-panels {
   display: flex;
   flex-direction: column;
