@@ -149,6 +149,7 @@ const PROGRAM: DayProgram[] = [
               { name: 'Leonardo Massa', role: 'Vice presidente sud Europa MSC Cruise' },
               { name: 'Simone Stellato', role: 'Responsabile comunicazione esterna ENAV' },
               { name: 'Eliseo Cuccaro', role: 'Presidente Autorità Portuale del Mar Tirreno Centrale' },
+              { name: 'Luca Sbardella', role: "Deputato Fratelli d'Italia" },
             ],
             moderator: { name: 'Maria Antonietta Spadorcia', role: 'Vice direttore TG2' },
           },
