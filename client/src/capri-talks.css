@@ -120,12 +120,22 @@
   }
 
   .ct-header-container {
-    gap: 12px;
+    padding: 0 16px;
+    gap: 10px;
+  }
+
+  .ct-tabs-nav {
+    padding: 3px;
+    gap: 4px;
   }
 
   .ct-tabs-nav button {
-    padding: 7px 14px;
-    font-size: 0.78rem;
+    padding: 6px 12px;
+    font-size: 0.75rem;
+  }
+
+  .ct-logo-link img {
+    height: 28px;
   }
 }
 
